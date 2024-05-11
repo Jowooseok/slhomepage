@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import DeviceSupply from "./pages/DeviceSupply";
 import BusinessCertification from "./pages/BusinessCertification";
 import Patent from "./pages/Patent";
-import VendorCompony from "./pages/VendorCompony";
+import VendorCompany from "./pages/VendorCompany";
 import { Reset } from "styled-reset";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
             <Route path="/DeviceSupply" element={<DeviceSupply />} />
             <Route path="/BusinessCertification" element={<BusinessCertification />} />
             <Route path="/Patent" element={<Patent />} />
-            <Route path="/VendorCompony" element={<VendorCompony />} />
+            <Route path="/VendorCompany" element={<VendorCompany />} />
           </Routes>
         </MainLayout>
       </Router>

@@ -334,7 +334,7 @@ function Home() {
             </motion.div>
           </a>
 
-          <a href="/VendorCompony">
+          <a href="/VendorCompany">
           <motion.div
             ref={ref4}
             className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
@@ -350,7 +350,7 @@ function Home() {
               <p className="text-xl lg:text-3xl">
                 30+{" "}
                 <span className="text-neutral-400 pl-2 lg:pl-0">
-                  Vendor compony
+                  Vendor company
                 </span>
               </p>
               <p className=" text-sm lg:text-base">
