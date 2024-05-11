@@ -32,7 +32,7 @@ function DeviceSupply() {
   return (
     <div className=" ">
       <section className=" flex flex-col gap-8 items-center py-8 mx-8">
-        <h1 className="text-2xl lg:text-3xl text-center font-bold text-white">
+        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
           Device Supply Chain
         </h1>
         <Globe
