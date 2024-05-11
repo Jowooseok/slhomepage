@@ -17,6 +17,7 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/*" element={<Home />} />
             <Route path="/Protocol" element={<Home />} />
             <Route path="/TokenEconomy" element={<Home />} />
             <Route path="/AboutSL" element={<Home />} />

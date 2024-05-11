@@ -36,8 +36,8 @@ function Navbar() {
       "About SL",
       "Business Certification",
       "Patent",
-      "Device supply",
-      "Vendor company",
+      "Device Supply",
+      "Vendor Company",
     ],
     Protocol: ["Protocol", "Token Economy"],
     Developers: [],
@@ -275,11 +275,11 @@ function Navbar() {
                   Business Certification
                 </div>
                 <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("Patent")}}>Patent</div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("Devicesupply")}}>
-                  Device supply
+                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("DeviceSupply")}}>
+                  Device Supply
                 </div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("Vendorcompany")}}>
-                  Vendor company
+                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("VendorCompany")}}>
+                  Vendor Company
                 </div>
               </div>
               <div className="flex flex-row items-center gap-2">
