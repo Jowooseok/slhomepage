@@ -240,7 +240,7 @@ function Home() {
           className=" lg:w-96 w-60"
         />
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 w-full cursor-pointer">
-        <a href="/Certificate">
+        <a href="/BusinessCertification">
           <motion.div
             ref={ref1}
             className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
