@@ -54,12 +54,14 @@ function Navbar() {
 
   const menuTitle = () => (
     <div className="flex flex-row justify-between items-center h-14">
-      <img
-        className="h-10 object-contain"
-        src={MobileLogo}
-        alt="Logo"
-        onClick={onClose}
-      />
+      <a href="/">
+        <img
+          className="h-10 object-contain"
+          src={MobileLogo}
+          alt="Logo"
+          onClick={onClose}
+        />
+      </a>
       <button onClick={onClose} className="focus:outline-none">
         <svg
           className="h-6 w-6"
@@ -175,7 +177,12 @@ function Navbar() {
                         ""
                       )}
                       {menu === "Developers" ? (
-                           <a href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect" target="_blank">{menu}</a>
+                        <a
+                          href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect"
+                          target="_blank"
+                        >
+                          {menu}
+                        </a>
                       ) : (
                         ""
                       )}
@@ -268,17 +275,44 @@ function Navbar() {
                 <p>About SL</p> <FaAngleDown />
               </div>
               <div className="flex flex-col gap-6 font-normal pl-4">
-                <div className=" flex flex-row items-center gap-2  cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("AboutSL")}}>
+                <div
+                  className=" flex flex-row items-center gap-2  cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("AboutSL");
+                  }}
+                >
                   About SL
                 </div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("BusinessCertification")}}>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("BusinessCertification");
+                  }}
+                >
                   Business Certification
                 </div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("Patent")}}>Patent</div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("DeviceSupply")}}>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("Patent");
+                  }}
+                >
+                  Patent
+                </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("DeviceSupply");
+                  }}
+                >
                   Device Supply
                 </div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("VendorCompany")}}>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("VendorCompany");
+                  }}
+                >
                   Vendor Company
                 </div>
               </div>
@@ -286,18 +320,29 @@ function Navbar() {
                 <p>Protocol</p> <FaAngleDown />
               </div>
               <div className="flex flex-col gap-6 font-normal pl-4  ">
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("Protocol")}}>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("Protocol");
+                  }}
+                >
                   Protocol
                 </div>
-                <div className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400" onClick={()=>{handleNavigationMobile("TokenEconomy")}}>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("TokenEconomy");
+                  }}
+                >
                   Token Economy
                 </div>
-         
-             
               </div>
-              <a href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect" target="_blank">
+              <a
+                href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect"
+                target="_blank"
+              >
                 Developers
-                </a>
+              </a>
 
               <a
                 href="https://save-the-life.gitbook.io/save-the-life"
