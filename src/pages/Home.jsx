@@ -335,7 +335,7 @@ function Home() {
             </motion.div>
           </a>
 
-          <a href="/DeviceSupply" target="_blank">
+          <a href="/DeviceSupply" >
             <motion.div
               ref={ref3}
               className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
