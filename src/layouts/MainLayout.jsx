@@ -18,8 +18,8 @@ function MainLayout({ children }) {
         className="flex flex-col sm:flex-row justify-around items-center sm:items-stretch px-4 sm:px-24 sm:py-8 pb-8"
         style={{ backgroundColor: "#0147E5" }}
       >
-        <div className="w-full sm:w-5/12 flex items-center justify-center py-4 sm:py-0">
-          <img src={footerLogoImage} alt="footerLogoImage" className="w-3/5 xl:w-4/5 max-w-md" />
+        <div className="w-full sm:w-5/12 sm:flex items-center justify-center py-4 sm:py-0 hidden">
+          <img src={footerLogoImage} alt="footerLogoImage" className="w-4/5  max-w-md" />
         </div>
         <div className="w-full sm:w-0.5 h-auto bg-white my-4 sm:my-0 ">{""}</div> 
         <div className="flex flex-col w-full sm:w-5/12 text-center sm:text-left text-white gap-6">
