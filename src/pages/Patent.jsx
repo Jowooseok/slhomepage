@@ -8,7 +8,7 @@ const Patent = () => {
     <div>
       {" "}
       <section className=" flex flex-col gap-8 items-center py-8 mx-8 lg:mb-16">
-        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
+        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
           Patent
         </h1>
         <div className="hidden lg:block">

@@ -30,13 +30,15 @@ function DeviceSupply() {
   }, []);
 
   return (
-    <div className=" ">
-      <section className=" flex flex-col gap-8 items-center py-8 mx-8">
-        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
-          Device Supply Chain
+    <div className="">
+      <section className=" flex flex-col gap-8 items-center mx-8 xl:pt-16 pt-8">
+        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
+          Device <br className="lg:hidden"/>Supply Chain
         </h1>
+        <p className=" text-center xl:text-xl text-sm ">
+        "Over the course of 20 years, we have established a robust business network <br className="hidden xl:block"/>that  has facilitated the distribution of more than 50,000 devices to over 100 countries through partnerships with more than 30 vendors."
+        </p>
         <Globe
-         width={1200}
          height={window.innerHeight * 0.7}
           ref={globeEl}
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -53,6 +55,7 @@ function DeviceSupply() {
           arcColor={() => "rgba(255, 165, 0, 0.5)"}
           arcStroke={0.2}
         />
+   
       </section>
     </div>
   );

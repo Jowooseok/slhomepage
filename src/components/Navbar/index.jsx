@@ -39,7 +39,7 @@ function Navbar() {
       "Device Supply",
       "Vendor Company",
     ],
-    Protocol: ["Protocol", "Token Economy"],
+    Protocol: ["Protocol", "Token Economy", "Token Burning", "Medical And AI Advancement"],
     Developers: [],
     "White Paper": [],
   };
@@ -335,6 +335,22 @@ function Navbar() {
                   }}
                 >
                   Token Economy
+                </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("TokenBurning");
+                  }}
+                >
+                  Token Burning
+                </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("MedicalAndAIAdvancement");
+                  }}
+                >
+                  Medical & AI Advancement
                 </div>
               </div>
               <a

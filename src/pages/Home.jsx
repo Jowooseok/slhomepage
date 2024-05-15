@@ -25,6 +25,13 @@ import { useInView } from "react-intersection-observer";
 import "./home.css";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import mobileAboutSL from "../assets/mobileAboutSL.png";
+import SLAppUserCaseImage from "../assets/SLAppUserCaseImage.png";
+import mobileSLAppUserCaseImage from "../assets/mobileSLAppUserCaseImage.png";
+import tokenBurning from "../assets/tokenBurning.png";
+import medicalAndAdvancement from "../assets/medicalAndAdvancement.png";
+import buyWithSLTokens from "../assets/buyWithSLTokens.png";
+import dataBuyer from "../assets/dataBuyer.png";
 
 function Home() {
   const [email, setEmail] = useState("");
@@ -37,7 +44,9 @@ function Home() {
         createdAt: serverTimestamp(),
       });
       setEmail("");
-      alert("Thank you for signing up! You'll start receiving updates from the SL Protocol soon.");
+      alert(
+        "Thank you for signing up! You'll start receiving updates from the SL Protocol soon."
+      );
     } catch (err) {
       console.error("Error adding document: ", err);
     }
@@ -71,6 +80,14 @@ function Home() {
   const controls6 = useAnimation();
   const [ref6, inView6] = useInView({ triggerOnce: true, threshold: 0.5 });
 
+  // sp 번째 요소의 애니메이션 제어와 참조
+  const controls7 = useAnimation();
+  const [ref7, inView7] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  // sp 번째 요소의 애니메이션 제어와 참조
+  const controls8 = useAnimation();
+  const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.5 });
+
   useEffect(() => {
     if (inView) controls.start("visible");
     if (inView1) controls1.start("visible");
@@ -79,6 +96,8 @@ function Home() {
     if (inView4) controls4.start("visible");
     if (inView5) controls5.start("visible");
     if (inView6) controls6.start("visible");
+    if (inView7) controls7.start("visible");
+    if (inView8) controls8.start("visible");
   }, [
     controls,
     inView,
@@ -94,6 +113,10 @@ function Home() {
     controls6,
     inView5,
     inView6,
+    controls7,
+    inView7,
+    controls8,
+    inView8,
   ]);
 
   const variants = {
@@ -188,7 +211,7 @@ function Home() {
         className="py-16 lg:py-24 gap-8 flex flex-col justify-center mx-2 lg:mx-20"
         id="AboutSL"
       >
-        <h1 className="text-3xl lg:text-6xl font-bold text-center">About SL</h1>
+        <h1 className="text-3xl lg:text-5xl font-bold text-center">About SL</h1>
         <motion.div
           ref={ref} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'
@@ -196,7 +219,7 @@ function Home() {
           variants={variants} // 위에서 정의한 variants 사용
         >
           <div
-            className="flex flex-col gap-4 lg:gap-8 relative p-8 lg:p-24 py-12 rounded-3xl "
+            className="lg:flex lg:flex-col lg:gap-8 lg:relative lg:p-24 py-12 rounded-3xl hidden "
             style={{
               backgroundImage: `url(${slboxImage})`,
               backgroundSize: "cover",
@@ -229,6 +252,13 @@ function Home() {
               </p>
             </div>
           </div>
+          <div>
+            <img
+              src={mobileAboutSL}
+              alt="mobileAboutSL"
+              className="lg:hidden "
+            />
+          </div>
         </motion.div>
       </section>
 
@@ -239,67 +269,70 @@ function Home() {
           alt="transverseSLlogo"
           className=" lg:w-96 w-60"
         />
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 w-full cursor-pointer">
-        <a href="/BusinessCertification">
-          <motion.div
-            ref={ref1}
-            className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-            style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-            whileHover={hoverEffects}
-            initial="hidden"
-            animate={controls1}
-            variants={variants}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <img
-              src={certificateImage}
-              alt="certificateImage"
-              className=" lg:w-16 w-20"
-            />
-            <div className=" space-y-4 text-center lg:text-start">
-              <p className=" text-xl lg:text-3xl">
-                38+{" "}
-                <span className=" text-neutral-400 pl-2 lg:pl-0">
-                  Certificate
-                </span>
-              </p>
-              <p className=" text-sm lg:text-base">
-                Domestic Certification 17 (For Animal, For Human), Overseas
-                Certification 21(USA FCC, FDA, Europe, Japan, China etc.)
-              </p>
-            </div>
-            <MdArrowForwardIos className=" w-16 h-16 hidden lg:block" />
-          </motion.div>
+        <div className="grid xl:grid-cols-2 gap-4 w-full cursor-pointer">
+          <a href="/BusinessCertification">
+            <motion.div
+              ref={ref1}
+              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls1}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={certificateImage}
+                alt="certificateImage"
+                className=" lg:w-16 w-20"
+              />
+              <div className=" space-y-4 text-center lg:text-start">
+                <p className=" text-xl lg:text-3xl">
+                  38+{" "}
+                  <span className=" text-neutral-400 pl-2 lg:pl-0">
+                    Certificate
+                  </span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  Domestic Certification 17 (For Animal, For Human), Overseas
+                  Certification 21(USA FCC, FDA, Europe, Japan, China etc.)
+                </p>
+              </div>
+              <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
           </a>
-          
+
           <a href="/Patent">
-          <motion.div
-            ref={ref2}
-            className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-            style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-            whileHover={hoverEffects}
-            initial="hidden"
-            animate={controls2}
-            variants={variants}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <img
-              src={patientImage}
-              alt="patientImage"
-              className="lg:w-16 w-20"
-            />
-            <div className="space-y-4 text-center lg:text-start">
-              <p className="text-xl lg:text-3xl">
-                20+{" "}
-                <span className="text-neutral-400 pl-2 lg:pl-0">Patent</span>
-              </p>
-              <p className=" text-sm lg:text-base">
-                Domestic Patent 21(Patent, Trademark Registaration), Overseas
-                Patent 8(Patent, Trademark Registaration, Trademark Rights, PCT)
-              </p>
-            </div>
-            <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
-          </motion.div>
+            <motion.div
+              ref={ref2}
+              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls2}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={patientImage}
+                alt="patientImage"
+                className="lg:w-16 w-20"
+              />
+              <div className="space-y-4 text-center lg:text-start">
+                <p className="text-xl lg:text-3xl">
+                  20+{" "}
+                  <span className="text-neutral-400 pl-2 lg:pl-0">Patent</span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  Domestic Patent 21(Patent, Trademark Registaration), Overseas
+                  Patent 8(Patent, Trademark Registaration, Trademark Rights,
+                  PCT)
+                </p>
+              </div>
+              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
           </a>
 
           <a href="/DeviceSupply" target="_blank">
@@ -331,35 +364,41 @@ function Home() {
                 </p>
               </div>
               <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
             </motion.div>
           </a>
 
           <a href="/VendorCompany">
-          <motion.div
-            ref={ref4}
-            className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-            style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-            whileHover={hoverEffects}
-            initial="hidden"
-            animate={controls4}
-            variants={variants}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <img src={vendorImage} alt="vendorImage" className="lg:w-16 w-20" />
-            <div className="space-y-4 text-center lg:text-start">
-              <p className="text-xl lg:text-3xl">
-                30+{" "}
-                <span className="text-neutral-400 pl-2 lg:pl-0">
-                  Vendor company
-                </span>
-              </p>
-              <p className=" text-sm lg:text-base">
-                As a vendor responsible for distribution worldwide, we maintain
-                partnerships with global companies.
-              </p>
-            </div>
-            <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
-          </motion.div>
+            <motion.div
+              ref={ref4}
+              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls4}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={vendorImage}
+                alt="vendorImage"
+                className="lg:w-16 w-20"
+              />
+              <div className="space-y-4 text-center lg:text-start">
+                <p className="text-xl lg:text-3xl">
+                  30+{" "}
+                  <span className="text-neutral-400 pl-2 lg:pl-0">
+                    Vendor company
+                  </span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  As a vendor responsible for distribution worldwide, we
+                  maintain partnerships with global companies.
+                </p>
+              </div>
+              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
           </a>
         </div>
       </section>
@@ -419,10 +458,10 @@ function Home() {
 
       {/**protocol */}
       <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center   lg:mx-20 "
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center   lg:mx-16 "
         id="Protocol"
       >
-        <h1 className=" lg:text-6xl text-3xl font-bold text-center">
+        <h1 className=" lg:text-5xl text-3xl font-bold text-center">
           Protocol
         </h1>
         <motion.div
@@ -438,10 +477,10 @@ function Home() {
 
       {/**token Economy */}
       <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-20  items-center"
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-16  items-center"
         id="TokenEconomy"
       >
-        <h1 className=" lg:text-6xl font-bold text-3xl text-center">
+        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
           Token Economy
         </h1>
         <motion.div
@@ -456,6 +495,82 @@ function Home() {
             alt="tokenEconomyImage"
             className=" lg:w-4/5"
           />
+        </motion.div>
+      </section>
+
+      {/** SL App User Case */}
+      <section
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  items-center"
+        id="SLAppUserCase"
+      >
+        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
+          SL APP User Case
+        </h1>
+        <motion.div
+          ref={ref7} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls7} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+        >
+          <img
+            src={SLAppUserCaseImage}
+            alt="SLAppUserCaseImage"
+            className=" lg:w-4/5 hidden lg:block"
+          />
+          <img
+            src={mobileSLAppUserCaseImage}
+            alt="mobileSLAppUserCaseImage"
+            className=" lg:hidden"
+          />
+        </motion.div>
+      </section>
+
+      {/** Data Buyer Case */}
+      <section
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-36  items-center"
+        id="DataBuyerCase"
+      >
+        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
+          Data Buyer Case
+        </h1>
+        <motion.div
+          ref={ref8} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls8} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+        >
+          <div className=" bg-white rounded-xl w-full text-neutral-800 flex flex-col lg:gap-10 gap-2 lg:p-8 p-4 ">
+            <p className=" text-lg lg:text-3xl font-bold">Data Purchase = Token Burning</p>
+            <div className="flex flex-row font-bold justify-evenly gap-4">
+              <div className="flex flex-col items-center justify-center gap-4 w-1/2">
+                <img src={dataBuyer} alt="dataBuyer" className="  lg:w-3/5 w-4/5 p-2 " />
+                <p className=" text-sm lg:text-xl">Data Buyer</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-4  w-1/2">
+                <img
+                  src={buyWithSLTokens}
+                  alt="buyWithSLTokens"
+                  className="   lg:w-3/5 w-4/5 p-2 "
+                />
+                <p className=" text-sm lg:text-xl">Buy with SL Tokens</p>
+              </div>
+            </div>
+            <p className=" text-xs lg:text-lg text-center font-normal">
+              Medical data can be purchased with SL Coin.
+              <br />
+              (Medical data : De-identified and indexed DICOM)
+            </p>
+            <div className="grid lg:grid-cols-2 gap-2 items-center  place-items-center">
+              <a href="TokenBurning">
+                <img src={tokenBurning} alt="tokenBurning" />
+              </a>
+              <a href="MedicalAndAIAdvancement">
+                <img src={medicalAndAdvancement} alt="medicalAndAdvancement" />
+              </a>
+            </div>
+          </div>
         </motion.div>
       </section>
 

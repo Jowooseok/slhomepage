@@ -9,14 +9,14 @@ const BusinessCertification = () => {
   return (
     <div className="lg:mb-20">
       {" "}
-      <section className=" flex flex-col gap-8 items-center py-8 mx-8">
-        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
+      <section className=" flex flex-col gap-8 items-center py-8 lg:mx-8">
+        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
           AI Technology info
         </h1>
-        <img src={aiTechnologyInfo} alt="aiTechnologyInfo" className=" lg:w-4/5" />
+        <img src={aiTechnologyInfo} alt="aiTechnologyInfo" className="" />
       </section>
-      <section className=" flex flex-col gap-8 items-center py-8 mx-8">
-        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
+      <section className=" flex flex-col gap-8 items-center py-8 lg:mx-8">
+        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
         X-Ray Device Products info
         </h1>
         <div className=" grid lg:grid-cols-2 gap-4" >
@@ -24,8 +24,8 @@ const BusinessCertification = () => {
           <img src={fireCRFlashMedicalReader} alt="fireCRFlashMedicalReader" />
         </div>
       </section>
-      <section className=" flex flex-col gap-8 items-center py-8 mx-8">
-        <h1 className="text-xl lg:text-3xl text-center font-bold text-white">
+      <section className=" flex flex-col gap-8 items-center py-8 lg:mx-8">
+        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
         38+ Certificate
         </h1>
         <div className=" grid lg:grid-cols-2 gap-4" >
