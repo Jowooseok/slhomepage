@@ -39,7 +39,8 @@ function Navbar() {
       "Device Supply",
       "Vendor Company",
     ],
-    Protocol: ["Protocol", "Token Economy", "Token Burning", "Medical And AI Advancement"],
+    // Protocol: ["Protocol", "Token Economy", "Token Burning", "Medical And AI Advancement"],
+    Protocol: ["Protocol", "Token Economy",  "Medical And AI Advancement"],
     Developers: [],
     "White Paper": [],
   };

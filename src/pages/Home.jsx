@@ -563,9 +563,10 @@ function Home() {
               (Medical data : De-identified and indexed DICOM)
             </p>
             <div className="grid lg:grid-cols-2 gap-2 items-center  place-items-center">
-              <a href="TokenBurning">
+              {/* <a href="TokenBurning">
                 <img src={tokenBurning} alt="tokenBurning" />
-              </a>
+              </a> */}
+                <img src={tokenBurning} alt="tokenBurning" />
               <a href="MedicalAndAIAdvancement">
                 <img src={medicalAndAdvancement} alt="medicalAndAdvancement" />
               </a>
