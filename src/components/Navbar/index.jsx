@@ -337,14 +337,14 @@ function Navbar() {
                 >
                   Token Economy
                 </div>
-                <div
+                {/* <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
                     handleNavigationMobile("TokenBurning");
                   }}
                 >
                   Token Burning
-                </div>
+                </div> */}
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
