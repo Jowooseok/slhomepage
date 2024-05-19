@@ -40,9 +40,8 @@ function Navbar() {
       "Vendor Company",
     ],
     // Protocol: ["Protocol", "Token Economy", "Token Burning", "Medical And AI Advancement"],
-    Protocol: ["Protocol", "Token Economy",  "Medical And AI Advancement"],
-    Developers: [],
-    "White Paper": [],
+    "Protocol": ["Protocol", "Token Economy",  "Medical And AI Advancement"],
+    "White Paper": ["White Paper", "IR Deck"],
   };
 
   const showMenu = () => {
@@ -118,6 +117,16 @@ function Navbar() {
     const itemId = item.replace(/\s+/g, "");
     const element = document.getElementById(itemId);
 
+    if(item==="White Paper"){
+      window.location.href = `https://save-the-life.gitbook.io/save-the-life`;
+      return;
+    }
+
+    if(item==="IR Deck"){
+      window.location.href = 'https://drive.google.com/file/d/1h9L2MPjOV_yk4TS2x1aXb180Hwh7S84e/view';
+      return;
+    }
+
     if (element) {
       animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
     } else {
@@ -167,36 +176,13 @@ function Navbar() {
                       className="flex items-center"
                       onMouseEnter={() => handleMouseEnter(menu)}
                     >
-                      {menu === "White Paper" ? (
-                        <a
-                          href="https://save-the-life.gitbook.io/save-the-life"
-                          target="_blank"
-                        >
-                          {menu}
-                        </a>
-                      ) : (
-                        ""
-                      )}
-                      {menu === "Developers" ? (
-                        <a
-                          href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect"
-                          target="_blank"
-                        >
-                          {menu}
-                        </a>
-                      ) : (
-                        ""
-                      )}
-                      {!(menu === "White Paper" || menu === "Developers")
-                        ? menu
-                        : ""}
+                 
+             
+                        {menu
+                       }
 
                       <motion.svg
-                        className={`ml-2 w-6 h-6 ${
-                          menu === "White Paper" || menu === "Developers"
-                            ? "hidden"
-                            : ""
-                        }`}
+                        className={`ml-2 w-6 h-6 `}
                         fill="none"
                         stroke="currentColor"
                         animate={openDropdown === menu ? "opened" : "closed"}
@@ -354,19 +340,28 @@ function Navbar() {
                   Medical & AI Advancement
                 </div>
               </div>
-              <a
-                href="https://save-the-life.gitbook.io/save-the-life/reference/distributed-cr-scanner-update-architect"
-                target="_blank"
-              >
-                Developers
-              </a>
-
-              <a
-                href="https://save-the-life.gitbook.io/save-the-life"
-                target="_blank"
-              >
-                White paper
-              </a>
+        
+              <div className="flex flex-row items-center gap-2">
+                <p>White paper</p> <FaAngleDown />
+              </div>
+              <div className="flex flex-col gap-6 font-normal pl-4  ">
+                <a
+               target="_blank"
+               href="https://save-the-life.gitbook.io/save-the-life"
+                  className=" flex flex-row items-center"
+                 
+                >
+                  White paper
+                </a>
+                <a
+                 target="_blank"
+                 href="https://drive.google.com/file/d/1h9L2MPjOV_yk4TS2x1aXb180Hwh7S84e/view"
+                 
+                >
+                  IR Deck
+                </a>
+                </div>
+             
               <div>
                 <div className="flex flex-row items-center gap-2">
                   <p>Community</p> <FaAngleDown />
