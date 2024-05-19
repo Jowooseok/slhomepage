@@ -151,13 +151,14 @@ function Navbar() {
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     if (hash) {
-      const element = document.getElementById(hash);
-      if (element) {
-        animateScroll.scrollTo(element.offsetTop);
-      }
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          animateScroll.scrollTo(element.offsetTop);
+        }
+      }, 500); // 0.5초 지연 후 스크롤 시도
     }
   }, [location]);
-
   return (
     <Headroom>
       <nav>
