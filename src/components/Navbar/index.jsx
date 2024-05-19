@@ -1,5 +1,5 @@
 // src/components/Navbar/index.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Headroom from "react-headroom";
 import Logo from "../../assets/logo.png";
 import MobileLogo from "../../assets/logo_mobile.png";
@@ -8,6 +8,7 @@ import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
 import { animateScroll } from "react-scroll";
 import { Drawer } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -130,7 +131,7 @@ function Navbar() {
     if (element) {
       animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
     } else {
-      window.location.href = `/${itemId}`; // 요소가 없으면 페이지 이동
+      window.location.href = `/${itemId}#${itemId}`;
     }
   }
 
@@ -141,9 +142,21 @@ function Navbar() {
       onClose();
       animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
     } else {
-      window.location.href = `/${itemId}`; // 요소가 없으면 페이지 이동
+      window.location.href = `/${itemId}#${itemId}`;
     }
   }
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        animateScroll.scrollTo(element.offsetTop);
+      }
+    }
+  }, [location]);
 
   return (
     <Headroom>
