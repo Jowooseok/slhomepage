@@ -40,8 +40,7 @@ function Navbar() {
       "Device Supply",
       "Vendor Company",
     ],
-    // Protocol: ["Protocol", "Token Economy", "Token Burning", "Medical And AI Advancement"],
-    "Protocol": ["Protocol", "Token Economy",  "Medical And AI Advancement"],
+    "Protocol": ["Protocol", "Token Economy","SL App User Case",  "Data Buyer Case"],
     "White Paper": ["White Paper", "IR Deck"],
   };
 
@@ -337,22 +336,23 @@ function Navbar() {
                 >
                   Token Economy
                 </div>
-                {/* <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("TokenBurning");
-                  }}
-                >
-                  Token Burning
-                </div> */}
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
-                    handleNavigationMobile("MedicalAndAIAdvancement");
+                    handleNavigationMobile("SLAPPUserCase");
                   }}
                 >
-                  Medical & AI Advancement
+                  SL App User Case
                 </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("DataBuyerCase");
+                  }}
+                >
+                  Data Buyer Case
+                </div>
+          
               </div>
         
               <div className="flex flex-row items-center gap-2">

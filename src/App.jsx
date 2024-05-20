@@ -7,8 +7,6 @@ import DeviceSupply from "./pages/DeviceSupply";
 import BusinessCertification from "./pages/BusinessCertification";
 import Patent from "./pages/Patent";
 import VendorCompany from "./pages/VendorCompany";
-import TokenBurning from "./pages/TokenBurning";
-import MedicalAndAIAdvancement from "./pages/MedicalAndAIAdvancement";
 import { Reset } from "styled-reset";
 
 
@@ -24,12 +22,12 @@ function App() {
             <Route path="/Protocol" element={<Home />} />
             <Route path="/TokenEconomy" element={<Home />} />
             <Route path="/AboutSL" element={<Home />} />
+            <Route path="/SLAppUserCase" element={<Home />} />
+            <Route path="/DataBuyerCase" element={<Home />} />
             <Route path="/DeviceSupply" element={<DeviceSupply />} />
             <Route path="/BusinessCertification" element={<BusinessCertification />} />
             <Route path="/Patent" element={<Patent />} />
             <Route path="/VendorCompany" element={<VendorCompany />} />
-            <Route path="/MedicalAndAIAdvancement" element={<MedicalAndAIAdvancement />} />
-            {/* <Route path="/TokenBurning" element={<TokenBurning />} /> */}
           </Routes>
         </MainLayout>
       </Router>

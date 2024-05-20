@@ -295,7 +295,7 @@ function Home() {
                 </p>
                 <p className=" text-sm lg:text-base">
                   Domestic Certification 17 (For Animal, For Human), Overseas
-                  Certification 21(USA FCC, FDA, Europe, Japan, China etc.)
+                  Certification 21(USA FCC, FDA, Europe, Japan, China, Austrailla etc.) <br/>
                 </p>
               </div>
               <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
