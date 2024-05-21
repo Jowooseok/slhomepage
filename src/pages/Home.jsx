@@ -27,11 +27,11 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import mobileAboutSL from "../assets/mobileAboutSL.png";
 import SLAppUserCaseImage from "../assets/SLAppUserCaseImage.png";
-import mobileSLAppUserCaseImage from "../assets/mobileSLAppUserCaseImage.png";
 import tokenBurning from "../assets/tokenBurning.png";
 import medicalAndAdvancement from "../assets/medicalAndAdvancement.png";
 import buyWithSLTokens from "../assets/buyWithSLTokens.png";
 import dataBuyer from "../assets/dataBuyer.png";
+import dataBuyerCase3 from "../assets/dataBuyerCase3.png";
 
 function Home() {
   const [email, setEmail] = useState("");
@@ -295,7 +295,8 @@ function Home() {
                 </p>
                 <p className=" text-sm lg:text-base">
                   Domestic Certification 17 (For Animal, For Human), Overseas
-                  Certification 21(USA FCC, FDA, Europe, Japan, China, Austrailla etc.) <br/>
+                  Certification 21(USA FCC, FDA, Europe, Japan, China,
+                  Austrailla etc.) <br />
                 </p>
               </div>
               <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
@@ -335,7 +336,7 @@ function Home() {
             </motion.div>
           </a>
 
-          <a href="/DeviceSupply" >
+          <a href="/DeviceSupply">
             <motion.div
               ref={ref3}
               className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
@@ -500,7 +501,7 @@ function Home() {
 
       {/** SL App User Case */}
       <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  items-center"
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center lg:mx-16  items-center"
         id="SLAppUserCase"
       >
         <h1 className=" lg:text-5xl font-bold text-3xl text-center">
@@ -511,18 +512,21 @@ function Home() {
           initial="hidden" // 초기 상태는 'hidden'
           animate={controls7} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
-          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+          className="flex flex-col lg:gap-8 gap-6  w-full" // Tailwind CSS 클래스 사용
         >
-          <img
-            src={SLAppUserCaseImage}
-            alt="SLAppUserCaseImage"
-            className=" lg:w-4/5 hidden lg:block"
-          />
-          <img
-            src={mobileSLAppUserCaseImage}
-            alt="mobileSLAppUserCaseImage"
-            className=" lg:hidden"
-          />
+         
+         <div className=" lg:space-y-8 space-y-4  lg:mx-36">
+            <h2 className=" lg:text-3xl font-semibold">
+              Still using a CD-ROM for medical data?
+              <br />
+              Use the SL App!{" "}
+            </h2>
+            <p className=" lg:text-base text-sm">Download your data, upload it to the app and get quick, accurate AI second opinions.<br/>
+Access and manage your medical information securely anytime, anywhere.<br/>
+Experience our free, innovative medical AI service.</p>
+</div>
+<img src={SLAppUserCaseImage} alt="SLAppUserCaseImage" className="lg:w-4/5 self-center" />
+         
         </motion.div>
       </section>
 
@@ -539,40 +543,32 @@ function Home() {
           initial="hidden" // 초기 상태는 'hidden'
           animate={controls8} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
-          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+          className="flex flex-col gap-8 w-full text-lg" // Tailwind CSS 클래스 사용
         >
-          <div className=" bg-white rounded-xl w-full text-neutral-800 flex flex-col lg:gap-10 gap-2 lg:p-8 p-4 ">
-            <p className=" text-lg lg:text-3xl font-bold">Data Purchase = Token Burning</p>
-            <div className="flex flex-row font-bold justify-evenly gap-4">
-              <div className="flex flex-col items-center justify-center gap-4 w-1/2">
-                <img src={dataBuyer} alt="dataBuyer" className="  lg:w-3/5 w-4/5 p-2 " />
-                <p className=" text-sm lg:text-xl">Data Buyer</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-4  w-1/2">
-                <img
-                  src={buyWithSLTokens}
-                  alt="buyWithSLTokens"
-                  className="   lg:w-3/5 w-4/5 p-2 "
-                />
-                <p className=" text-sm lg:text-xl">Buy with SL Tokens</p>
-              </div>
-            </div>
-            <p className=" text-xs lg:text-lg text-center font-normal">
-              Medical data can be purchased with SL Coin.
-              <br />
-              (Medical data : De-identified and indexed DICOM)
-            </p>
-            <div className="grid lg:grid-cols-2 gap-2 items-center  place-items-center">
-              {/* <a href="TokenBurning">
-                <img src={tokenBurning} alt="tokenBurning" />
-              </a> */}
-                <img src={tokenBurning} alt="tokenBurning" />
-              <a href="MedicalAndAIAdvancement">
-                <img src={medicalAndAdvancement} alt="medicalAndAdvancement" />
-              </a>
-            </div>
+          <div className=" flex flex-col ">
+                    <div className=" space-y-8">
+                      <img src={dataBuyer} alt="dataBuyer" className=" h-72 " />
+                      <h2 className=" lg:text-3xl font-semibold">Purchasing Medical Data</h2>
+                      <p>Users can purchase de-identified medical data <br/> using SL Tokens. This data is crucial for research<br/> and diagnostic purposes, aiding in the training and<br/> improvement of AI models.</p>
+                    </div>
           </div>
-        </motion.div>
+          <div className=" flex flex-col  lg:items-end w-full ">
+                    <div className=" space-y-8">
+                      <img src={buyWithSLTokens} alt="buyWithSLTokens" className=" h-72 " />
+                      <h2 className=" lg:text-3xl font-semibold">Importance of Token Burning</h2>
+                      <p>All tokens obtained from data sales are burned,<br/> reducing the total supply of tokens in circulation.<br/> This increases the scarcity and maintains the value <br/>of the tokens.
+</p>
+                    </div>
+          </div>
+          <div className=" flex flex-col ">
+                    <div className=" space-y-8">
+                      <img src={dataBuyerCase3} alt="dataBuyerCase3" className=" h-72 " />
+                      <h2 className=" lg:text-3xl font-semibold">Advancement of AI and Medical Research</h2>
+                      <p>With greater accessibility and utilization of data, <br/>
+AI-based medical research becomes more accurate<br/> and efficient. This significantly contributes to the<br/> overall advancement of the medical industry.</p>
+                    </div>
+          </div>
+        </motion.div> 
       </section>
 
       <section
