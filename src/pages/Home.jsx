@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Marquee from "react-fast-marquee";
-import CountUp from "react-countup";
-import Globe from "react-globe.gl";
-import buyerList from "../data/buyerList";
 import icpLogo from "../assets/icplogo.png";
 import CRXVedio from "../assets/CXRVedio.mp4";
 import dentalVedio from "../assets/dentalVedio.mp4";
@@ -27,11 +24,11 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import mobileAboutSL from "../assets/mobileAboutSL.png";
 import SLAppUserCaseImage from "../assets/SLAppUserCaseImage.png";
-import tokenBurning from "../assets/tokenBurning.png";
-import medicalAndAdvancement from "../assets/medicalAndAdvancement.png";
 import buyWithSLTokens from "../assets/buyWithSLTokens.png";
 import dataBuyer from "../assets/dataBuyer.png";
 import dataBuyerCase3 from "../assets/dataBuyerCase3.png";
+import arrowIcon from "../assets/arrowIcon.png";
+import sltokenIcon from "../assets/sltokenIcon.png";
 
 function Home() {
   const [email, setEmail] = useState("");
@@ -88,6 +85,18 @@ function Home() {
   const controls8 = useAnimation();
   const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.5 });
 
+    // sp 번째 요소의 애니메이션 제어와 참조
+    const controls9 = useAnimation();
+    const [ref9, inView9] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+      // sp 번째 요소의 애니메이션 제어와 참조
+  const controls10 = useAnimation();
+  const [ref10, inView10] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+        // sp 번째 요소의 애니메이션 제어와 참조
+        const controls11 = useAnimation();
+        const [ref11, inView11] = useInView({ triggerOnce: true, threshold: 0.5 });
+
   useEffect(() => {
     if (inView) controls.start("visible");
     if (inView1) controls1.start("visible");
@@ -98,6 +107,9 @@ function Home() {
     if (inView6) controls6.start("visible");
     if (inView7) controls7.start("visible");
     if (inView8) controls8.start("visible");
+    if (inView9) controls9.start("visible");
+    if (inView10) controls10.start("visible");
+    if (inView11) controls11.start("visible");
   }, [
     controls,
     inView,
@@ -117,6 +129,12 @@ function Home() {
     inView7,
     controls8,
     inView8,
+    controls9,
+    inView9,
+    controls10,
+    inView10,
+    controls11,
+    inView11,
   ]);
 
   const variants = {
@@ -273,7 +291,7 @@ function Home() {
           <a href="/BusinessCertification">
             <motion.div
               ref={ref1}
-              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
               style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
               whileHover={hoverEffects}
               initial="hidden"
@@ -307,7 +325,7 @@ function Home() {
           <a href="/Patent">
             <motion.div
               ref={ref2}
-              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
               style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
               whileHover={hoverEffects}
               initial="hidden"
@@ -339,7 +357,7 @@ function Home() {
           <a href="/DeviceSupply">
             <motion.div
               ref={ref3}
-              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
               style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
               whileHover={hoverEffects}
               initial="hidden"
@@ -372,7 +390,7 @@ function Home() {
           <a href="/VendorCompany">
             <motion.div
               ref={ref4}
-              className="rounded-2xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
               style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
               whileHover={hoverEffects}
               initial="hidden"
@@ -393,8 +411,9 @@ function Home() {
                   </span>
                 </p>
                 <p className=" text-sm lg:text-base">
-                  As a vendor responsible for distribution worldwide, we
-                  maintain partnerships with global companies.
+                  As a vendor responsible for distribution{" "}
+                  <br className="hidden lg:block" /> worldwide, we maintain
+                  partnerships with global companies.
                 </p>
               </div>
               <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
@@ -514,61 +533,169 @@ function Home() {
           variants={variants} // 위에서 정의한 variants 사용
           className="flex flex-col lg:gap-8 gap-6  w-full" // Tailwind CSS 클래스 사용
         >
-         
-         <div className=" lg:space-y-8 space-y-4  lg:mx-36">
+          <div className=" lg:space-y-8 space-y-4  lg:mx-36">
             <h2 className=" lg:text-3xl font-semibold">
               Still using a CD-ROM for medical data?
               <br />
               Use the SL App!{" "}
             </h2>
-            <p className=" lg:text-base text-sm">Download your data, upload it to the app and get quick, accurate AI second opinions.<br/>
-Access and manage your medical information securely anytime, anywhere.<br/>
-Experience our free, innovative medical AI service.</p>
-</div>
-<img src={SLAppUserCaseImage} alt="SLAppUserCaseImage" className="lg:w-4/5 self-center" />
-         
+            <p className=" lg:text-lg text-sm pr-4">
+              Download your data, upload it to the app and get quick, accurate
+              AI second opinions.
+              <br />
+              Access and manage your medical information securely anytime,
+              anywhere.
+              <br />
+              Experience our free, innovative medical AI service.
+            </p>
+          </div>
+          <img
+            src={SLAppUserCaseImage}
+            alt="SLAppUserCaseImage"
+            className="lg:w-4/5 self-center"
+          />
         </motion.div>
       </section>
 
       {/** Data Buyer Case */}
       <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-36  items-center"
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-24  items-center"
         id="DataBuyerCase"
       >
         <h1 className=" lg:text-5xl font-bold text-3xl text-center">
           Data Buyer Case
         </h1>
-        <motion.div
-          ref={ref8} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls8} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-          className="flex flex-col gap-8 w-full text-lg" // Tailwind CSS 클래스 사용
+        <div
+          className="flex flex-col gap-8 lg:gap-4 w-full text-xs lg:text-lg" // Tailwind CSS 클래스 사용
         >
-          <div className=" flex flex-col ">
-                    <div className=" space-y-8">
-                      <img src={dataBuyer} alt="dataBuyer" className=" h-72 " />
-                      <h2 className=" lg:text-3xl font-semibold">Purchasing Medical Data</h2>
-                      <p>Users can purchase de-identified medical data <br/> using SL Tokens. This data is crucial for research<br/> and diagnostic purposes, aiding in the training and<br/> improvement of AI models.</p>
-                    </div>
+             <motion.div
+                   ref={ref8} // 감지할 요소의 참조 연결
+                   initial="hidden" // 초기 상태는 'hidden'
+                   animate={controls8} // 애니메이션 컨트롤
+                   variants={variants} // 위에서 정의한 variants 사용
+              >
+          <div className=" flex flex-row items-center lg:gap-12 gap-4 ">
+            <img src={dataBuyer} alt="dataBuyer" className=" lg:h-72 h-28 " />
+            <div className=" lg:space-y-8 space-y-2">
+              <h2 className=" text-lg lg:text-3xl font-semibold">
+                Purchasing Medical Data
+              </h2>
+              <p>
+                Users can purchase de-identified medical data using SL Tokens.{" "}
+                <br /> This data is crucial for research and diagnostic
+                purposes, aiding in the training and{" "}
+                <br className="hidden lg:block" />
+                improvement of AI models.
+              </p>
+            </div>
           </div>
-          <div className=" flex flex-col  lg:items-end w-full ">
-                    <div className=" space-y-8">
-                      <img src={buyWithSLTokens} alt="buyWithSLTokens" className=" h-72 " />
-                      <h2 className=" lg:text-3xl font-semibold">Importance of Token Burning</h2>
-                      <p>All tokens obtained from data sales are burned,<br/> reducing the total supply of tokens in circulation.<br/> This increases the scarcity and maintains the value <br/>of the tokens.
-</p>
-                    </div>
+          </motion.div>
+          <motion.div
+                   ref={ref9} // 감지할 요소의 참조 연결
+                   initial="hidden" // 초기 상태는 'hidden'
+                   animate={controls9} // 애니메이션 컨트롤
+                   variants={variants} // 위에서 정의한 variants 사용
+              >
+          <div className=" flex flex-row items-center justify-end lg:gap-12 gap-4 ">
+            <div className=" lg:space-y-8 space-y-2 ">
+              <h2 className="  text-lg lg:text-3xl font-semibold">
+                Importance of Token Burning
+              </h2>
+              <p>
+                All tokens obtained from data sales are burned,{" "}
+                <br className=" hidden lg:block" />
+                reducing the total supply of tokens in circulation.{" "}
+                <br className=" lg:hidden" />
+                This increases the scarcity <br className=" hidden lg:block" />{" "}
+                and maintains the value of the tokens.
+              </p>
+            </div>
+            <img
+              src={buyWithSLTokens}
+              alt="buyWithSLTokens"
+              className=" lg:h-72 h-28 "
+            />
           </div>
-          <div className=" flex flex-col ">
-                    <div className=" space-y-8">
-                      <img src={dataBuyerCase3} alt="dataBuyerCase3" className=" h-72 " />
-                      <h2 className=" lg:text-3xl font-semibold">Advancement of AI and Medical Research</h2>
-                      <p>With greater accessibility and utilization of data, <br/>
-AI-based medical research becomes more accurate<br/> and efficient. This significantly contributes to the<br/> overall advancement of the medical industry.</p>
-                    </div>
+          </motion.div>
+          <motion.div
+                   ref={ref10} // 감지할 요소의 참조 연결
+                   initial="hidden" // 초기 상태는 'hidden'
+                   animate={controls10} // 애니메이션 컨트롤
+                   variants={variants} // 위에서 정의한 variants 사용
+              >
+          <div className="flex flex-row items-center lg:gap-12 gap-4 ">
+            <img
+              src={dataBuyerCase3}
+              alt="dataBuyerCase3"
+              className=" lg:h-72 h-28 "
+            />
+            <div className="lg:space-y-8 space-y-2 ">
+              <h2 className="  text-lg lg:text-3xl font-semibold">
+                Advancement of AI and Medical Research
+              </h2>
+              <p>
+                With greater accessibility and utilization of data, AI-based
+                medical research <br />
+                becomes more accurate and efficient.
+                <br /> This significantly contributes to the overall advancement
+                of the medical industry.
+              </p>
+            </div>
           </div>
-        </motion.div> 
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 lg:gap-8 gap-4 lg:mt-20 mt-10">
+            <a href="/TokenBurning">
+              {" "}
+              <motion.div
+                  ref={ref11} // 감지할 요소의 참조 연결
+                   initial="hidden" // 초기 상태는 'hidden'
+                   animate={controls11} // 애니메이션 컨트롤
+                style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+                whileHover={hoverEffects}
+                variants={variants}
+                transition={{ type: "spring", stiffness: 300 }}
+                className=" rounded-3xl lg:h-56 h-36 p-4 flex flex-row items-center  justify-evenly"
+              >
+                <img
+                  src={sltokenIcon}
+                  alt="sltokenIcon"
+                  className=" lg:h-24 h-16"
+                />
+                <div className="flex flex-col gap-2">
+                  <p className=" lg:text-3xl text-xl">Token Burning</p>
+                  <p className=" lg:text-xl">Burn all data sales tokens</p>
+                </div>
+                <MdArrowForwardIos className="lg:w-9  lg:h-9  w-6 h-6 " />
+              </motion.div>
+            </a>
+            <a href="/MedicalAndAIAdvancement">
+              <motion.div
+                  ref={ref11} // 감지할 요소의 참조 연결
+                   initial="hidden" // 초기 상태는 'hidden'
+                   animate={controls11} // 애니메이션 컨트롤
+                style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+                whileHover={hoverEffects}
+                variants={variants}
+                transition={{ type: "spring", stiffness: 300 }}
+                className=" rounded-3xl  lg:h-56 h-36 p-4 flex flex-row items-center  justify-evenly"
+              >
+                <img
+                  src={arrowIcon}
+                  alt="arrowIcon"
+                  className=" lg:h-24 h-16"
+                />
+                <div className="flex flex-col gap-2">
+                  <p className=" lg:text-3xl text-xl">
+                    Medical & AI <br />
+                    advancement
+                  </p>
+                </div>
+                <MdArrowForwardIos className="lg:w-9  lg:h-9  w-6 h-6 " />
+              </motion.div>
+            </a>
+          </div>
+        </div>
       </section>
 
       <section
@@ -595,8 +722,38 @@ AI-based medical research becomes more accurate<br/> and efficient. This signifi
       </section>
       {/**contact us */}
       <section
-        className=" flex flex-col   xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
+        className=" hidden lg:flex flex-col  xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
         style={{ backgroundImage: `url(${contactUsBackgroundImage})` }}
+      >
+        <div className=" xl:text-3xl text-lg">
+          <p>
+            Sign up for email updates{" "}
+            <span className=" opacity-70">
+              to keep up <br className={"hidden xl:block"} />
+              to date with the SL Protocol
+            </span>
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+          <input
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className=" xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white  border-white-800  px-4  bg-inherit focus:outline-blue-500"
+          />
+          <button
+            type="submit"
+            className="xl:w-1/6 w-1/2 h-12 text-sm lg:text-base bg-white rounded-xl font-bold text-neutral-900"
+          >
+            GET UPDATES
+          </button>
+        </form>
+      </section>
+      <section
+        className=" lg:hidden flex flex-col   xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
+        style={{ background: "linear-gradient(to right, #4586BE, #3C0CBA)" }}
       >
         <div className=" xl:text-3xl text-lg">
           <p>

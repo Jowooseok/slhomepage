@@ -35,7 +35,7 @@ const VendorCompany = () => {
   return (
     <div>
       {" "}
-      <section className=" flex flex-col gap-8 items-center py-8 lg:mx-8 lg:mb-16">
+      <section className=" flex flex-col gap-8  items-center py-8 lg:mx-8 lg:mb-16">
         <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
           Vendor Company
         </h1>

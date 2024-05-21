@@ -31,7 +31,7 @@ function App() {
             <Route path="/Patent" element={<Patent />} />
             <Route path="/VendorCompany" element={<VendorCompany />} />
             <Route path="/MedicalAndAIAdvancement" element={<MedicalAndAIAdvancement />} />
-            {/* <Route path="/TokenBurning" element={<TokenBurning />} /> */}
+            <Route path="/TokenBurning" element={<TokenBurning />} />
           </Routes>
         </MainLayout>
       </Router>
