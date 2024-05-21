@@ -92,10 +92,10 @@ const MedicalAndAIAdvancement = () => {
           >
             <img src={keyFeaturesPC} alt="keyFeaturesPC" className="w-full hidden lg:block" />
             <div className="lg:hidden flex flex-col gap-4">
-              <img src={byDisease} alt="byDisease" className="" />
-              <img src={byResearchSubject} alt="byResearchSubject" className="" />
-              <img src={byRace} alt="byRace" className="" />
-              <img src={byGender} alt="byGender" className="" />
+              <img src={byDisease} alt="byDisease" className="w-full" />
+              <img src={byResearchSubject} alt="byResearchSubject" className="w-full" />
+              <img src={byRace} alt="byRace" className="w-full" />
+              <img src={byGender} alt="byGender" className="w-full" />
 
             </div>
           </motion.div>
