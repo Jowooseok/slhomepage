@@ -339,7 +339,7 @@ function Navbar() {
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
-                    handleNavigationMobile("SLAPPUserCase");
+                    handleNavigationMobile("SLAppUserCase");
                   }}
                 >
                   SL App User Case
