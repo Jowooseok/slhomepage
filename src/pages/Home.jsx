@@ -237,7 +237,7 @@ function Home() {
           variants={variants} // 위에서 정의한 variants 사용
         >
           <div
-            className="lg:flex lg:flex-col lg:gap-8 lg:relative lg:p-24 py-12 rounded-3xl hidden "
+            className="sm:flex sm:flex-col sm:gap-4  lg:gap-8 lg:relative sm:p-8 lg:p-24 py-12 rounded-3xl hidden "
             style={{
               backgroundImage: `url(${slboxImage})`,
               backgroundSize: "cover",
@@ -256,16 +256,16 @@ function Home() {
                 </span>
               </p>
             </div>
-            <div className="text-sm lg:text-lg">
+            <div className="text-sm lg:text-lg sm:text-base">
               <p>
                 SL project is dedicated to saving lives and improving quality of
                 life by
-                <br className={"hidden xl:block"} />
+                <br className={"hidden sm:block"} />
                 offering free AI-based diagnoses and monitoring health with data
-                <br className={"hidden xl:block"} />
+                <br className={"hidden sm:block"} />
                 processed via smart contracts and blockchain, ensuring
                 transparency
-                <br className={"hidden xl:block"} />
+                <br className={"hidden sm:block"} />
                 and security.
               </p>
             </div>
@@ -274,7 +274,7 @@ function Home() {
             <img
               src={mobileAboutSL}
               alt="mobileAboutSL"
-              className="lg:hidden "
+              className="lg:hidden md:hidden sm:hidden "
             />
           </div>
         </motion.div>
@@ -436,25 +436,25 @@ function Home() {
       {/**dental ai */}
       <section className="py-16 flex flex-col gap-14 justify-center items-center  ">
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="lg:text-xl text-sm flex flex-col justify-center gap-8 xl:pl-4">
+          <div className="lg:text-xl sm:text-lg text-sm flex flex-col justify-center gap-8 xl:pl-4">
             <h1 className="lg:text-5xl text-3xl"> Medical AI Solution</h1>
             <div>
               <p>
                 On-Chain collects, interprets, and supplies medical imaging
-                <br className={"hidden xl:block"} />
+                <br className={"hidden lg:block"} />
                 data to advance medical imaging diagnostic technology and
-                <br className={"hidden xl:block"} />
+                <br className={"hidden lg:block"} />
                 provides Medical AI second opinions at a cost close to free.
               </p>
             </div>
             <div>
               <p>
                 We have achieved a high diagnostic accuracy with impressive
-                <br className={"hidden xl:block"} />
+                <br className={"hidden lg:block"} />
                 AUROC (0.985) and JAFROC FOM (0.943) scores.{" "}
-                <br className={"hidden xl:block"} />
+                <br className={"hidden lg:block"} />
                 Furthermore, our AI solution has obtained both CE{" "}
-                <br className={"hidden xl:block"} />
+                <br className={"hidden lg:block"} />
                 certification and FDA approval.
               </p>
             </div>
@@ -534,12 +534,12 @@ function Home() {
           className="flex flex-col lg:gap-8 gap-6  w-full" // Tailwind CSS 클래스 사용
         >
           <div className=" lg:space-y-8 space-y-4  lg:mx-36">
-            <h2 className=" lg:text-3xl font-semibold">
+            <h2 className=" lg:text-3xl sm:text-2xl font-semibold">
               Still using a CD-ROM for medical data?
               <br />
               Use the SL App!{" "}
             </h2>
-            <p className=" lg:text-lg text-sm pr-4">
+            <p className=" lg:text-lg text-sm sm:text-base pr-4">
               Download your data, upload it to the app and get quick, accurate
               AI second opinions.
               <br />
@@ -566,7 +566,7 @@ function Home() {
           Data Buyer Case
         </h1>
         <div
-          className="flex flex-col gap-8 lg:gap-4 w-full text-xs lg:text-lg" // Tailwind CSS 클래스 사용
+          className="flex flex-col gap-8 lg:gap-4 w-full text-xs lg:text-lg sm:text-base " // Tailwind CSS 클래스 사용
         >
              <motion.div
                    ref={ref8} // 감지할 요소의 참조 연결
@@ -577,7 +577,7 @@ function Home() {
           <div className=" flex flex-row items-center lg:gap-12 gap-4 ">
             <img src={dataBuyer} alt="dataBuyer" className=" lg:h-72 h-28 " />
             <div className=" lg:space-y-8 space-y-2">
-              <h2 className=" text-lg lg:text-3xl font-semibold">
+              <h2 className=" text-lg lg:text-3xl sm:text-xl font-semibold">
                 Purchasing Medical Data
               </h2>
               <p>
@@ -598,7 +598,7 @@ function Home() {
               >
           <div className=" flex flex-row items-center justify-end lg:gap-12 gap-4 ">
             <div className=" lg:space-y-8 space-y-2 ">
-              <h2 className="  text-lg lg:text-3xl font-semibold">
+              <h2 className="  text-lg lg:text-3xl font-semibold sm:text-xl">
                 Importance of Token Burning
               </h2>
               <p>
@@ -630,7 +630,7 @@ function Home() {
               className=" lg:h-72 h-28 "
             />
             <div className="lg:space-y-8 space-y-2 ">
-              <h2 className="  text-lg lg:text-3xl font-semibold">
+              <h2 className="  text-lg lg:text-3xl font-semibold sm:text-xl">
                 Advancement of AI and Medical Research
               </h2>
               <p>

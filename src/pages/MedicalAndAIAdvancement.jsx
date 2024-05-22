@@ -55,7 +55,7 @@ const MedicalAndAIAdvancement = () => {
     <div>
       {" "}
       <section className=" flex flex-col lg:gap-16 gap-8 items-center lg:px-36 py-8 lg:mb-16">
-        <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl text-center font-bold text-white">
           Medical & AI Advancement
         </h1>
 
@@ -67,22 +67,22 @@ const MedicalAndAIAdvancement = () => {
             variants={variants} // 위에서 정의한 variants 사용
             className=" w-full"
           >
-            <div className="flex flex-col justify-start lg:gap-8 gap-4 text-lg w-full">
-              <h2 className="lg:text-3xl font-semibold">
+            <div className="flex flex-col justify-start lg:gap-8 gap-4 text-base w-full">
+              <h2 className="lg:text-3xl font-semibold sm:text-xl">
                 Harnessing the power of AI to enhance <br /> medical research
                 and data analysis.
               </h2>
-              <p className=" text-xs lg:text-lg">
+              <p className=" text-xs lg:text-lg sm:text-base">
                 {" "}
                 Our platform offers a streamlined approach to accessing and
-                utilizing <br className="hidden lg:block" />
+                utilizing <br className="hidden sm:block" />
                 medical data for improved research outcomes.
               </p>
             </div>
           </motion.div>
         </div>
         <div className="flex flex-col gap-8 items-center">
-          <h2 className=" text-xl lg:text-3xl font-semibold">Key Features</h2>
+          <h2 className=" text-xl lg:text-3xl  sm:text-2xl font-semibold">Key Features</h2>
           <motion.div
             ref={ref1} // 감지할 요소의 참조 연결
             initial="hidden" // 초기 상태는 'hidden'
@@ -90,8 +90,8 @@ const MedicalAndAIAdvancement = () => {
             variants={variants} // 위에서 정의한 variants 사용
             className=" w-full"
           >
-            <img src={keyFeaturesPC} alt="keyFeaturesPC" className="w-full hidden lg:block" />
-            <div className="lg:hidden flex flex-col gap-4">
+            <img src={keyFeaturesPC} alt="keyFeaturesPC" className="w-full hidden sm:block" />
+            <div className="sm:hidden flex flex-col gap-4">
               <img src={byDisease} alt="byDisease" className="w-full" />
               <img src={byResearchSubject} alt="byResearchSubject" className="w-full" />
               <img src={byRace} alt="byRace" className="w-full" />
@@ -101,7 +101,7 @@ const MedicalAndAIAdvancement = () => {
           </motion.div>
         </div>
         <div className="flex flex-col gap-8 items-center">
-          <h2 className="text-xl lg:text-3xl  font-semibold">Benefits</h2>
+          <h2 className="text-xl lg:text-3xl font-semibold sm:text-2xl">Benefits</h2>
           <motion.div
             ref={ref2} // 감지할 요소의 참조 연결
             initial="hidden" // 초기 상태는 'hidden'
@@ -109,13 +109,13 @@ const MedicalAndAIAdvancement = () => {
             variants={variants} // 위에서 정의한 variants 사용
             className=" w-full"
           >
-            <img src={benefitsPC} alt="benefitsPC" className="w-full hidden lg:block" />
-            <img src={benefitsMobile} alt="benefitsMobile" className="w-full lg:hidden" />
+            <img src={benefitsPC} alt="benefitsPC" className="w-full hidden sm:block" />
+            <img src={benefitsMobile} alt="benefitsMobile" className="w-full sm:hidden" />
           </motion.div>
         </div>
         <div className=" grid w-full">
           <div className="flex flex-col justify-start lg:gap-8 gap-4 text-lg w-full text-center">
-            <h2 className=" text-xl lg:text-3xl  font-semibold">Enhancing Medical Research with AI</h2>
+            <h2 className=" text-xl lg:text-3xl sm:text-2xl  font-semibold">Enhancing Medical <br className=" sm:hidden"/> Research with AI</h2>
             <motion.div
               ref={ref3} // 감지할 요소의 참조 연결
               initial="hidden" // 초기 상태는 'hidden'
@@ -123,7 +123,7 @@ const MedicalAndAIAdvancement = () => {
               variants={variants} // 위에서 정의한 variants 사용
               className=" w-full"
             >
-              <p className=" lg:text-lg text-sm">
+              <p className=" lg:text-lg text-sm sm:text-base">
                 Our platform integrates advanced AI technology to revolutionize
                 how medical research is conducted.<br className=" hidden lg:block"/> By offering precise data
                 categorization and easy access to essential medical information,<br className=" hidden lg:block"/>

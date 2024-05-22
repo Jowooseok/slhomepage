@@ -81,7 +81,7 @@ const TokenBurning = () => {
 (Purchaser of medical data)
         </h1>
   
-        <div className=" grid lg:grid-cols-2 lg:mx-20 lg:gap-8 gap-4 ">
+        <div className=" grid sm:grid-cols-2 lg:mx-20 lg:gap-8 gap-4 ">
         <motion.div
           ref={ref1} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'

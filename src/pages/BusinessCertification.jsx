@@ -72,7 +72,7 @@ const BusinessCertification = () => {
           animate={controls1} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
         >
-        <div className=" grid lg:grid-cols-2 gap-4" >
+        <div className=" grid sm:grid-cols-2 gap-4" >
     
           <img src={fireCRDentalReader} alt="fireCRDentalReader"  />
           <img src={fireCRFlashMedicalReader} alt="fireCRFlashMedicalReader" />
@@ -90,7 +90,7 @@ const BusinessCertification = () => {
           animate={controls2} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
         >
-        <div className=" grid lg:grid-cols-2 gap-4" >
+        <div className=" grid sm:grid-cols-2 gap-4" >
     
           <img src={DentalClientCompany} alt="DentalClientCompany"  />
           <img src={OverseasCertification} alt="OverseasCertification" />
