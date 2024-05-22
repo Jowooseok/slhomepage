@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import tokenBurningPage1 from "../assets/tokenBurningPage1.png";
 import tokenBurningPage2 from "../assets/tokenBurningPage2.png";
 import tokenBurningPage3 from "../assets/tokenBurningPage3.png";
+import tokenBurningPage1Mobile from "../assets/tokenBurningPage1Mobile.png";
 
 const TokenBurning = () => {
     // 애니메이션 제어용
@@ -55,24 +56,16 @@ const TokenBurning = () => {
         <h1 className="text-2xl lg:text-5xl text-center font-bold text-white">
           Token Burning
         </h1>
-        <p className=" text-lg lg:text-3xl">
-          Incase : 1 Data(1 SL Token) is 1$
-        </p>
-        <div className=" grid lg:mx-20 gap-16 ">
-          <div className="flex flex-row items-center justify-center gap-4  lg:mt-16">
             <img
               src={tokenBurningPage1}
               alt="tokenBurningPage1"
-              className=" lg:w-80 lg:h-80 w-28 h-28"
+              className=" lg:w-5/6 hidden sm:block"
             />
-            <p className="lg:text-xl text-xs">
-              There are thousands of AI research institutes<br className=" hidden lg:block"/> and companies in
-              OECD countries.  If 100 data purchasing entities (hospitals,
-              research institutions, AI startups, etc.)<br className=" hidden lg:block"/> each buy 1M data, a
-              token burn worth 100 million dollars will occur.
-            </p>
-          </div>
-        </div>
+              <img
+              src={tokenBurningPage1Mobile}
+              alt="tokenBurningPage1Mobile"
+              className=" sm:hidden"
+            />
       </section>
       </motion.div>
       <section className=" flex flex-col gap-8 items-center py-8 lg:px-32  lg:mb-16 lg:gap-16 ">
