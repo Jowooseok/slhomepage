@@ -412,7 +412,7 @@ function Home() {
                 </p>
                 <p className=" text-sm lg:text-base">
                   As a vendor responsible for distribution{" "}
-                  <br className="hidden lg:block" /> worldwide, we maintain
+                  <br className="hidden sm:block" /> worldwide, we maintain
                   partnerships with global companies.
                 </p>
               </div>
