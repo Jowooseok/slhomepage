@@ -160,21 +160,21 @@ function Home() {
 
   return (
     <div className="" id="home">
-      <section className="lg:py-20 py-4 flex flex-col lg:flex-row lg:gap-14 justify-center lg:items-center mx-2 ">
-        <div className=" flex flex-col flex-grow-0 gap-6 xl:gap-16 ">
+      <section className=" lg:pb-16 py-4 flex flex-col lg:flex-row lg:gap-14  justify-center lg:items-center mx-2 ">
+        <div className=" flex flex-col flex-grow-0 gap-6 lg:gap-12 2xl:gap-16 ">
           <div>
-            <p className=" text-lg  sm:text-4xl">Onchain Project</p>
-            <p className=" text-2xl sm:text-6xl font-bold">
+            <p className=" text-lg  sm:text-3xl 2xl:text-4xl">Onchain Project</p>
+            <p className=" text-2xl sm:text-4xl 2xl:text-6xl font-bold">
               Experience Medical AI!
             </p>
           </div>
-          <div className="sm:text-2xl">
+          <div className="sm:text-xl 2xl:text-2xl">
             <p>
               AI Diagnostic is live, Send your X-ray <br />
               Your Data saves your Lives.
             </p>
           </div>
-          <div className=" sm:text-2xl">
+          <div className=" sm:text-xl 2xl:text-2xl">
             <p>
               Let’s create sophisticated medical AI that
               <br />
