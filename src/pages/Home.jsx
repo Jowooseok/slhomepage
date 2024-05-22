@@ -202,8 +202,8 @@ function Home() {
             className=" flex flex-col rounded-xl  gap-2 px-4 lg:lg:py-24 py-4"
             style={{ border: "2px solid white" }}
           >
-            <p className=" text-lg lg:text-2xl">AI Airdrop Event Will Start!</p>
-            <p className=" text-sm lg:text-xl">
+            <p className=" text-lg sm:text-2xl">AI Airdrop Event Will Start!</p>
+            <p className=" text-sm sm:text-xl">
               Please send us your chest x-ray images. We provide a second
               opinion.
             </p>
