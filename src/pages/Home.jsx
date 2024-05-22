@@ -160,7 +160,7 @@ function Home() {
 
   return (
     <div className="" id="home">
-      <section className=" lg:pb-16 py-4 flex flex-col lg:flex-row lg:gap-14  justify-center lg:items-center mx-2 ">
+      <section className="lg:pt-10 lg:pb-16 py-8 flex flex-col lg:flex-row lg:gap-14  justify-center lg:items-center mx-2 ">
         <div className=" flex flex-col flex-grow-0 gap-6 lg:gap-12 2xl:gap-16 ">
           <div>
             <p className=" text-lg  sm:text-3xl 2xl:text-4xl">Onchain Project</p>
