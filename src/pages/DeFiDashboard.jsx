@@ -2,7 +2,7 @@ import React from 'react';
 import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Chart as ChartJS, registerables } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar, Doughnut, Pie, Radar } from 'react-chartjs-2';
 import 'tailwindcss/tailwind.css';
 
 // Register Chart.js components
@@ -66,105 +66,224 @@ const points = generateRandomPoints();
 
 const Map = () => {
   return (
-    <MapContainer center={[20, 0]} zoom={2} className="h-full w-full rounded-lg">
+    <div className="col-span-2 row-span-2 bg-gray-800 rounded-lg shadow-lg p-4">
+      <MapContainer center={[20, 0]} zoom={4} className="h-full w-full rounded-lg">
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
-      />
-      {points.map((point, index) => (
-        <CircleMarker
-          key={index}
-          center={point.position}
-          pathOptions={{ color: point.occupied ? 'red' : 'green' }}
-          radius={8}
-        >
-          <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent={false}>
-            <div className="bg-gray-800 p-2 rounded shadow-lg text-white">
-              <p className="text-lg font-bold">{point.hospital_name}</p>
-              <p><strong>Wallet:</strong> {point.wallet_address}</p>
-              <p><strong>Average Revenue:</strong> {point.average_revenue}</p>
-              <p><strong>Transactions:</strong> {point.total_transactions}</p>
-              <p><strong>Contributor:</strong> {point.data_contributor || "None"}</p>
-              {!point.data_contributor && <button className="mt-2 bg-blue-500 text-white p-1 rounded hover:bg-blue-600 text-sm">Become a Contributor</button>}
-            </div>
-          </Tooltip>
-        </CircleMarker>
-      ))}
-    </MapContainer>
+  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+  attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+/>
+
+        {points.map((point, index) => (
+          <CircleMarker
+            key={index}
+            center={point.position}
+            pathOptions={{ color: point.occupied ? 'red' : 'green' }}
+            radius={8}
+          >
+            <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent={false}>
+              <div className="bg-white p-2 rounded shadow-lg text-black">
+                <p className="text-lg font-bold">{point.hospital_name}</p>
+                <p><strong>Wallet:</strong> {point.wallet_address}</p>
+                <p><strong>Average Revenue:</strong> {point.average_revenue}</p>
+                <p><strong>Transactions:</strong> {point.total_transactions}</p>
+                <p><strong>Contributor:</strong> {point.data_contributor || "None"}</p>
+                {!point.data_contributor && <button className="mt-2 bg-blue-500 text-white p-1 rounded hover:bg-blue-600 text-sm">Become a Contributor</button>}
+              </div>
+            </Tooltip>
+          </CircleMarker>
+        ))}
+      </MapContainer>
+    </div>
   );
 };
 
+const DashboardCard = ({ title, stats, children }) => (
+  <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-72 flex flex-col">
+    <h3 className="text-lg font-bold mb-2 text-white">{title}</h3>
+    <div className="text-xl font-bold mb-2 text-white">{stats}</div>
+    <div className="flex-grow">
+      {children}
+    </div>
+  </div>
+);
+
 const Dashboard = () => {
-  // Sample data for chart with 12 months of data
-  const chartData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  // Sample data for charts
+  const dataUploadStatusData = {
+    labels: ['Dataset 1', 'Dataset 2', 'Dataset 3', 'Dataset 4'],
     datasets: [
       {
-        label: 'Average Revenue',
-        data: [1000, 1100, 1050, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1600],
-        fill: false,
-        backgroundColor: 'rgb(75, 192, 192)',
-        borderColor: 'rgba(75, 192, 192, 0.2)',
+        label: 'Data Upload Status',
+        data: [200, 150, 300, 100],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
       },
     ],
   };
 
-  // Sample stats data
-  const stats = {
-    average_revenue: "1500",
-    top_ten_wallets: ["0x123...", "0x456...", "0x789..."],
-    total_data_entries: "1000",
-    total_transactions: "5000",
-    total_token_issuance: "1000000"
+  const participationByCountryData = {
+    labels: ['USA', 'Canada', 'UK', 'Germany', 'France'],
+    datasets: [
+      {
+        label: 'Participation by Country',
+        data: [500, 400, 300, 200, 100],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgb(75, 192, 192)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const transactionOccurrenceData = {
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+    datasets: [
+      {
+        label: 'Transactions',
+        data: [20, 30, 40, 50],
+        fill: false,
+        borderColor: '#4BC0C0',
+      },
+    ],
+  };
+
+  const revenueAccumulationData = {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+      {
+        label: 'Revenue',
+        data: [10000, 15000, 20000, 25000],
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const claimStatusData = {
+    labels: ['Open', 'In Progress', 'Resolved'],
+    datasets: [
+      {
+        label: 'Claims',
+        data: [30, 20, 50],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
+  };
+
+  const participationByEthnicityData = {
+    labels: ['Ethnicity 1', 'Ethnicity 2', 'Ethnicity 3'],
+    datasets: [
+      {
+        label: 'Participation by Ethnicity',
+        data: [300, 150, 100],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
+  };
+
+  const maintenanceStatusData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Maintenance',
+        data: [5, 10, 3, 15, 8, 12, 6, 14, 9, 11, 4, 13],
+        fill: false,
+        borderColor: '#FF6384',
+      },
+    ],
+  };
+
+  const participationByGenderData = {
+    labels: ['Male', 'Female', 'Other'],
+    datasets: [
+      {
+        label: 'Participation by Gender',
+        data: [500, 400, 100],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
+  };
+
+  const hospitalUploadQueueStatusData = {
+    labels: ['Hospital 1', 'Hospital 2', 'Hospital 3', 'Hospital 4'],
+    datasets: [
+      {
+        label: 'Queue Status',
+        data: [30, 20, 40, 10],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgb(75, 192, 192)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const equipmentFailureStatusData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Failures',
+        data: [2, 5, 1, 4, 3, 7, 8, 6, 9, 10, 12, 11],
+        fill: false,
+        borderColor: '#FFCE56',
+      },
+    ],
+  };
+
+  const depositStatusData = {
+    labels: ['Group A', 'Group B', 'Group C'],
+    datasets: [
+      {
+        label: 'Deposit Status',
+        data: [100, 200, 300],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
   };
 
   return (
-    <div className="p-6  h-full bg-gray-900 rounded-lg shadow-lg text-white">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-4">Average Revenue</h2>
-        <Line data={chartData} options={{ plugins: { legend: { labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold mb-4">Statistics</h2>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg font-bold">Average Revenue</p>
-            <p>{stats.average_revenue}</p>
-          </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg font-bold">Top 10 Wallets</p>
-            <p>{stats.top_ten_wallets.join(', ')}</p>
-          </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg font-bold">Total Data Entries</p>
-            <p>{stats.total_data_entries}</p>
-          </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg font-bold">Total Transactions</p>
-            <p>{stats.total_transactions}</p>
-          </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg font-bold">Total Token Issuance</p>
-            <p>{stats.total_token_issuance}</p>
-          </div>
-        </div>
-      </div>
+    <div className="grid grid-cols-5 gap-4">
+      <h1 className="col-span-5 text-3xl font-bold text-white">SL DeFi Dashboard</h1>
+      <Map />
+      <DashboardCard title="Data Upload Status" stats="650m">
+        <Doughnut data={dataUploadStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Participation by Country" stats="1,600k">
+        <Bar data={participationByCountryData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Transaction Occurrence" stats="210m">
+        <Line data={transactionOccurrenceData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Revenue Accumulation" stats="$7.5k">
+        <Line data={revenueAccumulationData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Claim Status" stats="100">
+        <Pie data={claimStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Participation by Ethnicity" stats="350k">
+        <Radar data={participationByEthnicityData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Maintenance Status" stats="1500">
+        <Line data={maintenanceStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Participation by Gender" stats="800k">
+        <Doughnut data={participationByGenderData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Hospital Upload Queue Status" stats="15m">
+        <Bar data={hospitalUploadQueueStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Equipment Failure Status" stats="120">
+        <Line data={equipmentFailureStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+      </DashboardCard>
+      <DashboardCard title="Deposit Status" stats="$50m">
+        <Pie data={depositStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+      </DashboardCard>
     </div>
   );
 };
 
 const DefiDashboard = () => {
   return (
-    <div className="flex h-screen bg-gray-800 text-white">
-      <div className="w-1/2 p-4">
-        <h1 className="text-3xl font-bold mb-4">Save the Life DeFi Dashboard</h1>
-        <div className="h-[95%]">
-          <Map />
-        </div>
-      </div>
-      <div className="w-1/2 p-4">
-        <Dashboard />
-      </div>
+    <div className="p-4 bg-gray-900 text-white h-screen overflow-hidden">
+      <Dashboard />
     </div>
   );
 };

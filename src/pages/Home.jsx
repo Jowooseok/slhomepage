@@ -30,6 +30,7 @@ import dataBuyerCase3 from "../assets/dataBuyerCase3.png";
 import arrowIcon from "../assets/arrowIcon.png";
 import sltokenIcon from "../assets/sltokenIcon.png";
 import saveTheLifeDeFiOverviewImage from "../assets/saveTheLifeDeFiOverviewImage.png";
+import defiExample from "../assets/defiExample.mp4";
 
 function Home() {
   const [email, setEmail] = useState("");
@@ -101,6 +102,9 @@ function Home() {
                 // sp 번째 요소의 애니메이션 제어와 참조
                 const controls12 = useAnimation();
                 const [ref12, inView12] = useInView({ triggerOnce: true, threshold: 0.5 });
+                           // sp 번째 요소의 애니메이션 제어와 참조
+                           const controls13 = useAnimation();
+                           const [ref13, inView13] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   useEffect(() => {
     if (inView) controls.start("visible");
@@ -116,6 +120,7 @@ function Home() {
     if (inView10) controls10.start("visible");
     if (inView11) controls11.start("visible");
     if (inView12) controls12.start("visible");
+    if (inView13) controls13.start("visible");
   }, [
     controls,
     inView,
@@ -143,6 +148,8 @@ function Home() {
     inView11,
     controls12,
     inView12,
+    controls13,
+    inView13,
   ]);
 
   const variants = {
@@ -547,6 +554,43 @@ function Home() {
             alt="saveTheLifeDeFiOverviewImage"
             className=" lg:w-5/6"
           />
+        </motion.div>
+      </section>
+
+         {/**Save the Life DeFi User Case */}
+         <section
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center lg:mx-16  items-center"
+        id="SavetheLifeDeFiUserCase"
+      >
+        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
+        Save the Life DeFi <br className=" lg:hidden"/> User Case
+        </h1>
+        <motion.div
+          ref={ref13} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls13} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex flex-col lg:gap-8 gap-6  w-full" // Tailwind CSS 클래스 사용
+        >
+          <div className=" lg:space-y-8 space-y-4  lg:mx-36">
+      
+          <p className="lg:text-lg text-sm sm:text-base pr-4">
+    The SL Foundation DeFi service provides returns to SL coin depositors.<br/>
+    Users can deposit SL coins or USDC to acquire ownership of X-Ray Set and share in the profits.
+</p>
+
+          </div>
+          <video
+            controls
+            autoPlay
+            loop
+            playsInline
+            muted
+            className="lg:w-4/5 rounded-md self-center"
+          >
+            <source src={defiExample} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </motion.div>
       </section>
 
