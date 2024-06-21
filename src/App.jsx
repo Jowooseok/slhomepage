@@ -10,6 +10,7 @@ import VendorCompany from "./pages/VendorCompany";
 import TokenBurning from "./pages/TokenBurning";
 import MedicalAndAIAdvancement from "./pages/MedicalAndAIAdvancement";
 import { Reset } from "styled-reset";
+import DeFiDashboard from "./pages/DeFiDashboard";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/VendorCompany" element={<VendorCompany />} />
             <Route path="/MedicalAndAIAdvancement" element={<MedicalAndAIAdvancement />} />
             <Route path="/TokenBurning" element={<TokenBurning />} />
+            <Route path="/DeFiDashboard" element={<DeFiDashboard />} />
           </Routes>
         </MainLayout>
       </Router>

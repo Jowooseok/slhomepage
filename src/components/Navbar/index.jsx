@@ -40,7 +40,7 @@ function Navbar() {
       "Device Supply",
       "Vendor Company",
     ],
-    "Protocol": ["Protocol", "Token Economy","SL App User Case",  "Data Buyer Case"],
+    "Protocol": ["Protocol", "Token Economy","Save the Life DeFi Overview" , "SL App User Case",  "Data Buyer Case"],
     "White Paper": ["White Paper", "IR Deck"],
   };
 
@@ -335,6 +335,14 @@ function Navbar() {
                   }}
                 >
                   Token Economy
+                </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("SavetheLifeDeFiOverview");
+                  }}
+                >
+                  Save the Life DeFi Overview
                 </div>
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"

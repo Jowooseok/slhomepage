@@ -29,6 +29,7 @@ import dataBuyer from "../assets/dataBuyer.png";
 import dataBuyerCase3 from "../assets/dataBuyerCase3.png";
 import arrowIcon from "../assets/arrowIcon.png";
 import sltokenIcon from "../assets/sltokenIcon.png";
+import saveTheLifeDeFiOverviewImage from "../assets/saveTheLifeDeFiOverviewImage.png";
 
 function Home() {
   const [email, setEmail] = useState("");
@@ -97,6 +98,10 @@ function Home() {
         const controls11 = useAnimation();
         const [ref11, inView11] = useInView({ triggerOnce: true, threshold: 0.5 });
 
+                // sp 번째 요소의 애니메이션 제어와 참조
+                const controls12 = useAnimation();
+                const [ref12, inView12] = useInView({ triggerOnce: true, threshold: 0.5 });
+
   useEffect(() => {
     if (inView) controls.start("visible");
     if (inView1) controls1.start("visible");
@@ -110,6 +115,7 @@ function Home() {
     if (inView9) controls9.start("visible");
     if (inView10) controls10.start("visible");
     if (inView11) controls11.start("visible");
+    if (inView12) controls12.start("visible");
   }, [
     controls,
     inView,
@@ -135,6 +141,8 @@ function Home() {
     inView10,
     controls11,
     inView11,
+    controls12,
+    inView12,
   ]);
 
   const variants = {
@@ -514,6 +522,30 @@ function Home() {
             src={tokenEconomyImage}
             alt="tokenEconomyImage"
             className=" lg:w-4/5"
+          />
+        </motion.div>
+      </section>
+
+      
+      {/**Save the Life DeFi Overview */}
+      <section
+        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-16  items-center"
+        id="SavetheLifeDeFiOverview"
+      >
+        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
+        Save the Life DeFi Overview
+        </h1>
+        <motion.div
+          ref={ref12} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls12} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+        >
+          <img
+            src={saveTheLifeDeFiOverviewImage}
+            alt="saveTheLifeDeFiOverviewImage"
+            className=" lg:w-5/6"
           />
         </motion.div>
       </section>
