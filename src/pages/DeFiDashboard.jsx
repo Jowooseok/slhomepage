@@ -66,13 +66,12 @@ const points = generateRandomPoints();
 
 const Map = () => {
   return (
-    <div className="col-span-2 row-span-2 bg-gray-800 rounded-lg shadow-lg p-4">
+    <div className="col-span-2 row-span-2 bg-white rounded-lg shadow-lg p-4">
       <MapContainer center={[20, 0]} zoom={4} className="h-full w-full rounded-lg">
-      <TileLayer
-  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-  attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
-/>
-
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
         {points.map((point, index) => (
           <CircleMarker
             key={index}
@@ -98,9 +97,9 @@ const Map = () => {
 };
 
 const DashboardCard = ({ title, stats, children }) => (
-  <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-72 flex flex-col">
-    <h3 className="text-lg font-bold mb-2 text-white">{title}</h3>
-    <div className="text-xl font-bold mb-2 text-white">{stats}</div>
+  <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-80 flex flex-col">
+    <h3 className="text-lg font-bold mb-2 text-black">{title}</h3>
+    <div className="text-xl font-bold mb-2 text-black">{stats}</div>
     <div className="flex-grow">
       {children}
     </div>
@@ -241,40 +240,40 @@ const Dashboard = () => {
 
   return (
     <div className="grid grid-cols-5 gap-4">
-      <h1 className="col-span-5 text-3xl font-bold text-white">SL DeFi Dashboard</h1>
+      <h1 className="col-span-5 text-3xl font-bold text-black">SL DeFi Dashboard</h1>
       <Map />
       <DashboardCard title="Data Upload Status" stats="650m">
-        <Doughnut data={dataUploadStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+        <Doughnut data={dataUploadStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Participation by Country" stats="1,600k">
-        <Bar data={participationByCountryData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Bar data={participationByCountryData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Transaction Occurrence" stats="210m">
-        <Line data={transactionOccurrenceData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Line data={transactionOccurrenceData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Revenue Accumulation" stats="$7.5k">
-        <Line data={revenueAccumulationData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Line data={revenueAccumulationData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Claim Status" stats="100">
-        <Pie data={claimStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+        <Pie data={claimStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Participation by Ethnicity" stats="350k">
-        <Radar data={participationByEthnicityData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+        <Radar data={participationByEthnicityData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Maintenance Status" stats="1500">
-        <Line data={maintenanceStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Line data={maintenanceStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Participation by Gender" stats="800k">
-        <Doughnut data={participationByGenderData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+        <Doughnut data={participationByGenderData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Hospital Upload Queue Status" stats="15m">
-        <Bar data={hospitalUploadQueueStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Bar data={hospitalUploadQueueStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Equipment Failure Status" stats="120">
-        <Line data={equipmentFailureStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } }, scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } } }} />
+        <Line data={equipmentFailureStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } }, scales: { x: { ticks: { color: 'black' } }, y: { ticks: { color: 'black' } } } }} />
       </DashboardCard>
       <DashboardCard title="Deposit Status" stats="$50m">
-        <Pie data={depositStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }} />
+        <Pie data={depositStatusData} options={{ responsive: true, maintainAspectRatio: false, layout: { padding: 0 }, plugins: { legend: { position: 'bottom', labels: { color: 'black' } } } }} />
       </DashboardCard>
     </div>
   );
@@ -282,7 +281,7 @@ const Dashboard = () => {
 
 const DefiDashboard = () => {
   return (
-    <div className="p-4 bg-gray-900 text-white h-screen overflow-hidden">
+    <div className="p-4 bg-gray-100 text-black h-screen overflow-hidden">
       <Dashboard />
     </div>
   );
