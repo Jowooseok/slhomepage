@@ -18,7 +18,7 @@ function App() {
     <React.Fragment>
       <Reset />
       <Router>
-        <MainLayout>
+        {/* <MainLayout> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<Home />} />
@@ -35,7 +35,7 @@ function App() {
             <Route path="/TokenBurning" element={<TokenBurning />} />
             <Route path="/DeFiDashboard" element={<DeFiDashboard />} />
           </Routes>
-        </MainLayout>
+        {/* </MainLayout> */}
       </Router>
     </React.Fragment>
   );

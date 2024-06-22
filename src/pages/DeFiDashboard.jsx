@@ -98,7 +98,7 @@ const Map = () => {
 };
 
 const DashboardCard = ({ title, stats, children }) => (
-  <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-72 flex flex-col">
+  <div className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-80 flex flex-col">
     <h3 className="text-lg font-bold mb-2 text-white">{title}</h3>
     <div className="text-xl font-bold mb-2 text-white">{stats}</div>
     <div className="flex-grow">
