@@ -185,7 +185,7 @@ function Home() {
           </div>
           <div className="sm:text-xl 2xl:text-2xl">
             <p>
-              AI Diagnostic is live, Send your X-ray <br />
+              AI Diagnostic is live, Send health&medical data. <br />
               Your Data saves your Lives.
             </p>
           </div>
@@ -273,15 +273,13 @@ function Home() {
             </div>
             <div className="text-sm lg:text-lg sm:text-base">
               <p>
-                SL project is dedicated to saving lives and improving quality of
-                life by
-                <br className={"hidden sm:block"} />
-                offering free AI-based diagnoses and monitoring health with data
-                <br className={"hidden sm:block"} />
-                processed via smart contracts and blockchain, ensuring
-                transparency
-                <br className={"hidden sm:block"} />
-                and security.
+              The SL project aims to develop a protocol that easily collects and analyzes <br className="lg:hidden md:block"/> users' healthcare and <br className=" lg:block hidden" />
+             
+                medical data through an app provided B2C, offering <br className="lg:hidden md:block"/> free AI second opinions and supplying a large<br className=" lg:block hidden" />
+             
+                data set to medical AI<br className="lg:hidden md:block"/> companies and healthcare research institutions. It ensures transparency<br className=" lg:block hidden" /> and <br className="lg:hidden md:block"/>
+          
+                security based on data processed through smart contracts  and  blockchain  technology.
               </p>
             </div>
           </div>
