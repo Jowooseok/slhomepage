@@ -342,201 +342,6 @@ function Home() {
         </motion.div>
       </section>
 
-      {/**save the life */}
-      <section className="py-16 lg:py-24 gap-8 flex flex-col items-center justify-center mx-2 lg:mx-20">
-        <img
-          src={transverseLogo}
-          alt="transverseSLlogo"
-          className=" lg:w-96 w-60"
-        />
-        <div className="grid xl:grid-cols-2 gap-4 w-full cursor-pointer">
-          <a href="/BusinessCertification">
-            <motion.div
-              ref={ref1}
-              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-              whileHover={hoverEffects}
-              initial="hidden"
-              animate={controls1}
-              variants={variants}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img
-                src={certificateImage}
-                alt="certificateImage"
-                className=" lg:w-16 w-20"
-              />
-              <div className=" space-y-4 text-center lg:text-start">
-                <p className=" text-xl lg:text-3xl">
-                  38+{" "}
-                  <span className=" text-neutral-400 pl-2 lg:pl-0">
-                    Certificate
-                  </span>
-                </p>
-                <p className=" text-sm lg:text-base">
-                  Domestic Certification 17 (For Animal, For Human), Overseas
-                  Certification 21(USA FCC, FDA, Europe, Japan, China,
-                  Austrailla etc.) <br />
-                </p>
-              </div>
-              <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
-              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
-            </motion.div>
-          </a>
-
-          <a href="/Patent">
-            <motion.div
-              ref={ref2}
-              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-              whileHover={hoverEffects}
-              initial="hidden"
-              animate={controls2}
-              variants={variants}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img
-                src={patientImage}
-                alt="patientImage"
-                className="lg:w-16 w-20"
-              />
-              <div className="space-y-4 text-center lg:text-start">
-                <p className="text-xl lg:text-3xl">
-                  20+{" "}
-                  <span className="text-neutral-400 pl-2 lg:pl-0">Patent</span>
-                </p>
-                <p className=" text-sm lg:text-base">
-                  Domestic Patent 21(Patent, Trademark Registaration), Overseas
-                  Patent 8(Patent, Trademark Registaration, Trademark Rights,
-                  PCT)
-                </p>
-              </div>
-              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
-              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
-            </motion.div>
-          </a>
-
-          <a href="/DeviceSupply">
-            <motion.div
-              ref={ref3}
-              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-              whileHover={hoverEffects}
-              initial="hidden"
-              animate={controls3}
-              variants={variants}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img
-                src={supplyImage}
-                alt="supplyImage"
-                className="lg:w-16 w-20"
-              />
-              <div className="space-y-4 text-center lg:text-start">
-                <p className="text-xl lg:text-3xl">
-                  50,000+{" "}
-                  <span className="text-neutral-400 pl-2 lg:pl-0">
-                    Device supply
-                  </span>
-                </p>
-                <p className=" text-sm lg:text-base">
-                  X-ray distribution in over 100 countries around the world,
-                  (FireCR Dental Reader, FireCR Flash Medical Reader)
-                </p>
-              </div>
-              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
-              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
-            </motion.div>
-          </a>
-
-          <a href="/VendorCompany">
-            <motion.div
-              ref={ref4}
-              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
-              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
-              whileHover={hoverEffects}
-              initial="hidden"
-              animate={controls4}
-              variants={variants}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img
-                src={vendorImage}
-                alt="vendorImage"
-                className="lg:w-16 w-20"
-              />
-              <div className="space-y-4 text-center lg:text-start">
-                <p className="text-xl lg:text-3xl">
-                  30+{" "}
-                  <span className="text-neutral-400 pl-2 lg:pl-0">
-                    Vendor company
-                  </span>
-                </p>
-                <p className=" text-sm lg:text-base">
-                  As a vendor responsible for distribution{" "}
-                  <br className="hidden 2xl:block" /> worldwide, we maintain
-                  partnerships with global companies.
-                </p>
-              </div>
-              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
-              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
-            </motion.div>
-          </a>
-        </div>
-      </section>
-
-      <section className="full-width-marquee bg-white mr-4 xl:mt-10 xl:mb-20 ">
-        <Marquee>
-          <img
-            src={motionVendorListImage}
-            alt="motionVendorListImage"
-            className=" xl:h-16 h-12"
-          />
-        </Marquee>
-      </section>
-
-      {/**dental ai */}
-      <section className="py-16 flex flex-col gap-14 justify-center items-center  ">
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="lg:text-xl sm:text-lg text-sm flex flex-col justify-center gap-8 xl:pl-4">
-            <h1 className="lg:text-5xl text-3xl"> Medical AI Solution</h1>
-            <div>
-              <p>
-                On-Chain collects, interprets, and supplies medical imaging
-                <br className={"hidden lg:block"} />
-                data to advance medical imaging diagnostic technology and
-                <br className={"hidden lg:block"} />
-                provides Medical AI second opinions at a cost close to free.
-              </p>
-            </div>
-            <div>
-              <p>
-                We have achieved a high diagnostic accuracy with impressive
-                <br className={"hidden lg:block"} />
-                AUROC (0.985) and JAFROC FOM (0.943) scores.{" "}
-                <br className={"hidden lg:block"} />
-                Furthermore, our AI solution has obtained both CE{" "}
-                <br className={"hidden lg:block"} />
-                certification and FDA approval.
-              </p>
-            </div>
-          </div>
-          <div>
-            <video
-              controls
-              autoPlay
-              loop
-              playsInline
-              muted
-              className=" rounded-xl lg:h-96 "
-            >
-              <source src={dentalVedio} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-        <img src={aiCertificationPC} alt="aiCertificationPCImage" />
-      </section>
 
       {/**protocol */}
       <section
@@ -1111,6 +916,201 @@ function Home() {
             </a>
           </div>
         </div>
+      </section>
+
+
+      {/**save the life */}
+      <section className="py-16 lg:py-24 gap-8 flex flex-col items-center justify-center mx-2 lg:mx-20">
+      <h1 className=" lg:text-5xl text-3xl font-bold text-center lg:mb-4">
+      By SL Foundation Operator Digiray
+        </h1>
+        <div className="grid xl:grid-cols-2 gap-4 w-full cursor-pointer">
+          <a href="/BusinessCertification">
+            <motion.div
+              ref={ref1}
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls1}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={certificateImage}
+                alt="certificateImage"
+                className=" lg:w-16 w-20"
+              />
+              <div className=" space-y-4 text-center lg:text-start">
+                <p className=" text-xl lg:text-3xl">
+                  38+{" "}
+                  <span className=" text-neutral-400 pl-2 lg:pl-0">
+                    Certificate
+                  </span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  Domestic Certification 17 (For Animal, For Human), Overseas
+                  Certification 21(USA FCC, FDA, Europe, Japan, China,
+                  Austrailla etc.) <br />
+                </p>
+              </div>
+              <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
+          </a>
+
+          <a href="/Patent">
+            <motion.div
+              ref={ref2}
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls2}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={patientImage}
+                alt="patientImage"
+                className="lg:w-16 w-20"
+              />
+              <div className="space-y-4 text-center lg:text-start">
+                <p className="text-xl lg:text-3xl">
+                  20+{" "}
+                  <span className="text-neutral-400 pl-2 lg:pl-0">Patent</span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  Domestic Patent 21(Patent, Trademark Registaration), Overseas
+                  Patent 8(Patent, Trademark Registaration, Trademark Rights,
+                  PCT)
+                </p>
+              </div>
+              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
+          </a>
+
+          <a href="/DeviceSupply">
+            <motion.div
+              ref={ref3}
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls3}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={supplyImage}
+                alt="supplyImage"
+                className="lg:w-16 w-20"
+              />
+              <div className="space-y-4 text-center lg:text-start">
+                <p className="text-xl lg:text-3xl">
+                  50,000+{" "}
+                  <span className="text-neutral-400 pl-2 lg:pl-0">
+                    Device supply
+                  </span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  X-ray distribution in over 100 countries around the world,
+                  (FireCR Dental Reader, FireCR Flash Medical Reader)
+                </p>
+              </div>
+              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
+          </a>
+
+          <a href="/VendorCompany">
+            <motion.div
+              ref={ref4}
+              className="rounded-3xl flex lg:flex-row flex-col items-center justify-evenly lg:px-20 px-14 lg:py-14 py-8 gap-8"
+              style={{ backgroundColor: "RGBA(99,116,147,0.65)" }}
+              whileHover={hoverEffects}
+              initial="hidden"
+              animate={controls4}
+              variants={variants}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={vendorImage}
+                alt="vendorImage"
+                className="lg:w-16 w-20"
+              />
+              <div className="space-y-4 text-center lg:text-start">
+                <p className="text-xl lg:text-3xl">
+                  30+{" "}
+                  <span className="text-neutral-400 pl-2 lg:pl-0">
+                    Vendor company
+                  </span>
+                </p>
+                <p className=" text-sm lg:text-base">
+                  As a vendor responsible for distribution{" "}
+                  <br className="hidden 2xl:block" /> worldwide, we maintain
+                  partnerships with global companies.
+                </p>
+              </div>
+              <MdArrowForwardIos className="w-16 h-16 hidden lg:block" />
+              <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
+            </motion.div>
+          </a>
+        </div>
+      </section>
+
+      <section className="full-width-marquee bg-white mr-4 xl:mt-10 xl:mb-20 ">
+        <Marquee>
+          <img
+            src={motionVendorListImage}
+            alt="motionVendorListImage"
+            className=" xl:h-16 h-12"
+          />
+        </Marquee>
+      </section>
+
+      {/**dental ai */}
+      <section className="py-16 flex flex-col gap-14 justify-center items-center  ">
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="lg:text-xl sm:text-lg text-sm flex flex-col justify-center gap-8 xl:pl-4">
+            <h1 className="lg:text-5xl text-3xl"> Medical AI Solution</h1>
+            <div>
+              <p>
+                On-Chain collects, interprets, and supplies medical imaging
+                <br className={"hidden lg:block"} />
+                data to advance medical imaging diagnostic technology and
+                <br className={"hidden lg:block"} />
+                provides Medical AI second opinions at a cost close to free.
+              </p>
+            </div>
+            <div>
+              <p>
+                We have achieved a high diagnostic accuracy with impressive
+                <br className={"hidden lg:block"} />
+                AUROC (0.985) and JAFROC FOM (0.943) scores.{" "}
+                <br className={"hidden lg:block"} />
+                Furthermore, our AI solution has obtained both CE{" "}
+                <br className={"hidden lg:block"} />
+                certification and FDA approval.
+              </p>
+            </div>
+          </div>
+          <div>
+            <video
+              controls
+              autoPlay
+              loop
+              playsInline
+              muted
+              className=" rounded-xl lg:h-96 "
+            >
+              <source src={dentalVedio} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <img src={aiCertificationPC} alt="aiCertificationPCImage" />
       </section>
 
       <section
