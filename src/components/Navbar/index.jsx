@@ -33,14 +33,14 @@ function Navbar() {
   };
 
   const menuItems = {
-    "About SL": [
-      "About SL",
-      "Business Certification",
-      "Patent",
-      "Device Supply",
-      "Vendor Company",
+    "SL Protocol": [
+      "User Solution",
+      "Blockchain",
+      "Token Economy",
+      "DeFi User Case",
+      "Data Buyer Case",
     ],
-    "Protocol": ["Protocol", "Token Economy","Save the Life DeFi Overview" ,"Save the Life DeFi User Case" , "SL App User Case",  "Data Buyer Case"],
+    "Technology": ["Certificate & Patent", "Medical AI Solution"],
     "White Paper": ["White Paper", "IR Deck"],
   };
 
@@ -123,7 +123,7 @@ function Navbar() {
     }
 
     if(item==="IR Deck"){
-      window.location.href = 'https://drive.google.com/file/d/1h9L2MPjOV_yk4TS2x1aXb180Hwh7S84e/view';
+      window.location.href = 'https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view';
       return;
     }
 
@@ -272,61 +272,24 @@ function Navbar() {
             {/**드로어 모바일 영역 */}
             <div className="flex flex-col text-base font-semibold gap-8 text-neutral-800">
               <div className="flex flex-row items-center gap-2">
-                <p>About SL</p> <FaAngleDown />
+                <p>SL Protocol</p> <FaAngleDown />
               </div>
               <div className="flex flex-col gap-6 font-normal pl-4">
                 <div
                   className=" flex flex-row items-center gap-2  cursor-pointer hover:text-blue-400"
                   onClick={() => {
-                    handleNavigationMobile("AboutSL");
+                    handleNavigationMobile("UserSolution");
                   }}
                 >
-                  About SL
+                User Solution
                 </div>
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
-                    handleNavigationMobile("BusinessCertification");
+                    handleNavigationMobile("Blockchain");
                   }}
                 >
-                  Business Certification
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("Patent");
-                  }}
-                >
-                  Patent
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("DeviceSupply");
-                  }}
-                >
-                  Device Supply
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("VendorCompany");
-                  }}
-                >
-                  Vendor Company
-                </div>
-              </div>
-              <div className="flex flex-row items-center gap-2">
-                <p>Protocol</p> <FaAngleDown />
-              </div>
-              <div className="flex flex-col gap-6 font-normal pl-4  ">
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("Protocol");
-                  }}
-                >
-                  Protocol
+                  Blockchain
                 </div>
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
@@ -339,26 +302,10 @@ function Navbar() {
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
-                    handleNavigationMobile("SavetheLifeDeFiOverview");
+                    handleNavigationMobile("DeFiUserCase");
                   }}
                 >
-                  Save the Life DeFi Overview
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("SavetheLifeDeFiUserCase");
-                  }}
-                >
-                 Save the Life DeFi User Case
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("SLAppUserCase");
-                  }}
-                >
-                  SL App User Case
+                 DeFi User Case
                 </div>
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
@@ -366,8 +313,30 @@ function Navbar() {
                     handleNavigationMobile("DataBuyerCase");
                   }}
                 >
-                  Data Buyer Case
+                 Data Buyer Case
                 </div>
+              </div>
+              <div className="flex flex-row items-center gap-2">
+                <p>Technology</p> <FaAngleDown />
+              </div>
+              <div className="flex flex-col gap-6 font-normal pl-4  ">
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("Certificate&Patent");
+                  }}
+                >
+                  Certificate & Patent
+                </div>
+                <div
+                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
+                  onClick={() => {
+                    handleNavigationMobile("MedicalAISolution");
+                  }}
+                >
+                  Medical AI Solution
+                </div>
+               
           
               </div>
         
@@ -385,7 +354,7 @@ function Navbar() {
                 </a>
                 <a
                  target="_blank"
-                 href="https://drive.google.com/file/d/1h9L2MPjOV_yk4TS2x1aXb180Hwh7S84e/view"
+                 href="https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view"
                  
                 >
                   IR Deck

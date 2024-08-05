@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 import icpLogo from "../assets/icplogo.png";
 import CRXVedio from "../assets/CXRVedio.mp4";
 import dentalVedio from "../assets/dentalVedio.mp4";
-import transverseLogo from "../assets/logo2.png";
 import { MdArrowForwardIos } from "react-icons/md";
 import certificateImage from "../assets/certificate.png";
 import patientImage from "../assets/patient.png";
@@ -23,20 +22,15 @@ import "./home.css";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import mobileAboutSL from "../assets/mobileAboutSL.png";
-import SLAppUserCaseImage from "../assets/SLAppUserCaseImage.png";
 import buyWithSLTokens from "../assets/buyWithSLTokens.png";
 import dataBuyer from "../assets/dataBuyer.png";
 import dataBuyerCase3 from "../assets/dataBuyerCase3.png";
 import arrowIcon from "../assets/arrowIcon.png";
 import sltokenIcon from "../assets/sltokenIcon.png";
-import saveTheLifeDeFiOverviewImage from "../assets/saveTheLifeDeFiOverviewImage.png";
 import defiExample from "../assets/defiExample.mp4";
 import AIhealthImage from "../assets/aihealth.png";
 import SuccessFactor1 from "../assets/successfactor1-image.png";
 import SuccessFactor2 from "../assets/successfactor2-image.png";
-import SuccessFactor3 from "../assets/successfactor3-image.png";
-import SuccessFactor3mobile from"../assets/successfactor3-image-mobile.png";
-import SuccessFactor4 from "../assets/successfactor4-image.png";
 import NewICP from "../assets/NewICP.png";
 import TelegramLogo from "../assets/telegram-logo.png";
 import ICPSymbol from "../assets/icp-symbol.png";
@@ -125,19 +119,19 @@ function Home() {
   const controls13 = useAnimation();
   const [ref13, inView13] = useInView({ triggerOnce: true, threshold: 0.5 });
 
-    // sp 번째 요소의 애니메이션 제어와 참조
-    const controls14 = useAnimation();
-    const [ref14, inView14] = useInView({ triggerOnce: true, threshold: 0.5 });
+  // sp 번째 요소의 애니메이션 제어와 참조
+  const controls14 = useAnimation();
+  const [ref14, inView14] = useInView({ triggerOnce: true, threshold: 0.5 });
 
-      // sp 번째 요소의 애니메이션 제어와 참조
+  // sp 번째 요소의 애니메이션 제어와 참조
   const controls15 = useAnimation();
   const [ref15, inView15] = useInView({ triggerOnce: true, threshold: 0.5 });
 
-    // sp 번째 요소의 애니메이션 제어와 참조
-    const controls16 = useAnimation();
-    const [ref16, inView16] = useInView({ triggerOnce: true, threshold: 0.5 });
+  // sp 번째 요소의 애니메이션 제어와 참조
+  const controls16 = useAnimation();
+  const [ref16, inView16] = useInView({ triggerOnce: true, threshold: 0.5 });
 
-      // sp 번째 요소의 애니메이션 제어와 참조
+  // sp 번째 요소의 애니메이션 제어와 참조
   const controls17 = useAnimation();
   const [ref17, inView17] = useInView({ triggerOnce: true, threshold: 0.5 });
 
@@ -160,7 +154,6 @@ function Home() {
     if (inView15) controls15.start("visible");
     if (inView16) controls16.start("visible");
     if (inView17) controls17.start("visible");
-
   }, [
     controls,
     inView,
@@ -198,7 +191,6 @@ function Home() {
     inView16,
     controls17,
     inView17,
-
   ]);
 
   const variants = {
@@ -223,38 +215,38 @@ function Home() {
   };
 
   return (
-    <div className="" id="home">
+    <div className="font-helvetica" id="home">
       <section className="lg:pt-10 lg:pb-16 py-8 flex flex-col lg:flex-row lg:gap-14  justify-center lg:items-center mx-2 ">
         <div className=" flex flex-col flex-grow-0 gap-6 lg:gap-[30px] font-medium">
           <div className=" 2xl:mb-5">
-            <p className=" text-lg  sm:text-3xl 2xl:text-4xl mb-2">
+            <p className=" text-lg  sm:text-3xl 2xl:text-3xl mb-2">
               Onchain Project
             </p>
-            <p className=" text-2xl sm:text-4xl 2xl:text-6xl font-semibold ">
+            <p className=" text-2xl sm:text-4xl  font-semibold ">
               Your Data Saves Lives,
               <br />
               Lets Make a<br />
               Medical AI & Save Lives
             </p>
           </div>
-          <div className="sm:text-xl 2xl:text-2xl ">
+          <div className="sm:text-xl 2xl:text-xl ">
             <p>
               AI Diagnostic is live, Send health&medical data. <br />
               Your Data saves your Lives.
             </p>
           </div>
-          <div className=" sm:text-xl 2xl:text-2xl ">
+          <div className=" sm:text-xl 2xl:text-xl ">
             <p>
               Let’s create sophisticated medical AI that
               <br />
               anyone can use and Save Lives.
             </p>
           </div>
-          <div className="flex flex-row gap-8 items-center text-sm sm:text-2xl">
+          <div className="flex flex-row gap-8 items-center text-sm sm:text-xl">
             <p>Powerd By</p>
-            <img src={icpLogo} className=" h-6 sm:h-12" alt="icpLogo" />
+            <img src={icpLogo} className=" h-6 sm:h-8" alt="icpLogo" />
           </div>
-          <div className="flex flex-col text-sm sm:text-2xl gap-4">
+          <div className="flex flex-col text-sm sm:text-xl gap-4 mt-8 lg:mt-16">
             <p>Subscribe for update</p>
             <form
               onSubmit={handleSubmit}
@@ -277,16 +269,18 @@ function Home() {
           <img
             src={AIhealthImage}
             alt="ai-health-image"
-            className=" hidden 2xl:block  md:block lg:blcok 2xl:h-[650px] xl:h-[550px] lg:h-[500px] object-  my-6 rounded-xl "
+            className="  2xl:block  md:block lg:blcok 2xl:h-[650px] xl:h-[550px] lg:h-[500px]  my-6 rounded-xl "
           />
         </div>
       </section>
-      {/**about sl */}
+      {/**SL Protocol*/}
       <section
         className="py-16 lg:py-24 gap-8 flex flex-col justify-center mx-2 lg:mx-20"
-        id="AboutSL"
+        id="SLProtocol"
       >
-        <h1 className="text-3xl lg:text-5xl font-bold text-center">About SL</h1>
+        <h1 className="text-3xl lg:text-5xl font-bold text-center mb-8">
+          SL Protocol
+        </h1>
         <motion.div
           ref={ref} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'
@@ -324,11 +318,7 @@ function Home() {
                 <br className=" lg:block hidden" />
                 data set to medical AI
                 <br className="lg:hidden md:block" /> companies and healthcare
-                research institutions. It ensures transparency
-                <br className=" lg:block hidden" /> and{" "}
-                <br className="lg:hidden md:block" />
-                security based on data processed through smart contracts and
-                blockchain technology.
+                research institutions.
               </p>
             </div>
           </div>
@@ -339,69 +329,46 @@ function Home() {
               className="lg:hidden md:hidden sm:hidden "
             />
           </div>
-        </motion.div>
-      </section>
-
-
-      {/**protocol */}
-      <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center   lg:mx-16 "
-        id="Protocol"
-      >
-        <h1 className=" lg:text-5xl text-3xl font-bold text-center">
-          Protocol
-        </h1>
-        <motion.div
-          ref={ref5} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls5} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
-        >
-          <img src={protocolImage} alt="protocolImage" className=" lg:w-4/5" />
+          <div className=" flex flex-col items-center mt-24">
+            <img
+              src={protocolImage}
+              alt="protocolImage"
+              className=" lg:w-5/6"
+            />
+          </div>
         </motion.div>
       </section>
 
       {/**SL Protocol success factor1 */}
       <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center  lg:text-xl sm:text-lg text-sm   lg:mx-16 "
-        id="success-factor1"
+        id="UserSolution"
       >
         <div className="flex flex-col items-center justify-center">
-          <h2 className="  text-sm lg:text-xl">SL Protocol success factor 1</h2>
-          <h3 className=" lg:text-4xl text-2xl font-bold text-center">
-            User Acquisition Solution
-          </h3>
+          <h1 className="text-3xl lg:text-5xl font-bold text-center mb-8">
+            User Solution
+          </h1>
         </div>
         <motion.div
           ref={ref14} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'
           animate={controls14} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
-          className="flex flex-col" // Tailwind CSS 클래스 사용
+          className="flex flex-col gap-8 lg:gap-16" // Tailwind CSS 클래스 사용
         >
-          <div className="flex flex-col-reverse lg:flex-row justify-center items-center w-full gap-8 lg:mb-64 mb-8">
+          <div className="flex flex-col items-center gap-2">
+            <p className=" font-bold">For Humans</p>
+            <p>Healthcare Medical Data Collection Solution DApp</p>
+          </div>
+          <div className="flex flex-col-reverse lg:flex-row-reverse justify-center items-center w-full gap-8 lg:mb-64 mb-8">
             <div className="flex flex-col gap-4 lg:gap-10">
-              <p className="  text-xl lg:text-3xl font-medium">
-                Ease of Healthcare Medical <br className="block md:hidden" />{" "}
-                Data Collection
-              </p>
-              <div className="">
-                {" "}
-                <p className=" pl-2">
-                  • Voluntary participation of various healthcare{" "}
-                  <br className="hidden lg:block" /> data such as diet, exercise
-                  and preferred foods
-                  <br className="hidden lg:block" /> (prize events in a game
-                  format for fun)
-                </p>
-                <p className=" pl-2">
-                  • Utilizing CR scanners provided by Digiray to
-                  <br /> collect medical data
-                </p>
-              </div>
               <div className="flex flex-row items-center gap-3">
-                <button onClick={()=>{alert("The launch is coming soon.")}} className="flex flex-row items-center gap-2 bg-white rounded-lg justify-center border-2 border-[#e5e5e5] min-w-[130px] h-[44px] md:w-[180px] md:h-[60px] lg:w-[193px] lg:h-[78px] text-[#171717] lg:text-lg font-semibold">
+                <button
+                  onClick={() => {
+                    alert("The launch is coming soon.");
+                  }}
+                  className="flex flex-row items-center gap-2 text-white  rounded-lg justify-center border-2 border-[#e5e5e5] min-w-[130px] h-[44px] md:w-[180px] md:h-[60px] lg:w-[183px] lg:h-[78px]  lg:text-lg font-semibold"
+                >
                   <img
                     src={ICPSymbol}
                     alt="icplogo"
@@ -409,247 +376,218 @@ function Home() {
                   />
                   ICP On-chain
                 </button>
-                <p>Launch planned for Q4 2024.</p>
+                <p className="font-bold">Launch planned for Q4 2024.</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <img src={SuccessFactor1} className=" rounded-2xl lg:h-[474px]" />
-              <div className="">
-                <p className="font-semibold">For Humans</p>
-                <p>Healthcare Medical Data Collection Solution DApp</p>
-              </div>
+              <img
+                src={SuccessFactor1}
+                className=" rounded-2xl md:max-w-[865px] md:px-16 lg:px-0 "
+              />
             </div>
           </div>
 
-          <div className="flex flex-col-reverse lg:flex-row-reverse justify-center lg:items-center w-full gap-8">
-            <div className="flex flex-col gap-4 lg:gap-10">
-              <p className="  text-xl lg:text-3xl font-medium">
-            
   
+        </motion.div>
+        <motion.div
+          ref={ref5} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls5} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex flex-col  gap-8 lg:gap-16" // Tailwind CSS 클래스 사용
+        >
+   
 
-                Securing initial users through veternary <br className="hidden lg:block"/> medical data collection
-              </p>
-              <div className="">
-                {" "}
-                <p className=" pl-2">
-                  • Launching a Telegram mini-app to secure initial <br className="hidden lg:block"/> users (prize events in a game format for fun)
-                </p>
-                <p className=" pl-2">
-                  • Securing user and operational data through the <br className="hidden lg:block"/> launch of an animal app
-                </p>
-              </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className=" font-bold">For Animals</p>
+            <p>Healthcare Medical Data Collection Solution DApp</p>
+          </div>
+
+          <div className="flex flex-col-reverse lg:flex-row-reverse justify-center items-center w-full gap-8 lg:mb-64 mb-8">
+            <div className="flex flex-col gap-4 lg:gap-10">
               <div className="flex flex-row items-center gap-3">
-                <button onClick={()=>{alert("The launch is coming soon.")}} className="flex flex-row items-center gap-2 bg-white rounded-lg justify-center border-2 border-[#e5e5e5] w-[240px] h-[44px] md:w-[180px] md:h-[60px] lg:w-[241px] lg:h-[78px] text-[#171717] lg:text-lg font-semibold">
+                <button
+                  onClick={() => {
+                    alert("The launch is coming soon.");
+                  }}
+                  className="flex flex-row items-center gap-2  rounded-lg justify-center border-2 border-[#e5e5e5] w-[240px] h-[44px] md:w-[180px] md:h-[60px] lg:w-[241px] lg:h-[78px] text-white lg:text-lg font-semibold"
+                >
                   <img
                     src={TelegramLogo}
                     alt="telegramLogo"
                     className=" w-6 h-6 lg:w-[30px] lg:h-[30px]"
                   />
-                 Telegram mini app
+                  Telegram mini app
                 </button>
-                <p>Launch planned for Q3 2024.</p>
+                <p className=" font-bold">Launch planned for Q3 2024.</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <img src={SuccessFactor2} className=" rounded-2xl lg:h-[474px]" />
-              <div className="">
-                <p className="font-semibold">For Animals</p>
-                <p>Healthcare Medical Data Collection Solution DApp</p>
-              </div>
+              <img src={SuccessFactor2} className=" rounded-2xl lg:h-[474px] lg:mx-4" />
             </div>
           </div>
         </motion.div>
       </section>
 
-      
-      {/**SL Protocol success factor2 */}
+      {/**ICP Utilization in SL Project  */}
       <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center  lg:text-xl sm:text-lg text-sm   lg:mx-16 "
-        id="success-factor1"
+        id="Blockchain"
       >
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="  text-sm lg:text-xl">SL Protocol success factor 2</h2>
-          <h3 className=" lg:text-4xl text-2xl font-bold text-center">
-          Easy to asquire medical data initially
-          </h3>
-        </div>
-        <motion.div
-          ref={ref15} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls15} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-        className="flex flex-col  justify-center items-center w-full gap-8 lg:mb-64 mb-8">
-          <div className="">
-                    <img src={SuccessFactor3} className="hidden lg:block" />
-                    <img src={SuccessFactor3mobile} className=" lg:hidden" />
-          </div>
-          <div className="grid lg:grid-cols-2 lg:gap-40 gap-8">
-            <div className=" space-y-4">
-               <p className="  text-xl lg:text-3xl font-medium mb-1">
-               Secure initial hospital networks
-              </p>
-              <p>Utilize DIGIRAY’S network</p>
-              <div className="">
-                {" "}
-             
-                <p className=" pl-2">
-                  • Entering hospitals through partnerships with 31 global    <br className="hidden lg:block" /> medical institution
-                </p>
-                <p className=" pl-2">
-                  • Partnering with nearly 100 hospitals worldwide in the   <br className="hidden lg:block" /> initial phase
-                </p>
-                <p className=" pl-2">
-                  • Upgrading deployed CR scanners to automatically   <br className="hidden lg:block" /> upload storage(8% global market share)
-                </p>
-                <p className=" pl-2">
-                  • Making use of compensation system (Reward for   <br className="hidden lg:block" /> medical institution sales, user recommendation referral)
-                </p>
-              </div>
-            </div>
-            <div className=" space-y-4">
-               <p className="  text-xl lg:text-3xl font-medium mb-1">
-               Raise funds for AI medical devices via <br className="hidden lg:block" />  SL DeFi
-              </p>
-  
-              <div className="">
-                {" "}
-             
-                <p className=" pl-2">
-                  • A certain amount of SL coins deposited for CR scanner  <br className="hidden lg:block" /> and DR production and distribution
-                </p>
-                <p className=" pl-2">
-                  • Providing rewards in SL coins to depositors based on   <br className="hidden lg:block" />data uploads (5% annual interest for depositors +  <br className="hidden lg:block" /> scanner operation profits)
-                </p>
-          
-              </div>
-            </div>
-         
-         </div>
-
-  
-        </motion.div>
-      </section>
-
-            
-      {/**SL Protocol success factor3 */}
-      <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center  lg:text-xl sm:text-lg text-sm   lg:mx-16 "
-        id="success-factor1"
-      >
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="  text-sm lg:text-xl">SL Protocol success factor 3</h2>
-          <h3 className=" lg:text-4xl text-2xl font-bold text-center">
+        <h1 className="text-3xl lg:text-5xl font-bold text-center mb-8">
           ICP Utilization in SL Project
-          </h3>
-        </div>
+        </h1>
         <motion.div
           ref={ref16} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'
           animate={controls16} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
-        className="flex flex-col  justify-center items-center w-full gap-8 lg:mb-64 mb-8">
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="flex flex-col lg:flex-row lg:gap-8 gap-4 items-center lg:items-start">
-                    <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center">
-                      <img src={BoxIcon} className=" w-14 h-14" />
-                    </div>
-                    <div className=" space-y-4">
-                    <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
-               Storage of De-identified DICOM<br className="hidden lg:block" /> Metadata and Hash Values
-              </p>
-  
-              <div className="">
-                {" "}
-             
-                <p className=" pl-2">
-                  • <b>Security and Transparency</b> : Store de-identified DICOM metadata and hash values on the ICP to ensure data integrity and traceability.
-                </p>
-                <p className=" pl-2">
-                  • <b>Data Management</b> : Efficiently classify and search medical data through metadata management.
-                </p>
-          
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:flex-row lg:gap-8 gap-4 items-center lg:items-start">
-                    <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center">
-                      <img src={TransactionIcon} className=" w-14 h-14" />
-                    </div>
-                    <div className=" space-y-4">
-                    <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
-               Token Treasury and Data<br className="hidden lg:block" /> Transactions
-              </p>
-  
-              <div className="">
-                {" "}
-             
-                <p className=" pl-2">
-                  • <b>Reward System</b> : Provide rewards to patients, hospitals, and SL protocol contributors.
-                </p>
-                <p className=" pl-2">
-                  • <b>AI Analysis Service Payments</b> : Manage AIanalysis requests and payments, track coinusage and burn fees.
-                </p>
-                <p className=" pl-2">
-                  • <b>Transaction Transparency</b> : Record transactions of data buyers purchasing data, ensuring data value assessment and reliability.
-                </p>
-          
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:flex-row lg:gap-8 gap-4 items-center lg:items-start">
-                    <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center">
-                      <img src={DefiIcon} className=" w-14 h-14" />
-                    </div>
-                    <div className=" space-y-4">
-               <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
-               Governance & SL DeFi
-              </p>
-  
-              <div className="">
-                {" "}
-             
-                <p className=" pl-2">
-                  • <b>Voting System</b> : Record users' staking and<br className="hidden lg:block" /> voting transactions on the ICP to ensure transparency and reliability of voting results.
-                </p>
-                <p className=" pl-2">
-                  • <b>SL DeFi</b> : DeFi depositors can stake SL tokens or USDC to select equipment and receive a portion of the tokens generated by the equipment.
-                </p>
-                <p className=" pl-2">
-                  • <b>Reward Distribution</b> : Record transactions for distributing an annual reward of 5% to DeFi participants
-                </p>
-          
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center">
-            <img src={NewICP} className=" lg:h-[350px] md:h-[240px] self-center" />
-          </div>
-        </div>
-  
-        </motion.div>
-      </section>
-
-      {/**SL Protocol success factor4 */}
-      <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center  lg:text-xl sm:text-lg text-sm   lg:mx-16 "
-        id="success-factor1"
-      >
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="  text-sm lg:text-xl">SL Protocol success factor 4</h2>
-          <h3 className=" lg:text-4xl text-2xl font-bold text-center">
-          Collaboration with DB purchasing instituions <br className=" hidden lg:block" />
-          & initial implementation of AI at a commercial level
-          </h3>
-        </div>
-        <motion.div
-          ref={ref17} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls17} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
+          className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
         >
-          <img src={SuccessFactor4} alt="protocolImage" className=" lg:w-4/5" />
+          <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
+            <div className="flex flex-col  lg:gap-8 gap-4 items-center lg:items-start ">
+              <div className="flex  min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center">
+                <img src={BoxIcon} className=" w-14 h-14" />
+              </div>
+              <div className=" space-y-4">
+                <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
+                  Storage of De-identified DICOM
+                  <br className="hidden lg:block" /> Metadata and Hash Values
+                </p>
+
+                <div className="w-full">
+                  {" "}
+                  <p className=" pl-2">
+                    • <b>Security and Transparency</b> : Store de-identified
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>DICOM metadata and hash
+                    values on the ICP
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>to ensure data integrity
+                    and traceability.
+                  </p>
+                  <p className=" pl-2">
+                    • <b>Data Management</b> : Efficiently classify and
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>search medical data
+                    through metadata
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>management.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </motion.div>
+        <motion.div
+          ref={ref7} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls7} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
+        >
+          <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
+          
+            <div className="flex flex-col lg:gap-8 gap-4 items-center lg:items-end">
+              <div className=" flex flex-col gap-8 items-center lg:items-start">
+              <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center ">
+                <img src={DefiIcon} className=" w-14 h-14" />
+              </div>
+              <div className=" space-y-4">
+                <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
+                  Token Treasury and Data
+                  <br className="hidden lg:block" /> Transactions
+                </p>
+
+                <div className="">
+                  {" "}
+                  <p className=" pl-2">
+                    • <b>Reward System</b> : Provide rewards to patients,
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> hospitals, and SL
+                    protocol contributors.
+                  </p>
+                  <p className=" pl-2">
+                    • <b>AI Analysis Service Payments</b> : Manage AI{" "}
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>
+                    analysis requests and payments, track coin{" "}
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>
+                    usage and burn fees.
+                  </p>
+                  <p className=" pl-2">
+                    • <b>Transaction Transparency</b> : Record transactions
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> of data buyers purchasing
+                    data, ensuring data
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> value assessment and
+                    reliability.
+                  </p>
+                </div>
+              </div>
+              </div>
+            </div>
+       
+       
+          </div>
+        </motion.div>
+        <motion.div
+          ref={ref12} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls12} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
+        >
+          <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
+   
+    
+            <div className="flex flex-col  lg:gap-8 gap-4 items-center lg:items-start  ">
+              <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center">
+                <img src={TransactionIcon} className=" w-14 h-14" />
+              </div>
+              <div className=" space-y-4">
+                <p className="  text-xl lg:text-3xl font-medium mb-1 text-center lg:text-start">
+                  Governance & SL DeFi
+                </p>
+
+                <div className="">
+                  {" "}
+                  <p className=" pl-2">
+                    • <b>Voting System</b> : Record users' staking and
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> voting transactions on
+                    the ICP to ensure
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> transparency and
+                    reliability of voting results.
+                  </p>
+                  <p className=" pl-2">
+                    • <b>SL DeFi</b> : DeFi depositors can stake SL tokens
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> or USDC to select
+                    equipment and receive a<br className="hidden lg:block" />{" "}
+                    portion of the tokens generated by the
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span> equipment.
+                  </p>
+                  <p className=" pl-2">
+                    • <b>Reward Distribution</b> : Record transactions for
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>distributing an annual
+                    reward of 5% to DeFi
+                    <br className="hidden lg:block" /> <span className="lg:pl-3"></span>participants
+                  </p>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        </motion.div>
+        <motion.div
+          ref={ref15} // 감지할 요소의 참조 연결
+          initial="hidden" // 초기 상태는 'hidden'
+          animate={controls15} // 애니메이션 컨트롤
+          variants={variants} // 위에서 정의한 variants 사용
+          className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
+        >
+          <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
+  
+            <div className="flex items-center justify-center lg:justify-end">
+              <img
+                src={NewICP}
+                className=" lg:h-[350px] md:h-[240px] self-center"
+              />
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -676,33 +614,10 @@ function Home() {
         </motion.div>
       </section>
 
-      {/**Save the Life DeFi Overview */}
-      <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-16  items-center"
-        id="SavetheLifeDeFiOverview"
-      >
-        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
-          Save the Life DeFi Overview
-        </h1>
-        <motion.div
-          ref={ref12} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls12} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-          className="flex justify-center items-center w-full" // Tailwind CSS 클래스 사용
-        >
-          <img
-            src={saveTheLifeDeFiOverviewImage}
-            alt="saveTheLifeDeFiOverviewImage"
-            className=" lg:w-5/6"
-          />
-        </motion.div>
-      </section>
-
       {/**Save the Life DeFi User Case */}
       <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center lg:mx-16  items-center"
-        id="SavetheLifeDeFiUserCase"
+        id="DeFiUserCase"
       >
         <h1 className=" lg:text-5xl font-bold text-3xl text-center">
           Save the Life DeFi <br className=" lg:hidden" /> User Case
@@ -734,45 +649,6 @@ function Home() {
             <source src={defiExample} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </motion.div>
-      </section>
-
-      {/** SL App User Case */}
-      <section
-        className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center lg:mx-16  items-center"
-        id="SLAppUserCase"
-      >
-        <h1 className=" lg:text-5xl font-bold text-3xl text-center">
-          SL APP User Case
-        </h1>
-        <motion.div
-          ref={ref7} // 감지할 요소의 참조 연결
-          initial="hidden" // 초기 상태는 'hidden'
-          animate={controls7} // 애니메이션 컨트롤
-          variants={variants} // 위에서 정의한 variants 사용
-          className="flex flex-col lg:gap-8 gap-6  w-full" // Tailwind CSS 클래스 사용
-        >
-          <div className=" lg:space-y-8 space-y-4  lg:mx-36">
-            <h2 className=" lg:text-3xl sm:text-2xl font-semibold">
-              Still using a CD-ROM for medical data?
-              <br />
-              Use the SL App!{" "}
-            </h2>
-            <p className=" lg:text-lg text-sm sm:text-base pr-4">
-              Download your data, upload it to the app and get quick, accurate
-              AI second opinions.
-              <br />
-              Access and manage your medical information securely anytime,
-              anywhere.
-              <br />
-              Experience our free, innovative medical AI service.
-            </p>
-          </div>
-          <img
-            src={SLAppUserCaseImage}
-            alt="SLAppUserCaseImage"
-            className="lg:w-4/5 self-center"
-          />
         </motion.div>
       </section>
 
@@ -918,12 +794,13 @@ function Home() {
         </div>
       </section>
 
-
-      {/**save the life */}
-      <section className="py-16 lg:py-24 gap-8 flex flex-col items-center justify-center mx-2 lg:mx-20">
-      <h1 className=" lg:text-5xl text-3xl font-bold text-center lg:mb-4">
-      By SL Foundation Operator Digiray
+      {/**  SL Protocol Operator Digiray */}
+      <section  id="Certificate&Patent" className="py-16 lg:py-24 gap-8 flex flex-col items-center justify-center mx-2 lg:mx-20">
+        <h1 className=" lg:text-5xl text-3xl font-bold text-center lg:mb-4">
+          SL Protocol Operator Digiray
         </h1>
+        <button className=" border-2 rounded-xl flex items-center lg:mb-4 justify-center w-60 md:h-[78px] h-12 font-semibold">
+         <a href="https://www.digiray.co.kr/"> Visit Digiray Homepage </a></button>
         <div className="grid xl:grid-cols-2 gap-4 w-full cursor-pointer">
           <a href="/BusinessCertification">
             <motion.div
@@ -1071,39 +948,53 @@ function Home() {
       </section>
 
       {/**dental ai */}
-      <section className="py-16 flex flex-col gap-14 justify-center items-center  ">
-        <div className="grid lg:grid-cols-2 gap-8">
+      <section id="MedicalAISolution" className="py-16 flex flex-col gap-14 justify-center items-center  ">
+        <div className="grid  gap-8">
           <div className="lg:text-xl sm:text-lg text-sm flex flex-col justify-center gap-8 xl:pl-4">
-            <h1 className="lg:text-5xl text-3xl"> Medical AI Solution</h1>
-            <div>
+          <h1 className=" lg:text-5xl text-3xl font-bold text-center lg:mb-4">
+         Medical AI Solution
+        </h1>
+            <div className=" flex flex-col  lg:px-64">
               <p>
                 On-Chain collects, interprets, and supplies medical imaging
-                <br className={"hidden lg:block"} />
-                data to advance medical imaging diagnostic technology and
-                <br className={"hidden lg:block"} />
+             
+                data to advance medical imaging diagnostic <br className="hidden lg:block"/> technology and
+               
                 provides Medical AI second opinions at a cost close to free.
               </p>
             </div>
-            <div>
+            <div className=" flex flex-col  lg:px-64">
               <p>
                 We have achieved a high diagnostic accuracy with impressive
-                <br className={"hidden lg:block"} />
-                AUROC (0.985) and JAFROC FOM (0.943) scores.{" "}
-                <br className={"hidden lg:block"} />
+              
+                AUROC (0.985) and JAFROC FOM <br className="hidden lg:block"/> (0.943) scores.{" "}
+              
                 Furthermore, our AI solution has obtained both CE{" "}
-                <br className={"hidden lg:block"} />
+           
                 certification and FDA approval.
               </p>
             </div>
           </div>
-          <div>
+
+          <div className="flex flex-col lg:flex-row gap-8">
+          <video
+              controls
+              autoPlay
+              loop
+              playsInline
+              muted
+              className=" rounded-xl lg:w-[680px] "
+            >
+              <source src={CRXVedio} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <video
               controls
               autoPlay
               loop
               playsInline
               muted
-              className=" rounded-xl lg:h-96 "
+              className=" rounded-xl lg:w-[680px] "
             >
               <source src={dentalVedio} type="video/mp4" />
               Your browser does not support the video tag.

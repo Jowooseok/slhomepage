@@ -11,6 +11,7 @@ import TokenBurning from "./pages/TokenBurning";
 import MedicalAndAIAdvancement from "./pages/MedicalAndAIAdvancement";
 import { Reset } from "styled-reset";
 import DeFiDashboard from "./pages/DeFiDashboard";
+import "./index.css";
 
 
 function App() {
