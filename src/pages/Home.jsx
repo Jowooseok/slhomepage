@@ -410,7 +410,7 @@ function Home() {
                   onClick={() => {
                     alert("The launch is coming soon.");
                   }}
-                  className="flex flex-row items-center gap-2  rounded-lg justify-center border-2 border-[#e5e5e5] w-[240px] h-[44px] md:w-[180px] md:h-[60px] lg:w-[241px] lg:h-[78px] text-white lg:text-lg font-semibold"
+                  className="flex flex-row items-center gap-2  rounded-lg justify-center border-2 border-[#e5e5e5] w-[130px] px-2  h-[44px] md:w-[180px] md:h-[60px] lg:w-[241px] lg:h-[78px] text-white lg:text-lg font-semibold"
                 >
                   <img
                     src={TelegramLogo}
@@ -825,11 +825,12 @@ function Home() {
                     Certificate
                   </span>
                 </p>
-                <p className=" text-sm lg:text-base">
+                <p className=" text-sm lg:text-base mb-2">
                   Domestic Certification 17 (For Animal, For Human), Overseas
                   Certification 21(USA FCC, FDA, Europe, Japan, China,
-                  Austrailla etc.) <br />
+                  Austrailla etc.)
                 </p>
+                <br/>
               </div>
               <MdArrowForwardIos className=" w-16 h-16 hidden lg:block " />
               <MdArrowForwardIos className=" w-6 h-6  rotate-90 lg:hidden " />
