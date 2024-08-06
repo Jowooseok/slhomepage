@@ -483,10 +483,14 @@ function Home() {
           variants={variants} // 위에서 정의한 variants 사용
           className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
         >
-          <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
-          
-            <div className="flex flex-col lg:gap-8 gap-4 items-center lg:items-end">
-              <div className=" flex flex-col gap-8 items-center lg:items-start">
+          <div className="grid lg:grid-cols-2 lg:flex lg:flex-col gap-12 w-full md:px-16 ">
+      
+            <div className="flex  flex-col lg:flex-row lg:gap-8 gap-4 items-center  justify-center">
+            <img
+                src={NewICP}
+                className=" lg:w-[400px] md:w-[300px] hidden lg:block  lg:col-span-1"
+              />
+              <div className="  flex flex-col gap-8 items-center lg:items-start">
               <div className="flex min-w-[130px] h-[130px] rounded-full bg-[#637493] bg-opacity-65 items-center justify-center ">
                 <img src={DefiIcon} className=" w-14 h-14" />
               </div>
@@ -577,7 +581,7 @@ function Home() {
           initial="hidden" // 초기 상태는 'hidden'
           animate={controls15} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
-          className="flex flex-col  justify-center items-center w-full gap-8  mb-8"
+          className="lg:hidden flex flex-col  justify-center items-center w-full gap-8  mb-8"
         >
           <div className="grid lg:flex lg:flex-col gap-12 w-full md:px-16 ">
   
