@@ -981,14 +981,14 @@ function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
           <video
               controls
               autoPlay
               loop
               playsInline
               muted
-              className=" rounded-xl lg:w-[680px] "
+              className=" rounded-xl 2xl:w-[680px] lg:w-[520px] "
             >
               <source src={CRXVedio} type="video/mp4" />
               Your browser does not support the video tag.
@@ -999,7 +999,7 @@ function Home() {
               loop
               playsInline
               muted
-              className=" rounded-xl lg:w-[680px] "
+              className=" rounded-xl 2xl:w-[680px]  lg:w-[520px] "
             >
               <source src={dentalVedio} type="video/mp4" />
               Your browser does not support the video tag.
@@ -1010,7 +1010,7 @@ function Home() {
       </section>
 
       <section
-        className="xl:py-16 py-8 full-width-marquee xl:space-y-12 space-y-4"
+        className="xl:py-16 lg:my-32 py-8 full-width-marquee xl:space-y-12 space-y-4"
         style={{
           background:
             "linear-gradient(to right, rgba(61, 16, 186, 0.8), rgba(69, 134, 190, 0.8))",
