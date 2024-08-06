@@ -382,7 +382,7 @@ function Home() {
             <div className="flex flex-col gap-4">
               <img
                 src={SuccessFactor1}
-                className=" rounded-2xl md:max-w-[865px] md:px-16 lg:px-0 "
+                className=" rounded-2xl md:max-w-[865px] xl:max-w-[660px] md:px-16 lg:px-0 "
               />
             </div>
           </div>
@@ -403,7 +403,7 @@ function Home() {
             <p>Healthcare Medical Data Collection Solution DApp</p>
           </div>
 
-          <div className="flex flex-col-reverse lg:flex-row-reverse justify-center items-center w-full gap-8 lg:mb-64 mb-8">
+          <div className="flex flex-col-reverse lg:flex-row justify-center items-center w-full gap-8 lg:mb-64 mb-8">
             <div className="flex flex-col gap-4 lg:gap-10">
               <div className="flex flex-row items-center gap-3">
                 <button
