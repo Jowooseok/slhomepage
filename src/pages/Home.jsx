@@ -216,13 +216,13 @@ function Home() {
 
   return (
     <div className="font-helvetica" id="home">
-      <section className="lg:pt-10 lg:pb-16 py-8 flex flex-col lg:flex-row lg:gap-14  justify-center lg:items-center mx-2 ">
+      <section className="lg:pt-10 lg:pb-16 py-8 flex flex-col lg:flex-row lg:gap-24  justify-center lg:items-center mx-2 ">
         <div className=" flex flex-col flex-grow-0 gap-6 lg:gap-[30px] font-medium">
           <div className=" 2xl:mb-5">
             <p className=" text-lg  sm:text-3xl 2xl:text-3xl mb-2">
               Onchain Project
             </p>
-            <p className=" text-2xl sm:text-4xl  font-semibold ">
+            <p className=" text-2xl sm:text-5xl  font-semibold ">
               Your Data Saves Lives,
               <br />
               Lets Make a<br />
@@ -242,11 +242,11 @@ function Home() {
               anyone can use and Save Lives.
             </p>
           </div>
-          <div className="flex flex-row gap-8 items-center text-sm sm:text-xl">
+          <div className="flex flex-row gap-8 items-center text-sm sm:text-lg">
             <p>Powerd By</p>
-            <img src={icpLogo} className=" h-6 sm:h-8" alt="icpLogo" />
+            <img src={icpLogo} className=" h-6 " alt="icpLogo" />
           </div>
-          <div className="flex flex-col text-sm sm:text-xl gap-4 mt-8 lg:mt-16">
+          <div className="flex flex-col text-sm sm:text-xl gap-4 mt-8 lg:mt-20">
             <p>Subscribe for update</p>
             <form
               onSubmit={handleSubmit}
@@ -269,7 +269,7 @@ function Home() {
           <img
             src={AIhealthImage}
             alt="ai-health-image"
-            className="  2xl:block  md:block lg:blcok 2xl:h-[650px] xl:h-[550px] lg:h-[500px]  my-6 rounded-xl "
+            className="  2xl:block  md:block lg:blcok 2xl:h-[750px] xl:h-[600px] lg:h-[550px]  my-6 rounded-xl "
           />
         </div>
       </section>
