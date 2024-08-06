@@ -403,7 +403,7 @@ function Home() {
             <p>Healthcare Medical Data Collection Solution DApp</p>
           </div>
 
-          <div className="flex flex-col-reverse lg:flex-row justify-center items-center w-full gap-8 lg:mb-36 mb-8">
+          <div className="flex flex-col-reverse lg:flex-row justify-center items-center w-full gap-8  mb-8">
             <div className="flex flex-col gap-4 lg:gap-10">
               <div className="flex flex-row items-center gap-3">
                 <button
