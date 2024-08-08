@@ -376,7 +376,7 @@ function Home() {
                   />
                   ICP On-chain
                 </button>
-                <p className="font-bold">Launch planned for Q4 2024.</p>
+                <p className="font-bold">Launch planned for Q2 2025.</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
