@@ -382,7 +382,7 @@ function Home() {
             <div className="flex flex-col gap-4">
               <img
                 src={SuccessFactor1}
-                className=" rounded-2xl md:max-w-[865px] xl:max-w-[660px] md:px-16 lg:px-0 "
+                className=" rounded-2xl md:max-w-[865px] xl:max-w-[660px] 2xl:max-w-[850px] md:px-16 lg:px-0 "
               />
             </div>
           </div>
