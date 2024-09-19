@@ -623,7 +623,7 @@ function Home() {
         </motion.div>
       </section>
 
-      {/**Save the Life DeFi User Case */}
+      {/* *Save the Life DeFi User Case
       <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center lg:mx-16  items-center"
         id="DeFiUserCase"
@@ -659,7 +659,7 @@ function Home() {
             Your browser does not support the video tag.
           </video>
         </motion.div>
-      </section>
+      </section> */}
 
       {/** Data Buyer Case */}
       <section
