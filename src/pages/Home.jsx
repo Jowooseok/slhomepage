@@ -430,7 +430,7 @@ function Home() {
       </section>
 
       {/**ICP Utilization in SL Project  */}
-      <section
+      {/* <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center items-center  lg:text-xl sm:text-lg text-sm   lg:mx-16 "
         id="Blockchain"
       >
@@ -595,7 +595,7 @@ function Home() {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
 
       {/**token Economy */}
       <section
@@ -662,7 +662,7 @@ function Home() {
       </section> */}
 
       {/** Data Buyer Case */}
-      <section
+      {/* <section
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-24  items-center"
         id="DataBuyerCase"
       >
@@ -801,7 +801,7 @@ function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/**  SL Protocol Operator Digiray */}
       <section  id="Certificate&Patent" className="py-16 lg:py-24 gap-8 flex flex-col items-center justify-center mx-2 lg:mx-20">
