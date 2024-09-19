@@ -602,9 +602,12 @@ function Home() {
         className="lg:py-24 py-16 gap-8 flex flex-col lg:gap-20 justify-center  lg:mx-16  items-center"
         id="TokenEconomy"
       >
+        <div className="flex flex-col items-center">
         <h1 className=" lg:text-5xl font-bold text-3xl text-center">
           Token Economy
         </h1>
+        <p className="lg:text-xl text-lg">(In case of token issuance)</p>
+        </div>
         <motion.div
           ref={ref6} // 감지할 요소의 참조 연결
           initial="hidden" // 초기 상태는 'hidden'
