@@ -419,7 +419,7 @@ function Home() {
                   />
                   Telegram mini app
                 </button>
-                <p className=" font-bold">Launch planned for Q3 2024.</p>
+                <p className=" font-bold">Launch planned for Q4 2024.</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
