@@ -37,7 +37,7 @@ function Navbar() {
       "User Solution",
       "Blockchain",
       "Token Economy",
-      "DeFi User Case",
+      // "DeFi User Case",
       "Data Buyer Case",
     ],
     "Technology": ["Certificate & Patent", "Medical AI Solution"],
@@ -299,14 +299,14 @@ function Navbar() {
                 >
                   Token Economy
                 </div>
-                <div
+                {/* <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
                     handleNavigationMobile("DeFiUserCase");
                   }}
                 >
                  DeFi User Case
-                </div>
+                </div> */}
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
                   onClick={() => {
