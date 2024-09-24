@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import keyFeaturesPC from "../assets/keyFeaturesPC.png";
-import benefitsPC from "../assets/benefitsPC.png";
-import byDisease from "../assets/byDisease.png";
-import byResearchSubject from "../assets/byResearchSubject.png";
-import byRace from "../assets/byRace.png";
-import byGender from "../assets/byGender.png";
-import benefitsMobile from "../assets/benefitsMobile.png";
+import Images from "../assets/Images";
 
 const MedicalAndAIAdvancement = () => {
   // 애니메이션 제어용
@@ -90,12 +84,12 @@ const MedicalAndAIAdvancement = () => {
             variants={variants} // 위에서 정의한 variants 사용
             className=" w-full"
           >
-            <img src={keyFeaturesPC} alt="keyFeaturesPC" className="w-full hidden sm:block" />
+            <img src={Images.keyFeaturesPC} alt="keyFeaturesPC" className="w-full hidden sm:block" />
             <div className="sm:hidden flex flex-col gap-4">
-              <img src={byDisease} alt="byDisease" className="w-full" />
-              <img src={byResearchSubject} alt="byResearchSubject" className="w-full" />
-              <img src={byRace} alt="byRace" className="w-full" />
-              <img src={byGender} alt="byGender" className="w-full" />
+              <img src={Images.byDisease} alt="byDisease" className="w-full" />
+              <img src={Images.byResearchSubject} alt="byResearchSubject" className="w-full" />
+              <img src={Images.byRace} alt="byRace" className="w-full" />
+              <img src={Images.byGender} alt="byGender" className="w-full" />
 
             </div>
           </motion.div>
@@ -109,8 +103,8 @@ const MedicalAndAIAdvancement = () => {
             variants={variants} // 위에서 정의한 variants 사용
             className=" w-full"
           >
-            <img src={benefitsPC} alt="benefitsPC" className="w-full hidden sm:block" />
-            <img src={benefitsMobile} alt="benefitsMobile" className="w-full sm:hidden" />
+            <img src={Images.benefitsPC} alt="benefitsPC" className="w-full hidden sm:block" />
+            <img src={Images.benefitsMobile} alt="benefitsMobile" className="w-full sm:hidden" />
           </motion.div>
         </div>
         <div className=" grid w-full">

@@ -1,9 +1,7 @@
 import React, {useEffect} from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import PCImage from "../assets/patentPagePC.png";
-import mobileDomesticImage from "../assets/patentPageMobileDomestic.png";
-import mobileOverseasImage from "../assets/patentPageMobileOverseas.png";
+import Images from "../assets/Images";
 
 const Patent = () => {
     
@@ -49,16 +47,16 @@ const Patent = () => {
           variants={variants} // 위에서 정의한 variants 사용
         >
         <div className="hidden lg:block">
-          <img src={PCImage} alt="PCImage"  />
+          <img src={Images.PCImage} alt="PCImage"  />
         </div>
         <div className=" grid gap-4 lg:hidden">
           <img
-            src={mobileDomesticImage}
+            src={Images.mobileDomesticImage}
             alt="mobileDomesticImage"
             className=" rounded"
           />
           <img
-            src={mobileOverseasImage}
+            src={Images.mobileOverseasImage}
             alt="mobileOverseasImage"
             className=" rounded"
           />

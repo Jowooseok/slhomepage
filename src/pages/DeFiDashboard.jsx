@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Chart as ChartJS, registerables } from 'chart.js';

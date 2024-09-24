@@ -1,9 +1,5 @@
-import React,{useEffect} from "react";
-import aiTechnologyInfo from "../assets/aiTechnologyInfo.png";
-import fireCRDentalReader from "../assets/fireCRDentalReader.png";
-import fireCRFlashMedicalReader from "../assets/fireCRFlashMedicalReader.png";
-import DentalClientCompany from "../assets/DomesticCertification.png";
-import OverseasCertification from "../assets/OverseasCertification.png";
+import {useEffect} from "react";
+import Images from "../assets/Images";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 const BusinessCertification = () => {
@@ -59,7 +55,7 @@ const BusinessCertification = () => {
           animate={controls} // 애니메이션 컨트롤
           variants={variants} // 위에서 정의한 variants 사용
         >
-        <img src={aiTechnologyInfo} alt="aiTechnologyInfo" className="" />
+        <img src={Images.aiTechnologyInfo} alt="aiTechnologyInfo" className="" />
         </motion.div>
       </section>
       <section className=" flex flex-col gap-8 items-center py-8 lg:mx-8">
@@ -74,8 +70,8 @@ const BusinessCertification = () => {
         >
         <div className=" grid sm:grid-cols-2 gap-4" >
     
-          <img src={fireCRDentalReader} alt="fireCRDentalReader"  />
-          <img src={fireCRFlashMedicalReader} alt="fireCRFlashMedicalReader" />
+          <img src={Images.fireCRDentalReader} alt="fireCRDentalReader"  />
+          <img src={Images.fireCRFlashMedicalReader} alt="fireCRFlashMedicalReader" />
      
         </div>
         </motion.div>
@@ -92,8 +88,8 @@ const BusinessCertification = () => {
         >
         <div className=" grid sm:grid-cols-2 gap-4" >
     
-          <img src={DentalClientCompany} alt="DentalClientCompany"  />
-          <img src={OverseasCertification} alt="OverseasCertification" />
+          <img src={Images.DentalClientCompany} alt="DentalClientCompany"  />
+          <img src={Images.OverseasCertification} alt="OverseasCertification" />
          
         </div>
         </motion.div>

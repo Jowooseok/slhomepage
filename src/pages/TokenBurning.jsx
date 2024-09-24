@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import tokenBurningPage2 from "../assets/tokenBurningPage2.png";
-import tokenBurningPage3 from "../assets/tokenBurningPage3.png";
-import tokenBurningPageTestMobile from "../assets/tokenBurningPageTestMobile.png";
-import tokenBurningPageTest from "../assets/tokenBurningPageTest.png";
+import Images from "../assets/Images";
 
 const TokenBurning = () => {
   // 애니메이션 제어용
@@ -49,12 +46,12 @@ const TokenBurning = () => {
           </h1>
       
           <img
-            src={tokenBurningPageTest}
+            src={Images.tokenBurningPageTest}
             alt="tokenBurningPage1"
             className=" lg:w-5/6 hidden sm:block"
           />
           <img
-            src={tokenBurningPageTestMobile}
+            src={Images.tokenBurningPageTestMobile}
             alt="tokenBurningPage1Mobile"
             className=" sm:hidden"
           />
@@ -73,7 +70,7 @@ const TokenBurning = () => {
             animate={controls1} // 애니메이션 컨트롤
             variants={variants} // 위에서 정의한 variants 사용
           >
-            <img src={tokenBurningPage2} alt="tokenBurningPage2" />
+            <img src={Images.tokenBurningPage2} alt="tokenBurningPage2" />
           </motion.div>
           <motion.div
             ref={ref2} // 감지할 요소의 참조 연결
@@ -81,7 +78,7 @@ const TokenBurning = () => {
             animate={controls2} // 애니메이션 컨트롤
             variants={variants} // 위에서 정의한 variants 사용
           >
-            <img src={tokenBurningPage3} alt="tokenBurningPage3" />
+            <img src={Images.tokenBurningPage3} alt="tokenBurningPage3" />
           </motion.div>
         </div>
       </section>

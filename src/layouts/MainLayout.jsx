@@ -1,8 +1,6 @@
 // src/layouts/MainLayout.jsx
-import React from "react";
 import Navbar from "../components/Navbar";
-import backgroundImage from "../assets/background.png";
-import footerLogoImage from "../assets/footerLogoImage.png";
+import Images from "../assets/Images";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
 
 function MainLayout({ children }) {
@@ -10,7 +8,7 @@ function MainLayout({ children }) {
     <div
       id="root"
       className="flex flex-col min-h-screen mx-auto tracking-tight leading-5 text-white font-medium"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={{ backgroundImage: `url(${Images.backgroundImage})` }}
     >
       <Navbar />
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">{children}</main>
@@ -19,7 +17,7 @@ function MainLayout({ children }) {
         style={{ backgroundColor: "#0147E5" }}
       >
         <div className="w-full sm:w-5/12 sm:flex items-center justify-center py-4 sm:py-0 hidden">
-          <img src={footerLogoImage} alt="footerLogoImage" className="w-4/5  max-w-md" />
+          <img src={Images.footerLogoImage} alt="footerLogoImage" className="w-4/5  max-w-md" />
         </div>
         <div className="w-full sm:w-0.5 h-auto bg-white my-4 sm:my-0 ">{""}</div> 
         <div className="flex flex-col w-full sm:w-5/12 text-center sm:text-left text-white gap-6">

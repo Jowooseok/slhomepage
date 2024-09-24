@@ -1,14 +1,13 @@
 // src/components/Navbar/index.jsx
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Headroom from "react-headroom";
-import Logo from "../../assets/logo.png";
-import MobileLogo from "../../assets/logo_mobile.png";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
 import { animateScroll } from "react-scroll";
 import { Drawer } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import Images from "../../assets/Images";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,7 +56,7 @@ function Navbar() {
       <a href="/">
         <img
           className="h-10 object-contain"
-          src={MobileLogo}
+          src={Images.MobileLogo}
           alt="Logo"
           onClick={onClose}
         />
@@ -166,7 +165,7 @@ function Navbar() {
             <div className="flex items-center space-x-24">
               <img
                 className="h-10 xl:h-16 object-contain cursor-pointer"
-                src={Logo}
+                src={Images.Logo}
                 alt="Logo"
                 onClick={() => {
                   const element = document.getElementById("home");

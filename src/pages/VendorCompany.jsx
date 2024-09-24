@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import medicalClientCompany from "../assets/medicalClientCompany.png";
-import dentalClientCompany from "../assets/dentalClientCompany.png"; 
+import Images from "../assets/Images";
 
 const VendorCompany = () => {
     // 애니메이션 제어용
@@ -46,8 +45,8 @@ const VendorCompany = () => {
           variants={variants} // 위에서 정의한 variants 사용
         >
         <div className=" grid lg:grid-cols-2 gap-4">
-          <img src={medicalClientCompany} alt="medicalClientCompany"  />
-          <img src={dentalClientCompany} alt="dentalClientCompany"  />
+          <img src={Images.medicalClientCompany} alt="medicalClientCompany"  />
+          <img src={Images.dentalClientCompany} alt="dentalClientCompany"  />
         </div>
         </motion.div>
       </section>
