@@ -1,6 +1,5 @@
 // src/components/Navbar/index.jsx
 import { useState, useEffect } from "react";
-import Headroom from "react-headroom";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
 import { animateScroll } from "react-scroll";
@@ -52,10 +51,10 @@ function Navbar() {
   };
 
   const menuTitle = () => (
-    <div className="flex flex-row justify-between items-center h-14">
+    <div className="flex flex-row justify-between items-center max-h-16 py-1">
       <a href="/">
         <img
-          className="h-10 object-contain"
+          className="h-6 object-contain"
           src={Images.DigirayLogo}
           alt="Logo"
           onClick={onClose}
@@ -80,7 +79,7 @@ function Navbar() {
   );
 
   const socialLinks = (
-    <div className="flex flex-row justify-around gap-6 my-4 text-white text-xl">
+    <div className="flex flex-row justify-around gap-6 my-4 text-xl">
       <a
         href="https://twitter.com/savethelife_SL"
         target="_blank"
@@ -159,13 +158,12 @@ function Navbar() {
     }
   }, [location]);
   return (
-    <Headroom className="bg-[#FFF9F7] text-[#171717]">
-      <nav>
-        <div className=" mx-auto px-4 xl:px-20 ">
-          <div className="flex justify-between items-center py-6">
+      <nav className="bg-[#FFF9F7] text-[#171717] fixed w-full h-16 flex items-center">
+        <div className=" mx-auto px-4 xl:px-20 w-full ">
+          <div className="flex justify-between items-center py-2">
             <div className="flex items-center space-x-24">
               <img
-                className="h-10 xl:h-16 object-contain cursor-pointer"
+                className="h-6 object-contain cursor-pointer"
                 src={Images.DigirayLogo}
                 alt="Logo"
                 onClick={() => {
@@ -178,7 +176,7 @@ function Navbar() {
                 }}
               />
 
-              <div className="hidden xl:flex space-x-28 text-xl cursor-pointer">
+              <div className="hidden xl:flex space-x-28 cursor-pointer">
                 {Object.keys(menuItems).map((menu) => (
                   <div
                     key={menu}
@@ -403,7 +401,6 @@ function Navbar() {
           </Drawer>
         </div>
       </nav>
-    </Headroom>
   );
 }
 

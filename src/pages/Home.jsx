@@ -35,9 +35,9 @@ function Home() {
 
   return (
     <div className="font-helvetica" id="home">
-      <section className="lg:pt-10 lg:pb-16 py-8 flex flex-col lg:flex-row lg:gap-24  justify-center lg:items-center mx-2 ">
-        홈페이지
-      </section>
+      <section className=" ">
+        홈페이지 
+      </section>     
     </div>
   );
 }
