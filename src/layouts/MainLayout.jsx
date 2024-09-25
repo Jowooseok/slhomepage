@@ -1,7 +1,12 @@
 // src/layouts/MainLayout.jsx
 import Navbar from "../components/Navbar";
 import Images from "../assets/Images";
-import { FaTelegramPlane, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import {
+  FaTelegramPlane,
+  FaLinkedinIn,
+  FaGithub,
+  FaTwitter,
+} from "react-icons/fa";
 
 function MainLayout({ children }) {
   return (
@@ -11,8 +16,10 @@ function MainLayout({ children }) {
       style={{ backgroundImage: `url(${Images.backgroundImage})` }}
     >
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">{children}</main>
-      <footer
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
+        {children}
+      </main>
+      {/* <footer
         className="flex flex-col sm:flex-row justify-around items-center sm:items-stretch px-4 sm:px-24 sm:py-8 pb-8"
         style={{ backgroundColor: "#0147E5" }}
       >
@@ -49,7 +56,7 @@ function MainLayout({ children }) {
             </a>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

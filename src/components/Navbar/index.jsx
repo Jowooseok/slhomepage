@@ -1,5 +1,5 @@
 // src/components/Navbar/index.jsx
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Headroom from "react-headroom";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
@@ -39,7 +39,7 @@ function Navbar() {
       // "DeFi User Case",
       "Data Buyer Case",
     ],
-    "Technology": ["Certificate & Patent", "Medical AI Solution"],
+    Technology: ["Certificate & Patent", "Medical AI Solution"],
     "White Paper": ["White Paper", "IR Deck"],
   };
 
@@ -56,7 +56,7 @@ function Navbar() {
       <a href="/">
         <img
           className="h-10 object-contain"
-          src={Images.MobileLogo}
+          src={Images.DigirayLogo}
           alt="Logo"
           onClick={onClose}
         />
@@ -116,13 +116,14 @@ function Navbar() {
     const itemId = item.replace(/\s+/g, "");
     const element = document.getElementById(itemId);
 
-    if(item==="White Paper"){
+    if (item === "White Paper") {
       window.location.href = `https://save-the-life.gitbook.io/save-the-life`;
       return;
     }
 
-    if(item==="IR Deck"){
-      window.location.href = 'https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view';
+    if (item === "IR Deck") {
+      window.location.href =
+        "https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view";
       return;
     }
 
@@ -158,14 +159,14 @@ function Navbar() {
     }
   }, [location]);
   return (
-    <Headroom>
+    <Headroom className="bg-[#FFF9F7] text-[#171717]">
       <nav>
         <div className=" mx-auto px-4 xl:px-20 ">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-24">
               <img
                 className="h-10 xl:h-16 object-contain cursor-pointer"
-                src={Images.Logo}
+                src={Images.DigirayLogo}
                 alt="Logo"
                 onClick={() => {
                   const element = document.getElementById("home");
@@ -181,17 +182,14 @@ function Navbar() {
                 {Object.keys(menuItems).map((menu) => (
                   <div
                     key={menu}
-                    className="relative text-white"
+                    className="relative text-[#171717]"
                     onMouseLeave={handleMouseLeave}
                   >
                     <div
                       className="flex items-center"
                       onMouseEnter={() => handleMouseEnter(menu)}
                     >
-                 
-             
-                        {menu
-                       }
+                      {menu}
 
                       <motion.svg
                         className={`ml-2 w-6 h-6 `}
@@ -217,7 +215,7 @@ function Navbar() {
                           exit="collapsed"
                           variants={variants}
                           transition={{ duration: 0.5 }}
-                          className="absolute left-0 bg-white shadow-lg mt-4 rounded-lg w-60 text-base  "
+                          className="absolute left-0 bg-white shadow-lg mt-4 rounded-lg w-60 text-base "
                           onMouseEnter={() => handleMouseEnter(menu)}
                         >
                           {menuItems[menu].map((item) => (
@@ -242,7 +240,7 @@ function Navbar() {
             <div className="xl:hidden">
               <button
                 onClick={showMenu}
-                className="text-white focus:outline-none"
+                className="text-[#171717] focus:outline-none"
               >
                 <svg
                   className="h-6 w-6"
@@ -280,7 +278,7 @@ function Navbar() {
                     handleNavigationMobile("UserSolution");
                   }}
                 >
-                User Solution
+                  User Solution
                 </div>
                 <div
                   className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
@@ -312,7 +310,7 @@ function Navbar() {
                     handleNavigationMobile("DataBuyerCase");
                   }}
                 >
-                 Data Buyer Case
+                  Data Buyer Case
                 </div>
               </div>
               <div className="flex flex-row items-center gap-2">
@@ -335,31 +333,27 @@ function Navbar() {
                 >
                   Medical AI Solution
                 </div>
-               
-          
               </div>
-        
+
               <div className="flex flex-row items-center gap-2">
                 <p>White paper</p> <FaAngleDown />
               </div>
               <div className="flex flex-col gap-6 font-normal pl-4  ">
                 <a
-               target="_blank"
-               href="https://save-the-life.gitbook.io/save-the-life"
+                  target="_blank"
+                  href="https://save-the-life.gitbook.io/save-the-life"
                   className=" flex flex-row items-center"
-                 
                 >
                   White paper
                 </a>
                 <a
-                 target="_blank"
-                 href="https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view"
-                 
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view"
                 >
                   IR Deck
                 </a>
-                </div>
-             
+              </div>
+
               <div>
                 <div className="flex flex-row items-center gap-2">
                   <p>Community</p> <FaAngleDown />
