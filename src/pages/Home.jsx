@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaPlayCircle } from 'react-icons/fa'; // 재생 아이콘
 import { gsap } from 'gsap'; // GSAP 애니메이션 라이브러리
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; // 스크롤 기반 트리거 플러그인
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; // ScrollTrigger 플러그인
 import Videos from '../assets/Videos'; // 비디오 파일 경로
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'; // Firebase Firestore 함수들
 import { db } from '../firebaseConfig'; // Firebase 설정
@@ -14,6 +14,13 @@ function Home() {
   const videoRef = useRef(null);
   // 오버레이 요소를 참조하기 위한 useRef
   const overlayRef = useRef(null);
+  
+  // 네 개의 요소에 대한 refs
+  const headingRef = useRef(null); // "Let's make a medical AI & save lives" 텍스트
+  const subheadingRef = useRef(null); // "Your data saves lives" 텍스트
+  const formRef = useRef(null); // 구독 폼
+  const buttonRef = useRef(null); // Play Video 버튼
+
   // 이메일 입력값을 관리하기 위한 상태
   const [email, setEmail] = useState('');
 
@@ -21,8 +28,9 @@ function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // 기본 폼 제출 동작 방지
 
-    if (!email) { // 이메일 입력값이 비어있을 경우
-      alert('Please enter your email.');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 간단한 이메일 정규식
+    if (!email || !emailRegex.test(email)) { // 이메일 입력값이 비어있거나 유효하지 않은 경우
+      alert('Please enter a valid email.');
       return;
     }
 
@@ -38,6 +46,7 @@ function Home() {
       );
     } catch (err) {
       console.error('Error adding document: ', err);
+      alert('There was an error subscribing. Please try again later.');
     }
   };
 
@@ -46,27 +55,99 @@ function Home() {
     const overlayElement = overlayRef.current; // 오버레이 요소 참조
 
     if (overlayElement) {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: overlayElement, // 애니메이션의 트리거 요소
-            start: 'top top', // 시작 지점
-            end: '+=300', // 애니메이션이 진행될 스크롤 거리
-            scrub: true, // 스크롤과 애니메이션 동기화
-            pin: true, // 트리거 요소를 고정
-            anticipatePin: 1,
-            markers: true, // 디버깅을 위한 마커 표시 (프로덕션에서는 false로 설정)
-          },
-        })
-        .to(overlayElement, { opacity: 1, duration: 0 }) // 초기 투명도 설정
-        .to(
-          overlayElement,
-          {
-            opacity: 0, // 스크롤에 따라 투명도 감소
-            ease: 'none',
-          },
-          '+=0.5' // 0.5초 후에 애니메이션 시작
-        );
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: overlayElement, // 애니메이션의 트리거 요소
+          start: 'top top', // 시작 지점
+          end: '+=500', // 애니메이션이 진행될 스크롤 거리
+          scrub: true, // 스크롤과 애니메이션 동기화
+          pin: true, // 트리거 요소를 고정
+          anticipatePin: 1,
+          markers: { startColor: "green", endColor: "red" }, // 오버레이 마커 색상 설정
+        },
+      })
+      .to(overlayElement, { opacity: 1, duration: 0 }) // 초기 투명도 설정
+      .to(
+        overlayElement,
+        {
+          opacity: 0, // 스크롤에 따라 투명도 감소
+          ease: 'none',
+        },
+        '+=0.5' // 0.5초 후에 애니메이션 시작
+      );
+    }
+
+    // 각 요소에 개별 ScrollTrigger 마커 및 애니메이션 설정
+    if (headingRef.current) {
+      ScrollTrigger.create({
+        trigger: headingRef.current,
+        start: 'top 80%',
+        end: 'top 60%',
+        markers: { startColor: "blue", endColor: "blue" }, // 동일한 색상으로 설정
+        onEnter: () => console.log('헤딩 1이(가) 뷰포트에 진입했습니다.'),
+        onLeave: () => console.log('헤딩 1이(가) 뷰포트에서 벗어났습니다.'),
+        // 애니메이션 예시: 헤딩이 나타날 때 스크롤과 함께 이동
+        onEnter: () => {
+          gsap.fromTo(headingRef.current, 
+            { opacity: 0, y: -50 }, 
+            { opacity: 1, y: 0, duration: 1 }
+          );
+        },
+      });
+    }
+
+    if (subheadingRef.current) {
+      ScrollTrigger.create({
+        trigger: subheadingRef.current,
+        start: 'top 80%',
+        end: 'top 60%',
+        markers: { startColor: "cyan", endColor: "cyan" }, // 동일한 색상으로 설정
+        onEnter: () => console.log('헤딩 2이(가) 뷰포트에 진입했습니다.'),
+        onLeave: () => console.log('헤딩 2이(가) 뷰포트에서 벗어났습니다.'),
+        // 애니메이션 예시: 서브헤딩이 나타날 때 페이드 인
+        onEnter: () => {
+          gsap.fromTo(subheadingRef.current, 
+            { opacity: 0 }, 
+            { opacity: 1, duration: 1 }
+          );
+        },
+      });
+    }
+
+    if (formRef.current) {
+      ScrollTrigger.create({
+        trigger: formRef.current,
+        start: 'top 80%',
+        end: 'top 60%',
+        markers: { startColor: "magenta", endColor: "magenta" }, // 동일한 색상으로 설정
+        onEnter: () => console.log('구독 폼이(가) 뷰포트에 진입했습니다.'),
+        onLeave: () => console.log('구독 폼이(가) 뷰포트에서 벗어났습니다.'),
+        // 애니메이션 예시: 폼이 나타날 때 슬라이드 업
+        onEnter: () => {
+          gsap.fromTo(formRef.current, 
+            { opacity: 0, y: 50 }, 
+            { opacity: 1, y: 0, duration: 1 }
+          );
+        },
+      });
+    }
+
+    if (buttonRef.current) {
+      ScrollTrigger.create({
+        trigger: buttonRef.current,
+        start: 'top 80%',
+        end: 'top 60%',
+        markers: { startColor: "orange", endColor: "orange" }, // 동일한 색상으로 설정
+        onEnter: () => console.log('Play Video 버튼이(가) 뷰포트에 진입했습니다.'),
+        onLeave: () => console.log('Play Video 버튼이(가) 뷰포트에서 벗어났습니다.'),
+        // 애니메이션 예시: 버튼이 나타날 때 페이드 인과 확대
+        onEnter: () => {
+          gsap.fromTo(buttonRef.current, 
+            { opacity: 0, scale: 0.8 }, 
+            { opacity: 1, scale: 1, duration: 1 }
+          );
+        },
+      });
     }
 
     // 컴포넌트 언마운트 시 모든 ScrollTrigger 인스턴스 제거
@@ -98,21 +179,21 @@ function Home() {
 
             {/* 오버레이 콘텐츠 */}
             <div
+              id="overlay" // 오버레이 요소에 id 추가
               ref={overlayRef}
-              className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4 md:p-8 space-y-8 text-white"
+              className="sticky top-0 flex flex-col items-center justify-center text-center z-10 p-4 md:p-8 space-y-8 text-white"
               style={{
                 minHeight: '100%',
-                position: 'sticky',
-                top: 0,
               }}
             >
+              {/* 헤딩 1 */}
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-snug">
-                Let's make a medical AI & save lives <br />
-                Your data saves lives
+                <span ref={headingRef}>Let's make a medical AI & save lives</span> <br />
+                <span ref={subheadingRef}>Your data saves lives</span>
               </h1>
 
               {/* 이메일 구독 폼 */}
-              <form className="w-full max-w-md" onSubmit={handleSubmit}>
+              <form ref={formRef} className="w-full max-w-md" onSubmit={handleSubmit}>
                 <p className="text-lg md:text-2xl mb-4">Subscribe for updates</p>
                 <div className="flex items-center">
                   <input
@@ -120,6 +201,8 @@ function Home() {
                     type="email"
                     placeholder="Enter your email"
                     aria-label="Email"
+                    aria-required="true"
+                    aria-invalid={!email}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)} // 입력값 상태 업데이트
                   />
@@ -132,9 +215,10 @@ function Home() {
                 </div>
               </form>
 
-              {/* '비디오 재생' 버튼 */}
+              {/* 'Play Video' 버튼 */}
               <div className="pt-8">
                 <a
+                  ref={buttonRef} // 버튼 요소에 ref 할당
                   href="https://drive.google.com/file/d/1FQozCroeIAvCReiDOJkTK6bgh76t4nJ5/view"
                   target="_blank"
                   rel="noopener noreferrer"
