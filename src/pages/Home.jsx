@@ -1,6 +1,3 @@
-// You need to install the necessary libraries.
-// npm install gsap
-
 import React, { useRef, useState, useEffect } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import { gsap } from 'gsap';
@@ -47,10 +44,11 @@ function Home() {
           scrollTrigger: {
             trigger: overlayElement,
             start: 'top top',
-            end: '+=1000', // Adjusted scroll distance
+            end: '+=300', // Adjusted scroll distance
             scrub: true,
             pin: true,
             anticipatePin: 1,
+            markers: true, // 마커 추가
           },
         })
         .to(overlayElement, { opacity: 1, duration: 0 })
@@ -73,7 +71,7 @@ function Home() {
     <div>
       <div className="relative w-full overflow-hidden">
         {/* Video and Overlay Container */}
-        <div className="relative w-full h-[93vh] md:p-8 p-4 md:pt-0 pt-0">
+        <div className="relative w-full h-[95vh] md:p-8 p-4 md:pt-0 pt-0">
           {/* Container holding the video and overlay */}
           <div className="relative w-full h-full">
             {/* Background Video */}
