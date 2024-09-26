@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import buyerList from "../data/buyerList";
 
+
 function DeviceSupply() {
 
   const globeEl = useRef(null);
