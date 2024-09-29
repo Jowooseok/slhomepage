@@ -158,7 +158,7 @@ function Navbar() {
     }
   }, [location]);
   return (
-      <nav className="bg-[#FFF9F7] text-[#171717] fixed w-full h-16 flex items-center">
+      <nav className="bg-[#FFF9F7] text-[#171717] fixed w-full h-16 flex items-center z-20">
         <div className=" mx-auto px-4 xl:px-20 w-full ">
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center space-x-24">

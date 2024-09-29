@@ -7,7 +7,7 @@ function MainLayout({children}) {
   return (
     <div
       id="root"
-      className="flex flex-col min-h-screen mx-auto tracking-tight leading-5 text-[#171717] font-medium bg-[#FFF9F7]"
+      className="flex flex-col min-h-screen mx-auto tracking-tight leading-5 text-[#171717] font-medium bg-[##FFF9F7]"
       style={{ backgroundImage: `url(${Images.backgroundImage})` }}
     >
       <Navbar />
