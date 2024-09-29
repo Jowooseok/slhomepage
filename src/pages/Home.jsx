@@ -77,7 +77,7 @@ function Home() {
           scrub: true, // Sync animation with scroll
           pin: true, // Pin the trigger element
           anticipatePin: 1,
-          markers: { startColor: "green", endColor: "red" }, // Overlay marker colors
+          // markers: { startColor: "green", endColor: "red" }, // Overlay marker colors (주석 처리)
         },
       });
     }
@@ -94,7 +94,7 @@ function Home() {
             start: 'top 80%', // When the top of the video hits 80% of the viewport
             end: 'top 60%',   // When the top of the video hits 60% of the viewport
             scrub: 2,         // Sync animation with scroll
-            markers: { startColor: "purple", endColor: "purple" }, // Marker color
+            // markers: { startColor: "purple", endColor: "purple" }, // Marker color (주석 처리)
           },
         }
       );
@@ -102,19 +102,24 @@ function Home() {
 
     // Heading ScrollTrigger and animation
     if (headingRef.current) {
+      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
+
+      const  headingingStart = isMobile ? 'bottom 28%' : 'bottom 33%';
+      const  headingingEnd = isMobile ? 'bottom 28%' : 'bottom 33%';
+
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, y: -50 }, // Initial state
+        { opacity: 1, y: 0 }, // Initial state
         {
-          opacity: 1,
-          y: 0,
+          opacity: 0,
+          y: -20,
           duration: 1,
           scrollTrigger: {
-            trigger: headingRef.current,
-            start: 'top 80%',
-            end: 'top 60%',
+            trigger: videoRef.current,
+            start: headingingStart,
+            end: headingingEnd,
             scrub: 2, // Sync animation with scroll
-            markers: { startColor: "blue", endColor: "blue" }, // Marker color
+            // markers: { startColor: "blue", endColor: "blue" }, // Marker color (주석 처리)
           },
         }
       );
@@ -122,18 +127,22 @@ function Home() {
 
     // Subheading ScrollTrigger and animation
     if (subheadingRef.current) {
+      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
+
+      const subheadingStart = isMobile ? 'bottom 32%' : 'bottom 38%';
+      const subheadingEnd = isMobile ? 'bottom 32%' : 'bottom 38%';
       gsap.fromTo(
         subheadingRef.current,
-        { opacity: 0, y: -20 }, // Initial state
+        {  }, // Initial state
         {
-          opacity: 1,
-          y: 0,
+          color :"#171717",
           duration: 1,
           scrollTrigger: {
-            trigger: subheadingRef.current,
-            start: 'top 80%',
-            end: 'top 60%',
+            trigger: videoRef.current,
+            start: subheadingStart,
+            end: subheadingEnd,
             scrub: 2, // Sync animation with scroll
+            // markers: true,
           },
         }
       );
@@ -141,18 +150,24 @@ function Home() {
 
     // Form ScrollTrigger and animation
     if (formRef.current) {
+      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
+
+      const formStart = isMobile ? 'bottom 58%' : 'bottom 50%';
+      const formEnd = isMobile ? 'bottom 58%' : 'bottom 50%';
+      
       gsap.fromTo(
         formRef.current,
-        { opacity: 0, y: 50 }, // Initial state
+        { opacity: 1, y: 0 }, // Initial state
         {
-          opacity: 1,
-          y: 0,
+          opacity: 0,
+          y: 50,
           duration: 1,
           scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 80%',
-            end: 'top 60%',
+            trigger: videoRef.current,
+            start: formStart,
+            end: formEnd,
             scrub: 2, // Sync animation with scroll
+            // markers: true,
           },
         }
       );
@@ -160,28 +175,66 @@ function Home() {
 
     // Play Video button ScrollTrigger and state changes
     if (buttonRef.current) {
+      // 화면 크기에 따라 start와 end 값 설정
+      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
+
+      const buttonStart = isMobile ? 'bottom 70%' : 'bottom 60%';
+      const buttonEnd = isMobile ? 'bottom 70%' : 'bottom 60%';
+
       gsap.fromTo(
         buttonRef.current,
-        { opacity: 1, scale: 1 }, // Initial state
+        { opacity: 1, scale: 1, visibility: 'visible' }, // Initial state
         {
           opacity: 0, // Fade out on scroll
           scale: 0.8, // Scale down on scroll
           duration: 1,
           scrollTrigger: {
             trigger: videoRef.current, // Trigger element
-            start: 'bottom 80%', // Start point
-            end: 'bottom 60%',   // End point
+            start: buttonStart, // Start point (모바일과 데스크탑에 따라 다름)
+            end: buttonEnd,     // End point (모바일과 데스크탑에 따라 다름)
             scrub: 2, // Sync animation with scroll
-            markers: { startColor: "orange", endColor: "orange" }, // Marker color
+            // markers: { startColor: "orange", endColor: "orange" }, // Marker color for debugging
             onEnter: () => {
-              gsap.set(buttonRef.current, { pointerEvents: 'auto' }); // Enable button when visible
+              if (buttonRef.current) {
+                gsap.set(buttonRef.current, {
+                  pointerEvents: 'auto',
+                  opacity: 1,
+                  visibility: 'visible', // 버튼이 보이도록 설정
+                });
+                console.log('Button is clickable (onEnter)');
+              }
             },
             onLeave: () => {
-              gsap.set(buttonRef.current, { pointerEvents: 'none' }); // Disable button when hidden
+              if (buttonRef.current) {
+                gsap.set(buttonRef.current, {
+                  pointerEvents: 'none',
+                  opacity: 0,
+                  visibility: 'hidden', // 버튼을 화면에서 숨김
+                });
+                console.log('Button is not clickable (onLeave)');
+              }
             },
+      
+            onLeaveBack: () => {
+              if (buttonRef.current) {
+                gsap.set(buttonRef.current, {
+                  pointerEvents: 'auto',
+                  opacity: 0,
+                  visibility: 'visible', // 다시 숨김
+                });
+                console.log('Button is not clickable (onLeaveBack)');
+              }
+            },
+            onUpdate: (self) => {
+              console.log(`progress: ${self.progress}, direction: ${self.direction}`);
+            }
           },
         }
       );
+      
+      
+
+      
     }
 
     // Cleanup on component unmount
