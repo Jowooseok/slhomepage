@@ -30,7 +30,7 @@ const Section3 = ({ section3Ref, section3TextRef, xray2021Ref, xray2022Ref, xray
           <div className="col-span-4 flex flex-col items-center justify-center gap-4 relative z-30">
             <img ref={managementMockupRef} src={Images.ManagementMockup} className="w-60 object-contain opacity-0" alt="management-mockup" />
             <p ref={transactionTextRef} className="lg:text-2xl md:text-lg text-xs text-center opacity-0">
-              Processed X-ray data price Transactions range 30 ~100 USD
+              Processed X-ray data price Transactions <br className=" lg:block hidden" /> range 30 ~100 USD
             </p>
           </div>
 
