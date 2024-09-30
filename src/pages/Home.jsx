@@ -5,6 +5,7 @@ import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import { handleSubmit } from "../utils/formHandler"; // For email form submission
+import Section4 from "./Section4";
 
 // Register ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -33,6 +34,15 @@ const Home = () => {
   const xray2023Ref = useRef(null);
   const managementMockupRef = useRef(null);
   const transactionTextRef = useRef(null);
+
+    // Refs for elements in Section 4
+    const section4Ref = useRef(null);
+    const section4TextRef = useRef(null);
+    const medicalRef = useRef(null);
+    const dentalRef = useRef(null);
+    const logoRef = useRef(null);
+    const availableTextRef = useRef(null);
+  
 
   // Initialize GSAP animations with ScrollTrigger
   useEffect(() => {
@@ -116,6 +126,64 @@ const Home = () => {
     return () => ScrollTrigger.getAll().forEach(instance => instance.kill());
   }, []);
 
+    // Initialize GSAP animations for Section 4
+    useEffect(() => {
+      if (section4Ref.current) {
+        const tl4 = gsap.timeline({
+          scrollTrigger: {
+            trigger: section4Ref.current,
+            start: "top top",
+            end: "+=200%",
+            scrub: 3,
+            pin: true,
+            markers: false, // Set to true for debugging
+          },
+        });
+  
+        // Animate text and 'learn more' link
+        tl4.fromTo(
+          section4TextRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 }
+        )
+          // Animate Medical Equipment Image
+          .fromTo(
+            medicalRef.current,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1 },
+            "+=0.3"
+          )
+          // Animate Dental Equipment Image
+          .fromTo(
+            dentalRef.current,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1 },
+            "+=0.3"
+          )
+          // Animate Digiray Logo
+          .fromTo(
+            logoRef.current,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1 },
+            "+=0.3"
+          )
+          // Animate "Only 'Digiray' is available" text
+          .fromTo(
+            availableTextRef.current,
+            { opacity: 0 },
+            {
+              opacity: 1,
+              duration: 0.5,
+              repeat: 5,
+              yoyo: true,
+              ease: "power1.inOut",
+              onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
+            },
+            "+=0.3"
+          );
+      }
+    }, []);
+
   return (
     <div className="bg-[#FFF9F7]">
       <Section1
@@ -144,6 +212,14 @@ const Home = () => {
         xray2023Ref={xray2023Ref}
         managementMockupRef={managementMockupRef}
         transactionTextRef={transactionTextRef}
+      />
+        <Section4
+        section4Ref={section4Ref}
+        section4TextRef={section4TextRef}
+        medicalRef={medicalRef}
+        dentalRef={dentalRef}
+        logoRef={logoRef}
+        availableTextRef={availableTextRef}
       />
     </div>
   );

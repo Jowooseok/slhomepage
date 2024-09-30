@@ -13,7 +13,7 @@ const Section3 = ({ section3Ref, section3TextRef, xray2021Ref, xray2022Ref, xray
             Managed medical data <br />
             generates added value.
           </h2>
-          <div className="flex flex-row items-center gap-1 text-blue-600 mt-4">
+          <div className="flex flex-row items-center gap-2 text-blue-600 mt-4">
             <p className="text-sm md:text-xl">Learn more</p>
             <FaCircleArrowRight className="text-2xl" />
           </div>

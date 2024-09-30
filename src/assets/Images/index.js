@@ -37,7 +37,9 @@ import Xray2021 from "./xray2021.png";
 import Xray2022 from "./xray2022.png";
 import Xray2023 from "./xray2023.png";
 import ManagementMockup from "./management-mockup.png";
-
+import DentalEquipment from "./dentalEquipment.png";
+import GlobalmarketShare from "./globalmarketshare.png";
+import MedicalEquipment from "./medicalEquipment.png";
 
 const Images = {
   icpLogo,
@@ -79,6 +81,9 @@ const Images = {
     Xray2022,
     Xray2023,
     ManagementMockup,
+    DentalEquipment,
+    GlobalmarketShare,
+    MedicalEquipment,
 };
 
 export default Images;
