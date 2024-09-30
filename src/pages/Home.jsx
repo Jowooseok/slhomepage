@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"; // ScrollTrigger plugin
 import Videos from "../assets/Videos"; // Video files path
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"; // Firebase Firestore functions
 import { db } from "../firebaseConfig"; // Firebase configuration
-import { FaCircle } from "react-icons/fa";
+import { FaCircleArrowRight } from "react-icons/fa6";
 import Images from "../assets/Images";
 
 // Register ScrollTrigger plugin with GSAP
@@ -16,11 +16,20 @@ function Home() {
   const videoRef = useRef(null);
   const overlayRef = useRef(null);
 
-  // Refs for individual elements
+  // Refs for individual elements in Section 1
   const headingRef = useRef(null);
   const subheadingRef = useRef(null);
   const formRef = useRef(null);
   const buttonRef = useRef(null);
+
+  // Refs for elements in Section 2
+  const section2Ref = useRef(null);
+  const section2TextRef = useRef(null);
+  const fireCRRef = useRef(null);
+  const softwareRef = useRef(null);
+  const qrCodeRef = useRef(null);
+  const aiMockupRef = useRef(null);
+  const aiDiagnosisRef = useRef(null);
 
   // State to manage email input
   const [email, setEmail] = useState("");
@@ -66,176 +75,103 @@ function Home() {
     };
   }, []);
 
+  const getDeviceCategory = () => {
+    const width = window.innerWidth;
+    if (width <= 768) return "mobile";
+    if (width > 768 && width <= 1024) return "tablet";
+    return "desktop";
+  };
+
   // Initialize GSAP animations with ScrollTrigger
   useEffect(() => {
+    // SECTION 1 Animations
     const overlayElement = overlayRef.current; // Reference to overlay element
 
     // Overlay ScrollTrigger setup
     if (overlayElement) {
+      const device = getDeviceCategory();
+      const headingEnd =
+        device === "mobile" ? "+=500px" : device === "tablet" ? "+=800px" : "+=550px";
+
       gsap.timeline({
         scrollTrigger: {
           trigger: overlayElement, // Element that triggers the animation
           start: "top top", // Start point
-          end: "+=550", // Scroll distance for the animation
+          end: headingEnd, // Scroll distance for the animation
           scrub: true, // Sync animation with scroll
           pin: true, // Pin the trigger element
           anticipatePin: 1,
-          markers: { startColor: "green", endColor: "red" }, // Overlay marker colors (주석 처리)
+          markers: false, // Set to true for debugging
         },
+      }).to(overlayElement, {
+        opacity: 0,
+        y: -100, // Move the overlay up
+        duration: 1,
+        ease: "power1.out",
       });
     }
 
-    // Video ScrollTrigger setup
-    if (videoRef.current) {
-      gsap.fromTo(
-        videoRef.current,
-        {},
-        {
-          duration: 1,
-          scrollTrigger: {
-            trigger: videoRef.current,
-            start: "top 80%", // When the top of the video hits 80% of the viewport
-            end: "top 60%", // When the top of the video hits 60% of the viewport
-            scrub: 2, // Sync animation with scroll
-            // markers: { startColor: "purple", endColor: "purple" }, // Marker color (주석 처리)
+    // SECTION 2 Animations
+    if (section2Ref.current) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section2Ref.current,
+          start: "top top",
+          end: "+=100%", // Extended scroll distance to allow full animation before leaving Section 2
+          scrub: 2, // Set scrub to 2 for smooth delayed scrolling
+          pin: true, // Pin the section during the animations
+          pinSpacing: true, // Prevent extra spacing after the pin
+          markers: false, // Set to true for debugging
+        },
+      });
+
+      // Animate text area and learn more link together
+      tl.fromTo(
+        section2TextRef.current,
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 }
+      )
+        // Animate FireCR image
+        .fromTo(
+          fireCRRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // Animate Software image
+        .fromTo(
+          softwareRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // Animate QRCode image
+        .fromTo(
+          qrCodeRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // Animate AI Mockup image
+        .fromTo(
+          aiMockupRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // Animate AI Diagnosis text
+        .fromTo(
+          aiDiagnosisRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            repeat: 5,
+            yoyo: true,
+            ease: "power1.inOut",
           },
-        }
-      );
-    }
-
-    // Heading ScrollTrigger and animation
-    if (headingRef.current) {
-      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
-
-      const headingingStart = isMobile ? "bottom 28%" : "bottom 33%";
-      const headingingEnd = isMobile ? "bottom 28%" : "bottom 33%";
-
-      gsap.fromTo(
-        headingRef.current,
-        { opacity: 1, y: 0 }, // Initial state
-        {
-          opacity: 0,
-          y: -20,
-          duration: 1,
-          scrollTrigger: {
-            trigger: videoRef.current,
-            start: headingingStart,
-            end: headingingEnd,
-            scrub: 2, // Sync animation with scroll
-            // markers: { startColor: "blue", endColor: "blue" }, // Marker color (주석 처리)
-          },
-        }
-      );
-    }
-
-    // Subheading ScrollTrigger and animation
-    if (subheadingRef.current) {
-      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
-
-      const subheadingStart = isMobile ? "bottom 32%" : "bottom 38%";
-      const subheadingEnd = isMobile ? "bottom 32%" : "bottom 38%";
-      gsap.fromTo(
-        subheadingRef.current,
-        {}, // Initial state
-        {
-          color: "#171717",
-          duration: 1,
-          scrollTrigger: {
-            trigger: videoRef.current,
-            start: subheadingStart,
-            end: subheadingEnd,
-            scrub: 2, // Sync animation with scroll
-            // markers: true,
-          },
-        }
-      );
-    }
-
-    // Form ScrollTrigger and animation
-    if (formRef.current) {
-      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
-
-      const formStart = isMobile ? "bottom 58%" : "bottom 50%";
-      const formEnd = isMobile ? "bottom 58%" : "bottom 50%";
-
-      gsap.fromTo(
-        formRef.current,
-        { opacity: 1, y: 0 }, // Initial state
-        {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          scrollTrigger: {
-            trigger: videoRef.current,
-            start: formStart,
-            end: formEnd,
-            scrub: 2, // Sync animation with scroll
-            // markers: true,
-          },
-        }
-      );
-    }
-
-    // Play Video button ScrollTrigger and state changes
-    if (buttonRef.current) {
-      // 화면 크기에 따라 start와 end 값 설정
-      const isMobile = window.innerWidth <= 768; // 모바일 기준 너비 (예: 768px 이하)
-
-      const buttonStart = isMobile ? "bottom 70%" : "bottom 60%";
-      const buttonEnd = isMobile ? "bottom 70%" : "bottom 60%";
-
-      gsap.fromTo(
-        buttonRef.current,
-        { opacity: 1, scale: 1, visibility: "visible" }, // Initial state
-        {
-          opacity: 0, // Fade out on scroll
-          scale: 0.8, // Scale down on scroll
-          duration: 1,
-          scrollTrigger: {
-            trigger: videoRef.current, // Trigger element
-            start: buttonStart, // Start point (모바일과 데스크탑에 따라 다름)
-            end: buttonEnd, // End point (모바일과 데스크탑에 따라 다름)
-            scrub: 2, // Sync animation with scroll
-            // markers: { startColor: "orange", endColor: "orange" }, // Marker color for debugging
-            onEnter: () => {
-              if (buttonRef.current) {
-                gsap.set(buttonRef.current, {
-                  pointerEvents: "auto",
-                  opacity: 1,
-                  visibility: "visible", // 버튼이 보이도록 설정
-                });
-                console.log("Button is clickable (onEnter)");
-              }
-            },
-            onLeave: () => {
-              if (buttonRef.current) {
-                gsap.set(buttonRef.current, {
-                  pointerEvents: "none",
-                  opacity: 0,
-                  visibility: "hidden", // 버튼을 화면에서 숨김
-                });
-                console.log("Button is not clickable (onLeave)");
-              }
-            },
-
-            onLeaveBack: () => {
-              if (buttonRef.current) {
-                gsap.set(buttonRef.current, {
-                  pointerEvents: "auto",
-                  opacity: 0,
-                  visibility: "visible", // 다시 숨김
-                });
-                console.log("Button is not clickable (onLeaveBack)");
-              }
-            },
-            onUpdate: (self) => {
-              console.log(
-                `progress: ${self.progress}, direction: ${self.direction}`
-              );
-            },
-          },
-        }
-      );
+          "+=0.3"
+        );
     }
 
     // Cleanup on component unmount
@@ -246,23 +182,24 @@ function Home() {
 
   return (
     <div>
+      {/* Section 1 */}
       <div
         id="section1"
         className="relative w-full overflow-hidden md:p-8 md:pt-0 p-4 pt-0"
-        style={{ height: "calc(100vh - 4rem)" }} // 전체 화면 높이에서 4rem 마진만큼 제외
+        style={{ height: "calc(100vh - 4rem)" }} // Fixed height matching Section 2
       >
         {/* Container for video and overlay */}
         <div className="relative w-full h-full flex justify-center items-center">
           {/* Background video */}
           <video
             ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover rounded-3xl" // 라운드 추가 및 포지셔닝 유지
-            src={Videos.IntroVideo} // Video source
-            autoPlay // Auto play
-            loop // Loop playback
-            muted // Mute audio
-            playsInline // Inline playback
-            style={{ pointerEvents: "none" }} // Prevent user interaction
+            className="absolute inset-0 w-full h-full object-cover rounded-3xl"
+            src={Videos.IntroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ pointerEvents: "none" }}
           />
 
           {/* Semi-transparent black overlay */}
@@ -273,14 +210,14 @@ function Home() {
             ref={overlayRef}
             className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4 md:p-8 space-y-8 text-white h-full w-full"
           >
-            {/* Heading */}
-            <h1 className="text-2xl md:text-4xl lg:text-7xl  font-medium mb-4 leading-snug">
-              <span ref={headingRef}>Let's make a medical AI & save lives</span>{" "}
+            <h1 className="text-2xl md:text-4xl lg:text-7xl font-medium mb-4 leading-snug">
+              <span ref={headingRef}>
+                Let's make a medical AI & save lives
+              </span>
               <br />
               <span ref={subheadingRef}>Your Data Saves Lives</span>
             </h1>
 
-            {/* Email subscription form */}
             <form
               ref={formRef}
               className="w-full max-w-md"
@@ -296,7 +233,7 @@ function Home() {
                   aria-required="true"
                   aria-invalid={!email}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)} // Update input value
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <button
                   className="flex-shrink-0 bg-white h-12 hover:bg-gray-200 text-black w-full sm:w-28 font-semibold rounded-2xl text-sm md:text-base"
@@ -307,10 +244,9 @@ function Home() {
               </div>
             </form>
 
-            {/* Play Video button */}
             <div className="pt-8">
               <a
-                ref={buttonRef} // Assign ref to button
+                ref={buttonRef}
                 href="https://drive.google.com/file/d/1FQozCroeIAvCReiDOJkTK6bgh76t4nJ5/view"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -324,71 +260,86 @@ function Home() {
         </div>
       </div>
 
-      {/* Additional sections for scroll testing */}
+      {/* Section 2 */}
       <div
         id="section2"
-        className="relative w-full overflow-hidden md:p-8 p-4 "
-        style={{ height: "calc(100vh - 4rem)" }} // 전체 화면 높이에서 4rem 마진만큼 제외
+        ref={section2Ref}
+        className="relative w-full overflow-hidden md:p-8 p-4"
+        style={{ height: "calc(100vh - 4rem)" }}
       >
-        <div className=" flex flex-col h-full">
-          <h2 className="text-2xl md:text-4xl lg:text-7xl font-medium mb-4 leading-snug text-center">
+        <div className="flex flex-col h-full relative">
+          <h2 className="text-2xl md:text-4xl lg:text-7xl font-medium mb-4 leading-snug text-center pt-16">
             Your Data Saves Lives
           </h2>
-          <div className="grid grid-cols-12 h-full mt-8">
-            <div className="col-span-4 flex flex-col justify-between h-full">
-              {/* 텍스트 영역 */}
-              <div>
-                <h2 className="lg:text-4xl md:text-2xl text-sm font-semibold">
+          <div className="grid grid-cols-12 h-full mt-8 relative">
+            {/* Left Column */}
+            <div className="col-span-4 flex flex-col justify-between h-full relative">
+              <div ref={section2TextRef} className="text-container">
+                <h2 className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
                   View Your Medical <br />
-                  Information on Your <br className="hidden md:block" />
-                  Phone!
+                  Information on Your Phone!
                 </h2>
-                <br />
-                <div className="flex flex-row items-center gap-1 text-blue-600">
+                <div className="flex flex-row items-center gap-1 text-blue-600 mt-4">
                   <p className="text-sm md:text-xl">Learn more</p>
-                  <FaCircle className="text-2xl" />
+                  <FaCircleArrowRight className="text-2xl" />
                 </div>
               </div>
 
-              {/* 이미지 영역 */}
-              <div className="flex-grow flex ">
-                {" "}
-                <div className=" relative h-full w-full">                {/* flex-grow로 남은 영역을 차지 */}
-                <img
-                  id="section2-img1"
-                  src={Images.FireCR}
-                  alt="FireCR"
-                  className="w-20 md:w-40 object-contain absolute bottom-5" // object-contain으로 이미지 비율 유지
-                />
-                   <img
-                             id="section2-img2"
-                  src={Images.FireCRSoftware}
-                  alt="FireCR-software"
-                  className="w-28 md:w-52 object-contain absolute bottom-5 md:left-16 left-10" // object-contain으로 이미지 비율 유지
-                />
-                     <img
-                               id="section2-img3"
-                  src={Images.QRCode}
-                  alt="QRCode"
-                  className="w-20 md:w-40 object-contain absolute bottom-5 md:left-56 left-32" // object-contain으로 이미지 비율 유지
-                />
-                  <p className=" absolute bottom-0 md:left-16 left-8 text-neutral-400 text-xs md:text-lg">CR Scanner</p>
+              <div className="flex-grow flex">
+                <div className="relative h-full w-full">
+                  <img
+                    ref={fireCRRef}
+                    id="section2-img1"
+                    src={Images.FireCR}
+                    alt="FireCR"
+                    className="w-20 md:w-40 object-contain absolute bottom-5 opacity-0"
+                  />
+                  <img
+                    ref={softwareRef}
+                    id="section2-img2"
+                    src={Images.FireCRSoftware}
+                    alt="FireCR-software"
+                    className="w-28 md:w-52 object-contain absolute bottom-5 md:left-16 left-10 opacity-0"
+                  />
+                  <img
+                    ref={qrCodeRef}
+                    src={Images.QRCode}
+                    alt="QRCode"
+                    className="w-20 md:w-40 object-contain absolute bottom-5 md:left-56 left-32 opacity-0"
+                  />
+                  <p className="absolute bottom-0 md:left-16 left-8 text-neutral-400 text-xs md:text-lg">
+                    CR Scanner
+                  </p>
                 </div>
-              
               </div>
             </div>
-            <div className=" col-span-4 flex flex-col  items-center justify-center gap-4">
-              <img src={Images.AIMockup} className=" w-60 object-contain" />
-              <p className="md:text-2xl text-xs">Get a AI Diagnosis!</p>
+
+            {/* Center Column */}
+            <div className="col-span-4 flex flex-col items-center justify-center gap-4 relative">
+              <img
+                ref={aiMockupRef}
+                src={Images.AIMockup}
+                className="w-60 object-contain opacity-0"
+                alt="AI Mockup"
+              />
+              <p
+                ref={aiDiagnosisRef}
+                className="md:text-2xl text-xs opacity-0"
+              >
+                Get a AI Diagnosis!
+              </p>
             </div>
-            <div className=" col-span-4"></div>
+
+            {/* Right Column (Empty) */}
+            <div className="col-span-4"></div>
           </div>
         </div>
       </div>
 
+      {/* Section 3 */}
       <div className="bg-white py-20">
-        <div className=" mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Section 2</h2>
+        <div className="mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8">Section 3</h2>
           <p className="mb-4">This is the second section to test scrolling.</p>
           <p>
             Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras
@@ -397,9 +348,10 @@ function Home() {
         </div>
       </div>
 
+      {/* Section 4 */}
       <div className="bg-gray-100 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Section 3</h2>
+          <h2 className="text-3xl font-bold mb-8">Section 4</h2>
           <p className="mb-4">This is the third section to test scrolling.</p>
           <p>
             Donec ullamcorper, felis non sodales commodo, lectus velit ultrices
