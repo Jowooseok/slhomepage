@@ -117,10 +117,10 @@ function Home() {
         scrollTrigger: {
           trigger: section2Ref.current,
           start: "top top",
-          end: "+=100%", // Extended scroll distance to allow full animation before leaving Section 2
-          scrub: 2, // Set scrub to 2 for smooth delayed scrolling
+          end: "+=200%", // Extended scroll distance to allow full animation before leaving Section 2
+          scrub: 3, // Set scrub to 3 for smooth delayed scrolling
           pin: true, // Pin the section during the animations
-          pinSpacing: true, // Prevent extra spacing after the pin
+          pinSpacing: true, // Pin spacing enabled
           markers: false, // Set to true for debugging
         },
       });
@@ -152,12 +152,17 @@ function Home() {
           { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
-        // Animate AI Mockup image
+        // Animate AI Mockup image (and add 3D rotation)
         .fromTo(
           aiMockupRef.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
+          { y: 100, opacity: 0 }, // Initial state
+          { y: 0, opacity: 1, duration: 1 }, // Appear
           "+=0.3"
+        )
+        .to(
+          aiMockupRef.current,
+          { rotationY: 360, duration: 3, ease: "power2.inOut" }, // 3D rotation
+          "+=0.3" // Slight delay before rotation starts
         )
         // Animate AI Diagnosis text
         .fromTo(
@@ -166,12 +171,15 @@ function Home() {
           {
             opacity: 1,
             duration: 0.5,
-            repeat: 5,
+            repeat: 5, // Blinks 5 times
             yoyo: true,
             ease: "power1.inOut",
+            onComplete: () => {
+              gsap.to(aiDiagnosisRef.current, { opacity: 1 }); // Ensure it stays visible at the end
+            },
           },
           "+=0.3"
-        );
+        )
     }
 
     // Cleanup on component unmount
