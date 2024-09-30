@@ -29,6 +29,11 @@ import DefiIcon from "./defiIcon.png";
 import Logo from "./logo.png";
 import footerLogoImage from "./footerLogoImage.png";
 import DigirayLogo from "./digiray-logo.png";
+import FireCR from "./fireCR.png";
+import FireCRSoftware from "./fireCRSoftware.png";
+import QRCode from "./QRCode.png";
+import AIMockup from "./AIMockup.png";
+
 
 const Images = {
   icpLogo,
@@ -62,6 +67,10 @@ const Images = {
   Logo,
   footerLogoImage,
   DigirayLogo,
+    FireCR,
+    FireCRSoftware,
+    QRCode,
+    AIMockup
 };
 
 export default Images;
