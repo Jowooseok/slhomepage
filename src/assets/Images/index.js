@@ -33,6 +33,10 @@ import FireCR from "./fireCR.png";
 import FireCRSoftware from "./fireCRSoftware.png";
 import QRCode from "./QRCode.png";
 import AIMockup from "./AIMockup.png";
+import Xray2021 from "./xray2021.png";
+import Xray2022 from "./xray2022.png";
+import Xray2023 from "./xray2023.png";
+import ManagementMockup from "./management-mockup.png";
 
 
 const Images = {
@@ -70,7 +74,11 @@ const Images = {
     FireCR,
     FireCRSoftware,
     QRCode,
-    AIMockup
+    AIMockup,
+    Xray2021,
+    Xray2022,
+    Xray2023,
+    ManagementMockup,
 };
 
 export default Images;
