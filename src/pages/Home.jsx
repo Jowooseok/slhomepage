@@ -6,6 +6,7 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import { handleSubmit } from "../utils/formHandler"; // For email form submission
 import Section4 from "./Section4";
+import Images from "../assets/Images";
 
 // Register ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -221,6 +222,12 @@ const Home = () => {
         logoRef={logoRef}
         availableTextRef={availableTextRef}
       />
+      {/* <div className="flex flex-col p-8">
+        <h1 className="text-3xl">About [Digiray's 'Save the Life' Project]
+        </h1>
+        <img src={Images.slboxImage} className="hidden md:block rounded-3xl" />
+        <img src={Images.mobileAboutSL} className=" sm:hidden rounded-3xl" />
+      </div> */}
     </div>
   );
 };
