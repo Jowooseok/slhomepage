@@ -8,6 +8,7 @@ import Section3 from "./Section3";
 import Section4 from "./Section4";
 import { handleSubmit } from "../utils/formHandler"; // 이메일 폼 제출 핸들러
 import Images from "../assets/Images";
+import Marquee from "react-fast-marquee";
 
 // GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
@@ -380,6 +381,102 @@ const Home = () => {
         availableTextRef={availableTextRef}
         productionTextRef={productionTextRef} // 추가된 ref 전달
       />
+      <div className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+        <h1 className="text-base lg:text-4xl md:text-3xl text-center ">About [Digiray's 'Save the Life' Project]
+        </h1>
+        <div className="md:mt-8 mt-4 lg:p-24 lg:pt-0">
+        <img src={Images.slboxImage} alt="SLprotocol" className=" hidden sm:block "  />
+        <img src={Images.mobileAboutSL} alt="SLprotocol" className=" block sm:hidden "  />
+        </div>
+      </div>
+
+      
+      <section className="full-width-marquee bg-white mr-4  my-16 ">
+        <Marquee>
+          <img
+            src={Images.motionVendorListImage}
+            alt="motionVendorListImage"
+            className=" lg:h-28 md:h-20 h-16"
+          />
+        </Marquee>
+      </section>
+
+      <section
+        className="xl:py-16 lg:my-32 py-16 full-width-marquee xl:space-y-12 space-y-4 bg-[#3A5FCD]"
+     
+      >
+        <Marquee>
+          <img
+            src={Images.motionImage}
+            alt="motionImage"
+            className=" xl:h-72 h-40 mr-6"
+          />
+        </Marquee>
+        <Marquee direction={"right"}>
+          <img
+            src={Images.motionImage2}
+            alt="motionImage2"
+            className=" xl:h-72 h-28 mr-6"
+          />
+        </Marquee>
+      </section>
+      {/**contact us */}
+      <section
+        className=" hidden lg:flex flex-col  xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
+        style={{ background: `no-repeat center url(${Images.contactUsBackgroundImage})`, backgroundSize:"cover" }}
+      >
+        <div className=" xl:text-3xl text-lg text-white">
+          <p>
+            Sign up for email updates{" "}
+            <span className=" opacity-70">
+              to keep up <br className={"hidden xl:block"} />
+              to date with the SL Protocol
+            </span>
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+          <input
+            placeholder="Email"
+            type="email"
+            className=" xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white  border-white-800  px-4  bg-inherit focus:outline-blue-500"
+          />
+          <button
+            type="submit"
+            className="xl:w-1/6 w-1/2 h-12 text-sm lg:text-base bg-white rounded-xl font-bold text-neutral-900"
+          >
+            GET UPDATES
+          </button>
+        </form>
+      </section>
+      <section
+        className=" lg:hidden flex flex-col  xl:mx-20 mx-8 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] "
+   
+      >
+        <div className=" xl:text-3xl text-lg text-white">
+          <p>
+            Sign up for email updates{" "}
+            <span className=" opacity-70">
+              to keep up <br className={"hidden xl:block"} />
+              to date with the SL Protocol
+            </span>
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+          <input
+            placeholder="Email"
+            type="email"
+            className=" xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white  border-white-800  px-4  bg-inherit focus:outline-blue-500"
+          />
+          <button
+            type="submit"
+            className="xl:w-1/6 w-1/2 h-12 text-sm lg:text-base bg-white rounded-xl font-bold text-neutral-900"
+          >
+            GET UPDATES
+          </button>
+        </form>
+      </section>
     </div>
   );
 };
