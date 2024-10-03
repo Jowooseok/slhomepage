@@ -40,6 +40,7 @@ import ManagementMockup from "./management-mockup.png";
 import DentalEquipment from "./dentalEquipment.png";
 import GlobalmarketShare from "./globalmarketshare.png";
 import MedicalEquipment from "./medicalEquipment.png";
+import LogoBlue from "./logo_blue.png";
 
 const Images = {
   icpLogo,
@@ -84,6 +85,7 @@ const Images = {
     DentalEquipment,
     GlobalmarketShare,
     MedicalEquipment,
+    LogoBlue
 };
 
 export default Images;

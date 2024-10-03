@@ -55,7 +55,7 @@ function Navbar() {
       <a href="/">
         <img
           className="h-6 object-contain"
-          src={Images.DigirayLogo}
+          src={Images.LogoBlue}
           alt="Logo"
           onClick={onClose}
         />
@@ -164,7 +164,7 @@ function Navbar() {
             <div className="flex items-center space-x-24">
               <img
                 className="h-6 object-contain cursor-pointer"
-                src={Images.DigirayLogo}
+                src={Images.LogoBlue}
                 alt="Logo"
                 onClick={() => {
                   const element = document.getElementById("home");

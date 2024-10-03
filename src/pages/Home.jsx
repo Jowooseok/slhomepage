@@ -1,18 +1,19 @@
-import React, { useRef, useState, useEffect } from "react";
+// Home.js
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
-import { handleSubmit } from "../utils/formHandler"; // For email form submission
 import Section4 from "./Section4";
+import { handleSubmit } from "../utils/formHandler"; // 이메일 폼 제출 핸들러
 import Images from "../assets/Images";
 
-// Register ScrollTrigger plugin with GSAP
+// GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  // Refs for all sections and elements
+  // 섹션 1 Refs
   const videoRef = useRef(null);
   const overlayRef = useRef(null);
   const headingRef = useRef(null);
@@ -20,6 +21,7 @@ const Home = () => {
   const formRef = useRef(null);
   const buttonRef = useRef(null);
 
+  // 섹션 2 Refs
   const section2Ref = useRef(null);
   const section2TextRef = useRef(null);
   const fireCRRef = useRef(null);
@@ -28,6 +30,7 @@ const Home = () => {
   const aiMockupRef = useRef(null);
   const aiDiagnosisRef = useRef(null);
 
+  // 섹션 3 Refs
   const section3Ref = useRef(null);
   const section3TextRef = useRef(null);
   const xray2021Ref = useRef(null);
@@ -35,21 +38,22 @@ const Home = () => {
   const xray2023Ref = useRef(null);
   const managementMockupRef = useRef(null);
   const transactionTextRef = useRef(null);
+  const usdTextRef = useRef(null);
+  const chartRef = useRef(null); // 차트 Ref
 
-    // Refs for elements in Section 4
-    const section4Ref = useRef(null);
-    const section4TextRef = useRef(null);
-    const medicalRef = useRef(null);
-    const dentalRef = useRef(null);
-    const logoRef = useRef(null);
-    const availableTextRef = useRef(null);
-  
+  // 섹션 4 Refs
+  const section4Ref = useRef(null);
+  const section4TextRef = useRef(null);
+  const medicalRef = useRef(null);
+  const dentalRef = useRef(null);
+  const logoRef = useRef(null);
+  const availableTextRef = useRef(null);
 
-  // Initialize GSAP animations with ScrollTrigger
+  // GSAP 애니메이션 설정
   useEffect(() => {
     const device = window.innerWidth <= 768 ? "mobile" : "desktop";
 
-    // Section 1 Animations
+    // 섹션 1 애니메이션
     if (overlayRef.current) {
       const headingEnd = device === "mobile" ? "+=500px" : "+=550px";
       gsap.timeline({
@@ -68,9 +72,9 @@ const Home = () => {
       });
     }
 
-    // Section 2 Animations
+    // 섹션 2 애니메이션
     if (section2Ref.current) {
-      const tl = gsap.timeline({
+      const tl2 = gsap.timeline({
         scrollTrigger: {
           trigger: section2Ref.current,
           start: "top top",
@@ -80,7 +84,7 @@ const Home = () => {
         },
       });
 
-      tl.fromTo(section2TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+      tl2.fromTo(section2TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
         .fromTo(fireCRRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
         .fromTo(softwareRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
         .fromTo(qrCodeRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
@@ -96,7 +100,7 @@ const Home = () => {
         }, "+=0.3");
     }
 
-    // Section 3 Animations
+    // 섹션 3 애니메이션
     if (section3Ref.current) {
       const tl3 = gsap.timeline({
         scrollTrigger: {
@@ -112,78 +116,55 @@ const Home = () => {
         .fromTo(xray2021Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
         .fromTo(xray2022Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
         .fromTo(xray2023Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
+        // 차트 등장 애니메이션
+        .fromTo(chartRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }, "+=0.3")
+        // 모바일 목업 회전 애니메이션
         .fromTo(managementMockupRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
         .to(managementMockupRef.current, { rotationY: 360, duration: 3, ease: "power2.inOut" }, "+=0.3")
-        .fromTo(transactionTextRef.current, { opacity: 0 }, {
+        // "Processed X-ray data price Transactions" 텍스트 등장
+        .fromTo(transactionTextRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, "+=0.3")
+        // "30 ~100 USD" 텍스트 반짝이기
+        .fromTo(usdTextRef.current, { opacity: 0 }, {
           opacity: 1,
           duration: 0.5,
           repeat: 5,
           yoyo: true,
           ease: "power1.inOut",
-          onComplete: () => gsap.to(transactionTextRef.current, { opacity: 1 }),
+          onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
         }, "+=0.3");
     }
 
-    return () => ScrollTrigger.getAll().forEach(instance => instance.kill());
-  }, []);
+    // 섹션 4 애니메이션
+    if (section4Ref.current) {
+      const tl4 = gsap.timeline({
+        scrollTrigger: {
+          trigger: section4Ref.current,
+          start: "top top",
+          end: "+=200%",
+          scrub: 3,
+          pin: true,
+          markers: false, // 디버깅 시 true로 설정
+        },
+      });
 
-    // Initialize GSAP animations for Section 4
-    useEffect(() => {
-      if (section4Ref.current) {
-        const tl4 = gsap.timeline({
-          scrollTrigger: {
-            trigger: section4Ref.current,
-            start: "top top",
-            end: "+=200%",
-            scrub: 3,
-            pin: true,
-            markers: false, // Set to true for debugging
-          },
-        });
-  
-        // Animate text and 'learn more' link
-        tl4.fromTo(
-          section4TextRef.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 }
-        )
-          // Animate Medical Equipment Image
-          .fromTo(
-            medicalRef.current,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "+=0.3"
-          )
-          // Animate Dental Equipment Image
-          .fromTo(
-            dentalRef.current,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "+=0.3"
-          )
-          // Animate Digiray Logo
-          .fromTo(
-            logoRef.current,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "+=0.3"
-          )
-          // Animate "Only 'Digiray' is available" text
-          .fromTo(
-            availableTextRef.current,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.5,
-              repeat: 5,
-              yoyo: true,
-              ease: "power1.inOut",
-              onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
-            },
-            "+=0.3"
-          );
-      }
-    }, []);
+      tl4.fromTo(section4TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+        .fromTo(medicalRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
+        .fromTo(dentalRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
+        .fromTo(logoRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
+        .fromTo(availableTextRef.current, { opacity: 0 }, {
+          opacity: 1,
+          duration: 0.5,
+          repeat: 5,
+          yoyo: true,
+          ease: "power1.inOut",
+          onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
+        }, "+=0.3");
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(instance => instance.kill());
+    };
+  }, []);
 
   return (
     <div className="bg-[#FFF9F7]">
@@ -213,8 +194,10 @@ const Home = () => {
         xray2023Ref={xray2023Ref}
         managementMockupRef={managementMockupRef}
         transactionTextRef={transactionTextRef}
+        usdTextRef={usdTextRef} // "30 ~100 USD" 텍스트 ref
+        chartRef={chartRef} // 차트 ref
       />
-        <Section4
+      <Section4
         section4Ref={section4Ref}
         section4TextRef={section4TextRef}
         medicalRef={medicalRef}
@@ -222,12 +205,6 @@ const Home = () => {
         logoRef={logoRef}
         availableTextRef={availableTextRef}
       />
-      {/* <div className="flex flex-col p-8">
-        <h1 className="text-3xl">About [Digiray's 'Save the Life' Project]
-        </h1>
-        <img src={Images.slboxImage} className="hidden md:block rounded-3xl" />
-        <img src={Images.mobileAboutSL} className=" sm:hidden rounded-3xl" />
-      </div> */}
     </div>
   );
 };
