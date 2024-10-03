@@ -1,3 +1,4 @@
+// Section2.js
 import React from "react";
 import Images from "../assets/Images";
 import { FaCircleArrowRight } from "react-icons/fa6";
@@ -10,6 +11,8 @@ const Section2 = ({
   qrCodeRef,
   aiMockupRef,
   aiDiagnosisRef,
+  crScannerTextRef,    // 추가된 ref
+  scanSnapTextRef      // 추가된 ref
 }) => {
   return (
     <div
@@ -48,6 +51,13 @@ const Section2 = ({
                   alt="FireCR"
                   className="w-20 md:w-40 object-contain absolute bottom-5 opacity-0"
                 />
+                {/* CR Scanner Text */}
+                <p
+                  ref={crScannerTextRef}
+                  className="absolute bottom-0 md:left-16 left-8 text-neutral-600 text-xs md:text-lg opacity-0"
+                >
+                  CR Scanner
+                </p>
                 {/* FireCR Software */}
                 <img
                   ref={softwareRef}
@@ -55,22 +65,26 @@ const Section2 = ({
                   alt="FireCR-software"
                   className="w-28 md:w-52 object-contain absolute bottom-5 md:left-16 left-10 opacity-0"
                 />
-                {/* QRCode */}
+                {/* QRCode Image */}
                 <img
                   ref={qrCodeRef}
                   src={Images.QRCode}
                   alt="QRCode"
                   className="w-20 md:w-40 object-contain absolute bottom-5 md:left-56 left-32 opacity-0"
                 />
-                <p className="absolute bottom-0 md:left-16 left-8 text-neutral-400 text-xs md:text-lg">
-                  CR Scanner
+                {/* Scan the QR Code! Snap! Text */}
+                <p
+                  ref={scanSnapTextRef}
+                  className="absolute text-center min-w-36 md:-bottom-8 -bottom-4 md:left-64 left-28 text-neutral-800 text-xs md:text-lg opacity-0"
+                >
+                  Scan the QR Code! <br /> Snap!
                 </p>
               </div>
             </div>
           </div>
 
           {/* Center Column */}
-          <div className="col-span-4 flex flex-col items-center justify-center gap-4 relative">
+          <div className="col-span-4 flex flex-col items-center justify-center gap-4 relative z-30">
             <img
               ref={aiMockupRef}
               src={Images.AIMockup}

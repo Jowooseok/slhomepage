@@ -29,6 +29,8 @@ const Home = () => {
   const qrCodeRef = useRef(null);
   const aiMockupRef = useRef(null);
   const aiDiagnosisRef = useRef(null);
+  const crScannerTextRef = useRef(null); // 추가된 ref
+  const scanSnapTextRef = useRef(null);   // 추가된 ref
 
   // 섹션 3 Refs
   const section3Ref = useRef(null);
@@ -63,6 +65,7 @@ const Home = () => {
           end: headingEnd,
           scrub: true,
           pin: true,
+          markers: false, // 디버깅 시 true로 설정
         },
       }).to(overlayRef.current, {
         opacity: 0,
@@ -81,23 +84,93 @@ const Home = () => {
           end: "+=200%",
           scrub: 3,
           pin: true,
+          markers: false, // 디버깅 시 true로 설정
         },
       });
 
-      tl2.fromTo(section2TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
-        .fromTo(fireCRRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(softwareRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(qrCodeRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(aiMockupRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .to(aiMockupRef.current, { rotationY: 360, duration: 3, ease: "power2.inOut" }, "+=0.3")
-        .fromTo(aiDiagnosisRef.current, { opacity: 0 }, {
-          opacity: 1,
-          duration: 0.5,
-          repeat: 5,
-          yoyo: true,
-          ease: "power1.inOut",
-          onComplete: () => gsap.to(aiDiagnosisRef.current, { opacity: 1 }),
-        }, "+=0.3");
+      tl2
+        // Section2 Title 등장
+        .fromTo(
+          section2TextRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 }
+        )
+        // FireCR 이미지 등장
+        .fromTo(
+          fireCRRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // CR Scanner 텍스트 등장
+        .fromTo(
+          crScannerTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // FireCRSoftware 이미지 등장
+        .fromTo(
+          softwareRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // QRCode 이미지 등장
+        .fromTo(
+          qrCodeRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // "Scan the QR Code! Snap!" 텍스트 반짝임 (한 번)
+        .fromTo(
+          scanSnapTextRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            repeat: 1, // Blink once (initial state + 1 repeat)
+            yoyo: true,
+            ease: "power1.inOut",
+            onComplete: () => gsap.to(scanSnapTextRef.current, { opacity: 1 }),
+          },
+          "+=0.3"
+        )
+        // AI Mockup 이미지 등장
+        .fromTo(
+          aiMockupRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // AI Mockup 회전
+        .to(
+          aiMockupRef.current,
+          { rotationY: 360, duration: 3, ease: "power2.inOut" },
+          "+=0.3"
+        )
+        // "Get a AI Diagnosis!" 텍스트 등장
+        .fromTo(
+          aiDiagnosisRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1 },
+          "+=0.3"
+        )
+        // "Get a AI Diagnosis!" 텍스트 반짝이기 (세 번)
+        .fromTo(
+          aiDiagnosisRef.current,
+          { opacity: 1 },
+          {
+            opacity: 0,
+            duration: 0.5,
+            repeat: 2, // Blink three times (initial state + 2 repeats)
+            yoyo: true,
+            ease: "power1.inOut",
+            onComplete: () => gsap.to(aiDiagnosisRef.current, { opacity: 1 }),
+          },
+          "+=0.3"
+        );
     }
 
     // 섹션 3 애니메이션
@@ -109,29 +182,80 @@ const Home = () => {
           end: "+=200%",
           scrub: 3,
           pin: true,
+          markers: false, // 디버깅 시 true로 설정
         },
       });
 
-      tl3.fromTo(section3TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
-        .fromTo(xray2021Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(xray2022Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(xray2023Ref.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        // 차트 등장 애니메이션
-        .fromTo(chartRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }, "+=0.3")
-        // 모바일 목업 회전 애니메이션
-        .fromTo(managementMockupRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .to(managementMockupRef.current, { rotationY: 360, duration: 3, ease: "power2.inOut" }, "+=0.3")
+      tl3
+        // Section3 텍스트 등장
+        .fromTo(
+          section3TextRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 }
+        )
+        // X-ray 이미지 1 등장
+        .fromTo(
+          xray2021Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // X-ray 이미지 2 등장
+        .fromTo(
+          xray2022Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // X-ray 이미지 3 등장
+        .fromTo(
+          xray2023Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // 차트 등장
+        .fromTo(
+          chartRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" },
+          "+=0.3"
+        )
+        // 모바일 목업 이미지 등장
+        .fromTo(
+          managementMockupRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // 모바일 목업 회전
+        .to(
+          managementMockupRef.current,
+          { rotationY: 360, duration: 3, ease: "power2.inOut" },
+          "+=0.3"
+        )
         // "Processed X-ray data price Transactions" 텍스트 등장
-        .fromTo(transactionTextRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, "+=0.3")
+        .fromTo(
+          transactionTextRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1 },
+          "+=0.3"
+        )
         // "30 ~100 USD" 텍스트 반짝이기
-        .fromTo(usdTextRef.current, { opacity: 0 }, {
-          opacity: 1,
-          duration: 0.5,
-          repeat: 5,
-          yoyo: true,
-          ease: "power1.inOut",
-          onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
-        }, "+=0.3");
+        .fromTo(
+          usdTextRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            repeat: 5,
+            yoyo: true,
+            ease: "power1.inOut",
+            onComplete: () =>
+              gsap.to(usdTextRef.current, { opacity: 1 }),
+          },
+          "+=0.3"
+        );
     }
 
     // 섹션 4 애니메이션
@@ -147,22 +271,48 @@ const Home = () => {
         },
       });
 
-      tl4.fromTo(section4TextRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
-        .fromTo(medicalRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(dentalRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(logoRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "+=0.3")
-        .fromTo(availableTextRef.current, { opacity: 0 }, {
-          opacity: 1,
-          duration: 0.5,
-          repeat: 5,
-          yoyo: true,
-          ease: "power1.inOut",
-          onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
-        }, "+=0.3");
+      tl4
+        .fromTo(
+          section4TextRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 }
+        )
+        .fromTo(
+          medicalRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        .fromTo(
+          dentalRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        .fromTo(
+          logoRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        .fromTo(
+          availableTextRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            repeat: 5,
+            yoyo: true,
+            ease: "power1.inOut",
+            onComplete: () =>
+              gsap.to(availableTextRef.current, { opacity: 1 }),
+          },
+          "+=0.3"
+        );
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(instance => instance.kill());
+      ScrollTrigger.getAll().forEach((instance) => instance.kill());
     };
   }, []);
 
@@ -185,6 +335,8 @@ const Home = () => {
         qrCodeRef={qrCodeRef}
         aiMockupRef={aiMockupRef}
         aiDiagnosisRef={aiDiagnosisRef}
+        crScannerTextRef={crScannerTextRef} // 추가된 ref 전달
+        scanSnapTextRef={scanSnapTextRef}   // 추가된 ref 전달
       />
       <Section3
         section3Ref={section3Ref}
