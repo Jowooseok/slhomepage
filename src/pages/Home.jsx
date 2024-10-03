@@ -51,6 +51,7 @@ const Home = () => {
   const dentalRef = useRef(null);
   const logoRef = useRef(null);
   const availableTextRef = useRef(null);
+  const productionTextRef = useRef(null); // 추가된 ref
 
   // GSAP 애니메이션 설정
   useEffect(() => {
@@ -280,29 +281,41 @@ const Home = () => {
       });
 
       tl4
+        // Section4 텍스트 등장
         .fromTo(
           section4TextRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 }
         )
+        // Medical 이미지 등장
         .fromTo(
           medicalRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
+        // Dental 이미지 등장
         .fromTo(
           dentalRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
+        // Production Text 등장
+        .fromTo(
+          productionTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
+        // Logo 등장
         .fromTo(
           logoRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
+        // "Only 'Digiray' is available" 텍스트 반짝이기
         .fromTo(
           availableTextRef.current,
           { opacity: 0 },
@@ -365,6 +378,7 @@ const Home = () => {
         dentalRef={dentalRef}
         logoRef={logoRef}
         availableTextRef={availableTextRef}
+        productionTextRef={productionTextRef} // 추가된 ref 전달
       />
     </div>
   );
