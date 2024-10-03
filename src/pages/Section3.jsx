@@ -17,7 +17,8 @@ const Section3 = ({
   managementMockupRef,
   transactionTextRef,
   usdTextRef,
-  chartRef
+  chartRef,
+  accumulationTextRef // 추가된 ref
 }) => {
 
   // 차트 데이터 설정
@@ -118,24 +119,34 @@ const Section3 = ({
             </div>
             <div className="flex-grow flex">
               <div className="relative h-full w-full">
+                {/* X-ray Image 1 */}
                 <img
                   ref={xray2021Ref}
                   src={Images.Xray2021}
                   alt="xray-2021"
                   className="w-20 md:w-36 lg:w-40 object-contain absolute md:bottom-32 bottom-20 lg:left-16 z-0 opacity-0"
                 />
+                {/* X-ray Image 2 */}
                 <img
                   ref={xray2022Ref}
                   src={Images.Xray2022}
                   alt="xray-2022"
                   className="w-20 md:w-36 lg:w-40 object-contain absolute md:bottom-24 lg:left-28 bottom-16 md:left-12 left-4 z-10 opacity-0"
                 />
+                {/* X-ray Image 3 */}
                 <img
                   ref={xray2023Ref}
                   src={Images.Xray2023}
                   alt="xray-2023"
                   className="w-20 md:w-36 lg:w-40 object-contain absolute md:bottom-12 lg:left-40 bottom-10 md:left-24 left-9 z-20 opacity-0"
                 />
+                {/* Accumulation Text */}
+                <p
+                  ref={accumulationTextRef}
+                  className="absolute md:-bottom-8 -bottom-4 text-xs md:text-base lg:text-lg min-w-48 text-neutral-800 opacity-0"
+                >
+                  Accumulation, Storage, and Management of Personal Medical Data & AI Diagnosis - On Blockchain
+                </p>
               </div>
             </div>
           </div>
@@ -150,7 +161,7 @@ const Section3 = ({
             />
             <p
               ref={transactionTextRef}
-              className="lg:text-2xl md:text-lg text-xs text-center "
+              className="lg:text-2xl md:text-lg text-xs text-center opacity-0"
             >
               Processed X-ray data price Transactions <br className="lg:block hidden" /> <span ref={usdTextRef}>30 ~100 USD</span>
             </p>
@@ -159,7 +170,7 @@ const Section3 = ({
           {/* Right Column */}
           <div className="col-span-4 lg:flex hidden">
             {/** 꺾은선 차트 섹션 */ }
-            <div ref={chartRef} className="w-full flex items-center  lg:h-full">
+            <div ref={chartRef} className="w-full flex items-center lg:h-full opacity-0">
               <Line data={data} options={options} />
             </div>
           </div>

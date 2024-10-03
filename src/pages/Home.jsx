@@ -42,6 +42,7 @@ const Home = () => {
   const transactionTextRef = useRef(null);
   const usdTextRef = useRef(null);
   const chartRef = useRef(null); // 차트 Ref
+  const accumulationTextRef = useRef(null); // 추가된 ref
 
   // 섹션 4 Refs
   const section4Ref = useRef(null);
@@ -214,11 +215,18 @@ const Home = () => {
           { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
+        // Accumulation Text 등장
+        .fromTo(
+          accumulationTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=0.3"
+        )
         // 차트 등장
         .fromTo(
           chartRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" },
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
           "+=0.3"
         )
         // 모바일 목업 이미지 등장
@@ -237,8 +245,8 @@ const Home = () => {
         // "Processed X-ray data price Transactions" 텍스트 등장
         .fromTo(
           transactionTextRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1 },
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
           "+=0.3"
         )
         // "30 ~100 USD" 텍스트 반짝이기
@@ -348,6 +356,7 @@ const Home = () => {
         transactionTextRef={transactionTextRef}
         usdTextRef={usdTextRef} // "30 ~100 USD" 텍스트 ref
         chartRef={chartRef} // 차트 ref
+        accumulationTextRef={accumulationTextRef} // 추가된 ref 전달
       />
       <Section4
         section4Ref={section4Ref}
