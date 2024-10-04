@@ -113,10 +113,10 @@ const Section3 = ({
                 Managed medical data <br />
                 generates added value.
               </h2>
-              <div className="flex flex-row items-center gap-2 text-blue-600 mt-4">
+              <a href="/MedicalDataValue" className="flex flex-row items-center gap-2 text-blue-600 mt-4">
                 <p className="text-sm md:text-xl">Learn more</p>
                 <FaCircleArrowRight className="text-2xl" />
-              </div>
+              </a>
             </div>
             <div className="flex-grow flex">
               <div className="relative h-full w-full">

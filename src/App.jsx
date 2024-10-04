@@ -11,6 +11,7 @@ import TokenBurning from "./pages/TokenBurning";
 import MedicalAndAIAdvancement from "./pages/MedicalAndAIAdvancement";
 import { Reset } from "styled-reset";
 import DeFiDashboard from "./pages/DeFiDashboard";
+import MedicalDataValue from "./pages/MedicalDataValue";
 import "./index.css";
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<Home />} />
             <Route path="/Protocol" element={<Home />} />
+            <Route path="/MedicalDataValue" element={<MedicalDataValue />} />
             <Route path="/TokenEconomy" element={<Home />} />
             <Route path="/AboutSL" element={<Home />} />
             <Route path="/SLAppUserCase" element={<Home />} />
