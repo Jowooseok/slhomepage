@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import Videos from "../assets/Videos";
 
 const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, buttonRef, handleSubmit }) => {
+  const [email, setEmail] = useState("");
+
   return (
     <div id="home" name="home" className="relative w-full overflow-hidden md:p-8 md:pt-0 p-4 pt-0" style={{ height: "calc(100vh - 4rem)" }}>
       <div className="relative w-full h-full flex justify-center items-center">
@@ -24,7 +26,7 @@ const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, bu
             <span ref={subheadingRef}>Your Data Saves Lives</span>
           </h1>
 
-          <form ref={formRef} className="w-full max-w-md" onSubmit={handleSubmit}>
+          <form ref={formRef} className="w-full max-w-md" onSubmit={(e) => handleSubmit(e, email, setEmail)}>
             <p className="text-lg md:text-2xl mb-4">Subscribe for updates</p>
             <div className="flex flex-col sm:flex-row items-center">
               <input
@@ -33,6 +35,8 @@ const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, bu
                 placeholder="Enter your email"
                 aria-label="Email"
                 aria-required="true"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <button className="flex-shrink-0 bg-white h-12 hover:bg-gray-200 text-black w-full sm:w-28 font-semibold rounded-2xl text-sm md:text-base" type="submit">
                 Subscribe

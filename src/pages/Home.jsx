@@ -1,5 +1,5 @@
 // Home.js
-import React, { useRef, useEffect } from "react";
+import React, { useState,useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Section1 from "./Section1";
@@ -15,6 +15,7 @@ import { animateScroll, scroller } from "react-scroll";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
+  const [email, setEmail] = useState("");
   // 섹션 1 Refs
   const videoRef = useRef(null);
   const overlayRef = useRef(null);
@@ -421,7 +422,7 @@ const Home = () => {
           <div className="col-span-2 lg:col-span-1">
             <div>
               <p className="text-lg font-bold">For Humans</p>
-              <p className="text-sm md:text-base">
+              <p className="text-xs md:text-base">
                 Healthcare Medical Data Collection Solution DApp
               </p>
               <img
@@ -448,7 +449,7 @@ const Home = () => {
           <div className="col-span-2 lg:col-span-1 mt-8 lg:mt-0">
             <div>
               <p className="text-lg font-bold">For Animals</p>
-              <p className="text-sm md:text-base">
+              <p className="text-xs md:text-base">
                 Healthcare Medical Data Collection Solution DApp
               </p>
               <img
@@ -494,27 +495,32 @@ const Home = () => {
       </section>
       {/**contact us */}
       <section
-        className=" hidden lg:flex flex-col  xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
+        className="hidden lg:flex flex-col xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8"
         style={{
           background: `no-repeat center url(${Images.contactUsBackgroundImage})`,
           backgroundSize: "cover",
         }}
       >
-        <div className=" xl:text-3xl text-lg text-white">
+        <div className="xl:text-3xl text-lg text-white">
           <p>
             Sign up for email updates{" "}
-            <span className=" opacity-70">
+            <span className="opacity-70">
               to keep up <br className={"hidden xl:block"} />
               to date with the SL Protocol
             </span>
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+        <form
+          onSubmit={(e) => handleSubmit(e, email, setEmail)}
+          className="flex flex-col gap-4"
+        >
           <input
             placeholder="Email"
             type="email"
-            className=" xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white  border-white-800  px-4  bg-inherit focus:outline-blue-500"
+            className="xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white border-white-800 px-4 bg-inherit focus:outline-blue-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <button
             type="submit"
@@ -524,22 +530,28 @@ const Home = () => {
           </button>
         </form>
       </section>
-      <section className=" lg:hidden flex flex-col  xl:mx-20 mx-4 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] ">
-        <div className=" xl:text-3xl text-lg text-white">
+
+      <section className="lg:hidden flex flex-col xl:mx-20 mx-4 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 bg-[#3A5FCD]">
+        <div className="xl:text-3xl text-lg text-white">
           <p>
             Sign up for email updates{" "}
-            <span className=" opacity-70">
+            <span className="opacity-70">
               to keep up <br className={"hidden xl:block"} />
               to date with the SL Protocol
             </span>
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+        <form
+          onSubmit={(e) => handleSubmit(e, email, setEmail)}
+          className="flex flex-col gap-4"
+        >
           <input
             placeholder="Email"
             type="email"
-            className=" xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white  border-white-800  px-4  bg-inherit focus:outline-blue-500"
+            className="xl:w-2/5 h-12 rounded-xl border-2 placeholder:text-white border-white-800 px-4 bg-inherit focus:outline-blue-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <button
             type="submit"

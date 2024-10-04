@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import { Reset } from "styled-reset";
 import MedicalDataValue from "./pages/MedicalDataValue";
 import CompanyIntroduction from "./pages/CompanyIntroduction";
+import MedicalAISolution from "./pages/MedicalAISolution";
 import "./index.css";
 
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<Home />} />
             <Route path="/Protocol" element={<Home />} />
+            <Route path="/MedicalAISolution" element={<MedicalAISolution />} />
             <Route path="/CompanyIntroduction" element={<CompanyIntroduction />} />
             <Route path="/MedicalDataValue" element={<MedicalDataValue />} />
             <Route path="/TokenEconomy" element={<Home />} />

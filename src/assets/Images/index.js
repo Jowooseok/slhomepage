@@ -32,7 +32,6 @@ import LogoMobile from "./logo_mobile.png";
 import MedicalDataValue1 from "./medical-data-value-1.png";
 import MedicalDataValue2 from "./medical-data-value-2.png";
 import MedicalDataValue3 from "./medical-data-value-3.png";
-import MedicalDataValue4 from "./medical-data-value-4.png";
 import IntroDigiray from "./IntroDigiray.png";
 import DentalDevice from "./dental-device.png";
 import MedicalDevice from "./medical-device.png";
@@ -84,7 +83,6 @@ const Images = {
   MedicalDataValue1,
   MedicalDataValue2,
   MedicalDataValue3,
-  MedicalDataValue4,
   IntroDigiray,
   DentalDevice,
   MedicalDevice,
@@ -97,7 +95,7 @@ const Images = {
   Patent2,
   Certificate1,
   Certificate2,
-  
+
 
 };
 
