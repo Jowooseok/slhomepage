@@ -98,7 +98,7 @@ function Navbar() {
         <FaLinkedinIn />
       </a>
       <a
-        href="https://github.com/safethelife"
+        href="https://github.com/save-the-life"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -373,7 +373,7 @@ function Navbar() {
                   <div className="text-gray-700">
                     <FaGithub />
                   </div>{" "}
-                  <a href="https://github.com/safethelife" target=" _blank">
+                  <a href="https://github.com/save-the-life" target=" _blank">
                     Github
                   </a>
                 </div>

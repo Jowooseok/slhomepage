@@ -49,7 +49,7 @@ function MainLayout({children}) {
               </div>
               <p className="underline">Linkedin</p>
             </a>
-            <a href="https://github.com/save-the-life/SL-overview" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
+            <a href="https://github.com/save-the-life" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
               <div className="bg-white rounded-full p-2">
                 <FaGithub style={{ color: "#000000" }} />
               </div>
