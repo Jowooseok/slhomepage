@@ -1,31 +1,18 @@
 import icpLogo from "./icplogo.png";
-import certificateImage from "./certificate.png";
-import patientImage from "./patient.png";
-import supplyImage from "./supply.png";
-import vendorImage from "./vendor.png";
+
 import motionVendorListImage from "./motionvendorListImage.png";
 import slboxImage from "./slbox.png";
 import motionImage from "./motionImage1.png";
 import motionImage2 from "./motionImage2.png";
 import aiCertificationPC from "./aiCertificationPC.png";
-import protocolImage from "./protocolImage.png";
-import tokenEconomyImage from "./tokenEconomyImage.png";
 import contactUsBackgroundImage from "./contactUsBackgroundImage.png";
 import mobileAboutSL from "./mobileAboutSL.png";
 import buyWithSLTokens from "./buyWithSLTokens.png";
-import dataBuyer from "./dataBuyer.png";
-import dataBuyerCase3 from "./dataBuyerCase3.png";
-import arrowIcon from "./arrowIcon.png";
-import sltokenIcon from "./sltokenIcon.png";
-import AIhealthImage from "./aihealth.png";
 import SuccessFactor1 from "./successfactor1-image.png";
 import SuccessFactor2 from "./successfactor2-image.png";
 import NewICP from "./NewICP.png";
 import TelegramLogo from "./telegram-logo.png";
 import ICPSymbol from "./icp-symbol.png";
-import BoxIcon from "./boxIcon.png";
-import TransactionIcon from "./transactionIcon.png";
-import DefiIcon from "./defiIcon.png";
 import Logo from "./logo.png";
 import footerLogoImage from "./footerLogoImage.png";
 import DigirayLogo from "./digiray-logo.png";
@@ -42,58 +29,76 @@ import GlobalmarketShare from "./globalmarketshare.png";
 import MedicalEquipment from "./medicalEquipment.png";
 import LogoBlue from "./logo_blue.png";
 import LogoMobile from "./logo_mobile.png";
-import MedicalDataValue1 from "./medical-data-value-1.png"
-import MedicalDataValue2 from "./medical-data-value-2.png"
-import MedicalDataValue3 from "./medical-data-value-3.png"
+import MedicalDataValue1 from "./medical-data-value-1.png";
+import MedicalDataValue2 from "./medical-data-value-2.png";
+import MedicalDataValue3 from "./medical-data-value-3.png";
+import MedicalDataValue4 from "./medical-data-value-4.png";
+import IntroDigiray from "./IntroDigiray.png";
+import DentalDevice from "./dental-device.png";
+import MedicalDevice from "./medical-device.png";
+import DentalAnimalsDevice from "./dental-animals-device.png";
+import AISoftware1 from "./AISoftware1.png";
+import AISoftware2 from "./AISoftware2.png";
+import Vendor1 from "./vendor1.png";
+import Vendor2 from "./vendor2.png";
+import Patent1 from "./patent1.png";
+import Patent2 from "./patent2.png";
+import Certificate1 from "./certificate1.png";
+import Certificate2 from "./certificate2.png";
 
 const Images = {
   icpLogo,
-  certificateImage,
-  patientImage,
-  supplyImage,
-  vendorImage,
+
   motionVendorListImage,
   slboxImage,
   motionImage,
   motionImage2,
   aiCertificationPC,
-  protocolImage,
-  tokenEconomyImage,
+
   contactUsBackgroundImage,
   mobileAboutSL,
   buyWithSLTokens,
-  dataBuyer,
-  dataBuyerCase3,
-  arrowIcon,
-  sltokenIcon,
-  AIhealthImage,
+
   SuccessFactor1,
   SuccessFactor2,
   NewICP,
   TelegramLogo,
   ICPSymbol,
-  BoxIcon,
-  TransactionIcon,
-  DefiIcon,
+
   Logo,
   footerLogoImage,
   DigirayLogo,
-    FireCR,
-    FireCRSoftware,
-    QRCode,
-    AIMockup,
-    Xray2021,
-    Xray2022,
-    Xray2023,
-    ManagementMockup,
-    DentalEquipment,
-    GlobalmarketShare,
-    MedicalEquipment,
-    LogoBlue,
-    LogoMobile,
-    MedicalDataValue1,
-    MedicalDataValue2,
-    MedicalDataValue3
+  FireCR,
+  FireCRSoftware,
+  QRCode,
+  AIMockup,
+  Xray2021,
+  Xray2022,
+  Xray2023,
+  ManagementMockup,
+  DentalEquipment,
+  GlobalmarketShare,
+  MedicalEquipment,
+  LogoBlue,
+  LogoMobile,
+  MedicalDataValue1,
+  MedicalDataValue2,
+  MedicalDataValue3,
+  MedicalDataValue4,
+  IntroDigiray,
+  DentalDevice,
+  MedicalDevice,
+  DentalAnimalsDevice,
+  AISoftware1,
+  AISoftware2,
+  Vendor1,
+  Vendor2,
+  Patent1,
+  Patent2,
+  Certificate1,
+  Certificate2,
+  
+
 };
 
 export default Images;

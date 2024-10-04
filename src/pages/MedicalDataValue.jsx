@@ -48,6 +48,8 @@ const MedicalDataValue = () => {
           <img src={Images.MedicalDataValue1} alt="MedicalDataValue1"  />
           <img src={Images.MedicalDataValue2} alt="MedicalDataValue2"  />
           <img src={Images.MedicalDataValue3} alt="MedicalDataValue3"  />
+          <img src={Images.MedicalDataValue4} alt="MedicalDataValue4" className="hidden md:block lg:hidden"  />
+
         </div>
         </motion.div>
       </section>

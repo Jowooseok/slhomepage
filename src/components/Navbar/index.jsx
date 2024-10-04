@@ -50,7 +50,7 @@ function Navbar() {
     <div className="flex flex-row justify-between items-center max-h-16 py-1">
       <a href="/">
         <img
-          className="h-6 object-contain"
+          className="h-5 object-contain"
           src={Images.LogoBlue}
           alt="Logo"
           onClick={onClose}

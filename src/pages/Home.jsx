@@ -524,7 +524,7 @@ const Home = () => {
           </button>
         </form>
       </section>
-      <section className=" lg:hidden flex flex-col  xl:mx-20 mx-8 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] ">
+      <section className=" lg:hidden flex flex-col  xl:mx-20 mx-4 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] ">
         <div className=" xl:text-3xl text-lg text-white">
           <p>
             Sign up for email updates{" "}

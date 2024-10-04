@@ -28,10 +28,10 @@ const Section4 = ({
                 The 50,000 CR scanners sold by Digiray to hospitals can be
                 remotely updated
               </h2>
-              <div className="flex flex-row items-center gap-2 text-blue-600 mt-4">
+              <a href="CompanyIntroduction" className="flex flex-row items-center gap-2 text-blue-600 mt-4">
                 <p className="text-sm md:text-xl">Learn more</p>
                 <FaCircleArrowRight className="text-2xl" />
-              </div>
+              </a>
             </div>
             <div className="flex-grow flex">
               <div className="relative h-full w-full">
