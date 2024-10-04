@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
-import { animateScroll } from "react-scroll";
+import { animateScroll, scroller } from "react-scroll";
 import { Drawer } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
@@ -31,14 +31,10 @@ function Navbar() {
   };
 
   const menuItems = {
-    "SL Protocol": [
-      "User Solution",
-      "Blockchain",
-      "Token Economy",
-      // "DeFi User Case",
-      "Data Buyer Case",
-    ],
-    Technology: ["Certificate & Patent", "Medical AI Solution"],
+    "Medical AI Solution": [],
+    "Medical Data Value": [],
+    "Company Introduction": [],
+    "About Save the Life": [],
     "White Paper": ["White Paper", "IR Deck"],
   };
 
@@ -111,6 +107,8 @@ function Navbar() {
     </div>
   );
 
+  const location = useLocation();
+
   function handleNavigation(item) {
     const itemId = item.replace(/\s+/g, "");
     const element = document.getElementById(itemId);
@@ -127,24 +125,29 @@ function Navbar() {
     }
 
     if (element) {
-      animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
+      scroller.scrollTo(itemId, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
     } else {
-      window.location.href = `/${itemId}#${itemId}`;
+      window.location.href = `/#${itemId}`;
     }
   }
 
   function handleNavigationMobile(itemId) {
     const element = document.getElementById(itemId);
-
     if (element) {
       onClose();
-      animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
+      scroller.scrollTo(itemId, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
     } else {
-      window.location.href = `/${itemId}#${itemId}`;
+      window.location.href = `/#${itemId}`;
     }
   }
-
-  const location = useLocation();
 
   useEffect(() => {
     const hash = window.location.hash.substring(1);
@@ -152,257 +155,235 @@ function Navbar() {
       setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
-          animateScroll.scrollTo(element.offsetTop);
+          scroller.scrollTo(hash, {
+            duration: 800,
+            delay: 0,
+            smooth: "easeInOutQuart",
+          });
         }
-      }, 500); // 0.5초 지연 후 스크롤 시도
+      }, 500); // Delay to allow the page to render the element
     }
   }, [location]);
+
   return (
-      <nav className="bg-[#FFF9F7] text-[#171717] fixed w-full h-16 flex items-center z-20">
-        <div className=" mx-auto px-4 xl:px-20 w-full ">
-          <div className="flex justify-between items-center py-2">
-            <div className="flex items-center space-x-24">
-              <img
-                className="h-5 object-contain cursor-pointer"
-                src={Images.LogoBlue}
-                alt="Logo"
-                onClick={() => {
-                  const element = document.getElementById("home");
-                  if (element) {
-                    animateScroll.scrollTo(element.offsetTop); // 요소가 있으면 스크롤
-                  } else {
-                    window.location.href = `/`; // 요소가 없으면 페이지 이동
-                  }
-                }}
-              />
-
-              <div className="hidden xl:flex space-x-28 cursor-pointer">
-                {Object.keys(menuItems).map((menu) => (
-                  <div
-                    key={menu}
-                    className="relative text-[#171717]"
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div
-                      className="flex items-center"
-                      onMouseEnter={() => handleMouseEnter(menu)}
-                    >
-                      {menu}
-
-                      <motion.svg
-                        className={`ml-2 w-6 h-6 `}
-                        fill="none"
-                        stroke="currentColor"
-                        animate={openDropdown === menu ? "opened" : "closed"}
-                        variants={arrowVariants}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </motion.svg>
-                    </div>
-                    <AnimatePresence>
-                      {openDropdown === menu && (
-                        <motion.ul
-                          initial="collapsed"
-                          animate="open"
-                          exit="collapsed"
-                          variants={variants}
-                          transition={{ duration: 0.5 }}
-                          className="absolute left-0 bg-white shadow-lg mt-4 rounded-lg w-60 text-base "
-                          onMouseEnter={() => handleMouseEnter(menu)}
-                        >
-                          {menuItems[menu].map((item) => (
-                            <li
-                              key={item}
-                              onClick={() => handleNavigation(item)}
-                              className="px-4 py-3 cursor-pointer text-neutral-800 hover:bg-gray-100 hover:rounded-lg"
-                            >
-                              {item}
-                            </li>
-                          ))}
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hidden xl:flex items-center space-x-4">
-              {socialLinks}
-            </div>
-            <div className="xl:hidden">
-              <button
-                onClick={showMenu}
-                className="text-[#171717] focus:outline-none"
-              >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+    <nav className="bg-[#FFF9F7] text-[#171717] fixed w-full h-16 flex items-center z-20">
+      <div className=" mx-auto px-4 xl:px-20 w-full ">
+        <div className="flex justify-between items-center py-2">
+          <div className="flex items-center space-x-12">
+            <img
+              className="h-5 object-contain cursor-pointer"
+              src={Images.LogoBlue}
+              alt="Logo"
+              onClick={() => {
+                const element = document.getElementById("home");
+                if (element) {
+                  scroller.scrollTo("home", {
+                    duration: 800,
+                    delay: 0,
+                    smooth: "easeInOutQuart",
+                  });
+                } else {
+                  window.location.href = `/`;
+                }
+              }}
+            />
+            <div className="hidden xl:flex space-x-4 cursor-pointer">
+              {Object.keys(menuItems).map((menu) => (
+                <div
+                  key={menu}
+                  className="relative text-[#171717]"
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  ></path>
-                </svg>
-              </button>
+                  <div
+                    className="flex items-center"
+                    onMouseEnter={() => handleMouseEnter(menu)}
+                    onClick={() => handleNavigation(menu)}
+                  >
+                    {menu}
+                    {/* Show hidden arrow for menus with sub-items to maintain height consistency */}
+                    <motion.svg
+                      className={`ml-2 w-6 h-6`}
+                      fill="none"
+                      stroke="currentColor"
+                      style={{
+                        visibility:
+                          menuItems[menu].length > 0 ? "visible" : "hidden",
+                      }}
+                      animate={openDropdown === menu ? "opened" : "closed"}
+                      variants={arrowVariants}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </motion.svg>
+                  </div>
+                  <AnimatePresence>
+                    {openDropdown === menu && menuItems[menu].length > 0 && (
+                      <motion.ul
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={variants}
+                        transition={{ duration: 0.5 }}
+                        className="absolute left-0 bg-white shadow-lg mt-4 rounded-lg w-60 text-base "
+                        onMouseEnter={() => handleMouseEnter(menu)}
+                      >
+                        {menuItems[menu].map((item) => (
+                          <li
+                            key={item}
+                            onClick={() => handleNavigation(item)}
+                            className="px-4 py-3 cursor-pointer text-neutral-800 hover:bg-gray-100 hover:rounded-lg"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
             </div>
           </div>
-          <Drawer
-            title={menuTitle()}
-            onClose={onClose}
-            closeIcon={null}
-            open={isMenuOpen}
-            placement={"left"}
-            width={"100%"}
-          >
-            {/**드로어 모바일 영역 */}
-            <div className="flex flex-col text-base font-semibold gap-8 text-neutral-800">
-              <div className="flex flex-row items-center gap-2">
-                <p>SL Protocol</p> <FaAngleDown />
-              </div>
-              <div className="flex flex-col gap-6 font-normal pl-4">
-                <div
-                  className=" flex flex-row items-center gap-2  cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("UserSolution");
-                  }}
-                >
-                  User Solution
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("Blockchain");
-                  }}
-                >
-                  Blockchain
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("TokenEconomy");
-                  }}
-                >
-                  Token Economy
-                </div>
-                {/* <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("DeFiUserCase");
-                  }}
-                >
-                 DeFi User Case
-                </div> */}
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("DataBuyerCase");
-                  }}
-                >
-                  Data Buyer Case
-                </div>
-              </div>
-              <div className="flex flex-row items-center gap-2">
-                <p>Technology</p> <FaAngleDown />
-              </div>
-              <div className="flex flex-col gap-6 font-normal pl-4  ">
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("Certificate&Patent");
-                  }}
-                >
-                  Certificate & Patent
-                </div>
-                <div
-                  className=" flex flex-row items-center gap-2 cursor-pointer hover:text-blue-400"
-                  onClick={() => {
-                    handleNavigationMobile("MedicalAISolution");
-                  }}
-                >
-                  Medical AI Solution
-                </div>
-              </div>
+          <div className="hidden xl:flex items-center space-x-4">
+            {socialLinks}
+          </div>
+          <div className="xl:hidden">
+            <button
+              onClick={showMenu}
+              className="text-[#171717] focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
 
-              <div className="flex flex-row items-center gap-2">
-                <p>White paper</p> <FaAngleDown />
-              </div>
-              <div className="flex flex-col gap-6 font-normal pl-4  ">
-                <a
-                  target="_blank"
-                  href="https://save-the-life.gitbook.io/save-the-life"
-                  className=" flex flex-row items-center"
-                >
-                  White paper
-                </a>
-                <a
-                  target="_blank"
-                  href="https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view"
-                >
-                  IR Deck
-                </a>
-              </div>
+        <Drawer
+          title={menuTitle()}
+          onClose={onClose}
+          closeIcon={null}
+          open={isMenuOpen}
+          placement={"left"}
+          width={"100%"}
+        >
+          {/**드로어 모바일 영역 */}
+          <div className="flex flex-col text-base font-semibold gap-4 text-neutral-800">
+            <p
+              onClick={() => {
+                handleNavigationMobile("MedicalAISolution");
+              }}
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              Medical AI Solution
+            </p>
+            <p
+              onClick={() => {
+                handleNavigationMobile("MedicalDataValue");
+              }}
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              Medical Data Value
+            </p>
+            <p
+              onClick={() => {
+                handleNavigationMobile("CompanyIntroduction");
+              }}
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              Company Introduction
+            </p>
+            <p
+              onClick={() => {
+                handleNavigationMobile("AboutSavetheLife");
+              }}
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              About Save the Life
+            </p>
+            <div className="flex flex-row h-12 items-center gap-2">
+              <p>White paper</p> <FaAngleDown />
+            </div>
+            <div className="flex flex-col gap-6 font-normal pl-4  ">
+              <a
+                target="_blank"
+                href="https://save-the-life.gitbook.io/save-the-life"
+                className=" flex flex-row items-center"
+              >
+                White paper
+              </a>
+              <a
+                target="_blank"
+                href="https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view"
+              >
+                IR Deck
+              </a>
+            </div>
 
-              <div>
-                <div className="flex flex-row items-center gap-2">
-                  <p>Community</p> <FaAngleDown />
+            <div>
+              <div className="flex flex-row items-center gap-2">
+                <p>Community</p> <FaAngleDown />
+              </div>
+              <div className="flex flex-col gap-6 font-normal pl-4 mt-6 text-md ">
+                <div className=" flex flex-row items-center gap-2">
+                  <div className="text-black">
+                    <FaXTwitter />
+                  </div>{" "}
+                  <a
+                    href="https://twitter.com/savethelife_SL"
+                    target=" _blank"
+                  >
+                    Twitter
+                  </a>
                 </div>
-                <div className="flex flex-col gap-6 font-normal pl-4 mt-6 text-md ">
-                  <div className=" flex flex-row items-center gap-2">
-                    <div className="text-black">
-                      <FaXTwitter />
-                    </div>{" "}
-                    <a
-                      href="https://twitter.com/savethelife_SL"
-                      target=" _blank"
-                    >
-                      Twitter
-                    </a>
-                  </div>
-                  <div className=" flex flex-row items-center gap-2">
-                    <div className="text-blue-400">
-                      <FaTelegramPlane />{" "}
-                    </div>{" "}
-                    <a href="https://t.me/slfoundation" target=" _blank">
-                      Telegram
-                    </a>
-                  </div>
-                  <div className=" flex flex-row items-center gap-2">
-                    <div className="text-blue-700">
-                      <FaLinkedinIn />{" "}
-                    </div>{" "}
-                    <a
-                      href="https://www.linkedin.com/company/slfoundation"
-                      target=" _blank"
-                    >
-                      Linkedin
-                    </a>
-                  </div>
-                  <div className=" flex flex-row items-center gap-2">
-                    <div className="text-gray-700">
-                      <FaGithub />
-                    </div>{" "}
-                    <a href="https://github.com/safethelife" target=" _blank">
-                      Github
-                    </a>
-                  </div>
+                <div className=" flex flex-row items-center gap-2">
+                  <div className="text-blue-400">
+                    <FaTelegramPlane />{" "}
+                  </div>{" "}
+                  <a href="https://t.me/slfoundation" target=" _blank">
+                    Telegram
+                  </a>
+                </div>
+                <div className=" flex flex-row items-center gap-2">
+                  <div className="text-blue-700">
+                    <FaLinkedinIn />{" "}
+                  </div>{" "}
+                  <a
+                    href="https://www.linkedin.com/company/slfoundation"
+                    target=" _blank"
+                  >
+                    Linkedin
+                  </a>
+                </div>
+                <div className=" flex flex-row items-center gap-2">
+                  <div className="text-gray-700">
+                    <FaGithub />
+                  </div>{" "}
+                  <a href="https://github.com/safethelife" target=" _blank">
+                    Github
+                  </a>
                 </div>
               </div>
             </div>
-          </Drawer>
-        </div>
-      </nav>
+          </div>
+        </Drawer>
+      </div>
+    </nav>
   );
 }
 
 export default Navbar;
-

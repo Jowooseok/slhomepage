@@ -98,7 +98,8 @@ const Section3 = ({
 
   return (
     <div
-      id="section3"
+      id="MedicalDataValue"
+      name="MedicalDataValue"
       ref={section3Ref}
       className="relative w-full overflow-hidden md:p-8 p-4"
       style={{ height: "calc(100vh - 4rem)" }}

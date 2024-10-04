@@ -9,6 +9,7 @@ import Section4 from "./Section4";
 import { handleSubmit } from "../utils/formHandler"; // 이메일 폼 제출 핸들러
 import Images from "../assets/Images";
 import Marquee from "react-fast-marquee";
+import { animateScroll, scroller } from "react-scroll";
 
 // GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
@@ -54,6 +55,19 @@ const Home = () => {
   const availableTextRef = useRef(null);
   const productionTextRef = useRef(null); // 추가된 ref
 
+  
+
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      scroller.scrollTo(hash, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
+    }
+  }, []);
+
   // GSAP 애니메이션 설정
   useEffect(() => {
     const device = window.innerWidth <= 768 ? "mobile" : "desktop";
@@ -87,7 +101,7 @@ const Home = () => {
           trigger: section2Ref.current,
           start: "top top",
           end: "+=200%",
-          scrub: 3,
+          scrub: 10,
           pin: true,
           markers: false, // 디버깅 시 true로 설정
         },
@@ -185,7 +199,7 @@ const Home = () => {
           trigger: section3Ref.current,
           start: "top top",
           end: "+=200%",
-          scrub: 3,
+          scrub: 10,
           pin: true,
           markers: false, // 디버깅 시 true로 설정
         },
@@ -276,7 +290,7 @@ const Home = () => {
           trigger: section4Ref.current,
           start: "top top",
           end: "+=200%",
-          scrub: 3,
+          scrub: 10,
           pin: true,
           markers: false, // 디버깅 시 true로 설정
         },
@@ -381,7 +395,7 @@ const Home = () => {
         availableTextRef={availableTextRef}
         productionTextRef={productionTextRef} // 추가된 ref 전달
       />
-      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+      <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
         <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24 md: md:text-start text-center font-bold ">
           About [Digiray's 'Save the Life' Project]
         </h1>

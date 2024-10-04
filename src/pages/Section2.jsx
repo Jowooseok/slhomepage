@@ -16,7 +16,8 @@ const Section2 = ({
 }) => {
   return (
     <div
-      id="section2"
+      id="MedicalAISolution"
+       name="MedicalAISolution"
       ref={section2Ref}
       className="relative w-full overflow-hidden md:p-8 p-4"
       style={{ height: "calc(100vh - 4rem)" }} // Full screen height for section

@@ -14,7 +14,8 @@ const Section4 = ({
 }) => {
   return (
     <div
-      id="section4"
+      id="CompanyIntroduction"
+        name="AboutSavetheLife"
       ref={section4Ref}
       className="relative w-full overflow-hidden md:p-8 p-4"
       style={{ height: "calc(100vh - 4rem)" }}

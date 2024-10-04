@@ -4,7 +4,7 @@ import Videos from "../assets/Videos";
 
 const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, buttonRef, handleSubmit }) => {
   return (
-    <div id="section1" className="relative w-full overflow-hidden md:p-8 md:pt-0 p-4 pt-0" style={{ height: "calc(100vh - 4rem)" }}>
+    <div id="home" name="home" className="relative w-full overflow-hidden md:p-8 md:pt-0 p-4 pt-0" style={{ height: "calc(100vh - 4rem)" }}>
       <div className="relative w-full h-full flex justify-center items-center">
         <video
           ref={videoRef}
