@@ -31,7 +31,7 @@ const Home = () => {
   const aiMockupRef = useRef(null);
   const aiDiagnosisRef = useRef(null);
   const crScannerTextRef = useRef(null); // 추가된 ref
-  const scanSnapTextRef = useRef(null);   // 추가된 ref
+  const scanSnapTextRef = useRef(null); // 추가된 ref
 
   // 섹션 3 Refs
   const section3Ref = useRef(null);
@@ -61,21 +61,23 @@ const Home = () => {
     // 섹션 1 애니메이션
     if (overlayRef.current) {
       const headingEnd = device === "mobile" ? "+=500px" : "+=550px";
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: overlayRef.current,
-          start: "top top",
-          end: headingEnd,
-          scrub: true,
-          pin: true,
-          markers: false, // 디버깅 시 true로 설정
-        },
-      }).to(overlayRef.current, {
-        opacity: 0,
-        y: -100,
-        duration: 1,
-        ease: "power1.out",
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: overlayRef.current,
+            start: "top top",
+            end: headingEnd,
+            scrub: true,
+            pin: true,
+            markers: false, // 디버깅 시 true로 설정
+          },
+        })
+        .to(overlayRef.current, {
+          opacity: 0,
+          y: -100,
+          duration: 1,
+          ease: "power1.out",
+        });
     }
 
     // 섹션 2 애니메이션
@@ -261,8 +263,7 @@ const Home = () => {
             repeat: 5,
             yoyo: true,
             ease: "power1.inOut",
-            onComplete: () =>
-              gsap.to(usdTextRef.current, { opacity: 1 }),
+            onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
           },
           "+=0.3"
         );
@@ -326,8 +327,7 @@ const Home = () => {
             repeat: 5,
             yoyo: true,
             ease: "power1.inOut",
-            onComplete: () =>
-              gsap.to(availableTextRef.current, { opacity: 1 }),
+            onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
           },
           "+=0.3"
         );
@@ -358,7 +358,7 @@ const Home = () => {
         aiMockupRef={aiMockupRef}
         aiDiagnosisRef={aiDiagnosisRef}
         crScannerTextRef={crScannerTextRef} // 추가된 ref 전달
-        scanSnapTextRef={scanSnapTextRef}   // 추가된 ref 전달
+        scanSnapTextRef={scanSnapTextRef} // 추가된 ref 전달
       />
       <Section3
         section3Ref={section3Ref}
@@ -381,16 +381,77 @@ const Home = () => {
         availableTextRef={availableTextRef}
         productionTextRef={productionTextRef} // 추가된 ref 전달
       />
-      <div className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
-        <h1 className="text-base lg:text-4xl md:text-3xl text-center ">About [Digiray's 'Save the Life' Project]
+      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24 md: md:text-start text-center font-bold ">
+          About [Digiray's 'Save the Life' Project]
         </h1>
         <div className="md:mt-8 mt-4 lg:p-24 lg:pt-0">
-        <img src={Images.slboxImage} alt="SLprotocol" className=" hidden sm:block "  />
-        <img src={Images.mobileAboutSL} alt="SLprotocol" className=" block sm:hidden "  />
+          <img
+            src={Images.slboxImage}
+            alt="SLprotocol"
+            className=" hidden sm:block "
+          />
+          <img
+            src={Images.mobileAboutSL}
+            alt="SLprotocol"
+            className=" block sm:hidden "
+          />
         </div>
-      </div>
+      </section>
 
-      
+      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24  md:text-start text-center font-bold ">
+          DApp Launch Plan
+        </h1>
+        <div className="grid grid-cols-2 lg:px-24 gap-4 mt-12">
+          <div className="col-span-2 lg:col-span-1">
+            <div>
+              <p className="text-lg font-bold">For Humans</p>
+              <p className="text-sm md:text-base">
+                Healthcare Medical Data Collection Solution DApp
+              </p>
+              <img
+                src={Images.SuccessFactor1}
+                alt="sl-pationt-app"
+                className=" mt-5"
+              />
+              <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
+                <div
+                  className="flex flex-row items-center lg:h-16 gap-2 lg:w-48 h-14 md:w-40 w-36 justify-center z-20"
+                  style={{ border: "2px solid #0147e5", borderRadius: "16px" }}
+                >
+                  <img src={Images.ICPSymbol} className="w-8" />
+                  <p className=" font-bold lg:text-lg text-xs md:text-sm text-[#0147e5]">
+                    ICP Onchain
+                  </p>
+                </div>
+                <p className="text-xs md:text-sm lg:text-base">
+                  Launch planned for <span className=" font-bold">Q2 2025</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-2 lg:col-span-1 mt-8 lg:mt-0">
+            <div>
+              <p className="text-lg font-bold">For Animals</p>
+              <p className="text-sm md:text-base">
+                Healthcare Medical Data Collection Solution DApp
+              </p>
+              <img
+                src={Images.SuccessFactor2}
+                alt="sl-animals-app"
+                className="mt-5"
+              />
+              <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
+                <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16">
+                  Launch planned for <span className=" font-bold"> &nbsp;Q4 2024</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="full-width-marquee bg-white mr-4  my-16 ">
         <Marquee>
           <img
@@ -401,10 +462,7 @@ const Home = () => {
         </Marquee>
       </section>
 
-      <section
-        className="xl:py-16 lg:my-32 py-16 full-width-marquee xl:space-y-12 space-y-4 bg-[#3A5FCD]"
-     
-      >
+      <section className="xl:py-16 lg:my-32 py-16 full-width-marquee xl:space-y-12 space-y-4 bg-[#3A5FCD]">
         <Marquee>
           <img
             src={Images.motionImage}
@@ -423,7 +481,10 @@ const Home = () => {
       {/**contact us */}
       <section
         className=" hidden lg:flex flex-col  xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 "
-        style={{ background: `no-repeat center url(${Images.contactUsBackgroundImage})`, backgroundSize:"cover" }}
+        style={{
+          background: `no-repeat center url(${Images.contactUsBackgroundImage})`,
+          backgroundSize: "cover",
+        }}
       >
         <div className=" xl:text-3xl text-lg text-white">
           <p>
@@ -449,10 +510,7 @@ const Home = () => {
           </button>
         </form>
       </section>
-      <section
-        className=" lg:hidden flex flex-col  xl:mx-20 mx-8 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] "
-   
-      >
+      <section className=" lg:hidden flex flex-col  xl:mx-20 mx-8 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8  lg:py-24 gap-8 bg-[#3A5FCD] ">
         <div className=" xl:text-3xl text-lg text-white">
           <p>
             Sign up for email updates{" "}

@@ -41,6 +41,7 @@ import DentalEquipment from "./dentalEquipment.png";
 import GlobalmarketShare from "./globalmarketshare.png";
 import MedicalEquipment from "./medicalEquipment.png";
 import LogoBlue from "./logo_blue.png";
+import LogoMobile from "./logo_mobile.png";
 
 const Images = {
   icpLogo,
@@ -85,7 +86,8 @@ const Images = {
     DentalEquipment,
     GlobalmarketShare,
     MedicalEquipment,
-    LogoBlue
+    LogoBlue,
+    LogoMobile
 };
 
 export default Images;

@@ -163,7 +163,7 @@ function Navbar() {
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center space-x-24">
               <img
-                className="h-6 object-contain cursor-pointer"
+                className="h-5 object-contain cursor-pointer"
                 src={Images.LogoBlue}
                 alt="Logo"
                 onClick={() => {

@@ -20,11 +20,15 @@ function MainLayout({children}) {
         style={{ backgroundColor: "#000000" }}
       >
         <div className="w-full sm:w-5/12 sm:flex items-center justify-center py-4 sm:py-0 hidden">
-          <img src={Images.DigirayLogo} alt="footerLogoImage" className="lg:w-2/5 md:w-4/5  max-w-md bg-white md:p-8 rounded-md" />
+        <a href="https://m.digiray.co.kr/" className=" bg-white rounded-md">
+          <img src={Images.DigirayLogo} alt="footerLogoImage" className=' max-w-md md:p-8'  />
+          </a>
         </div>
         <div className="w-full sm:w-0.5 h-auto bg-white my-4 sm:my-0 ">{""}</div> 
         <div className="flex flex-col w-full sm:w-5/12 text-center sm:text-left text-white gap-6">
-        <img src={Images.DigirayLogo} alt="footerLogoImage" className="w-2/5  max-w-md bg-white sm:hidden self-center border border-black p-4 rounded-md" />
+        <a href="https://m.digiray.co.kr/" className='w-full h-full flex items-center justify-center'>
+        <img src={Images.DigirayLogo} alt="footerLogoImage" className="w-2/5  bg-white sm:hidden  p-4 rounded-md" />
+        </a>
           <p className="font-bold text-lg sm:text-xl">Find us on</p>
           <div className="grid grid-cols-2 gap-4">
             <a href="https://twitter.com/savethelife_SL" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
