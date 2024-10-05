@@ -35,7 +35,7 @@ function Navbar() {
     "Medical Data Value": [],
     "Company Introduction": [],
     "About Save the Life": [],
-    "White Paper": ["White Paper", "IR Deck"],
+    "White Paper": [],
   };
 
   const showMenu = () => {
@@ -315,7 +315,14 @@ function Navbar() {
             >
               About Save the Life
             </p>
-            <div className="flex flex-row h-12 items-center gap-2">
+            <a
+              target="_blank"
+                href="https://save-the-life.gitbook.io/save-the-life"
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              White paper
+            </a>
+            {/* <div className="flex flex-row h-12 items-center gap-2">
               <p>White paper</p> <FaAngleDown />
             </div>
             <div className="flex flex-col gap-6 font-normal pl-4  ">
@@ -332,7 +339,7 @@ function Navbar() {
               >
                 IR Deck
               </a>
-            </div>
+            </div> */}
 
             <div>
               <div className="flex flex-row items-center gap-2">

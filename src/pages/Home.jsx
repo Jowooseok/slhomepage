@@ -190,7 +190,8 @@ const Home = () => {
             onComplete: () => gsap.to(aiDiagnosisRef.current, { opacity: 1 }),
           },
           "+=0.3"
-        );
+        )  
+        .to({}, { duration: 3 });
     }
 
     // 섹션 3 애니메이션
@@ -281,7 +282,8 @@ const Home = () => {
             onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
           },
           "+=0.3"
-        );
+        )
+        .to({}, { duration: 3 });
     }
 
     // 섹션 4 애니메이션
@@ -345,7 +347,8 @@ const Home = () => {
             onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
           },
           "+=0.3"
-        );
+        )
+        .to({}, { duration: 3 });
     }
 
     return () => {

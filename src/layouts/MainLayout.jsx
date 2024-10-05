@@ -30,26 +30,26 @@ function MainLayout({children}) {
         <img src={Images.DigirayLogo} alt="footerLogoImage" className="w-2/5  bg-white sm:hidden  p-4 rounded-md" />
         </a>
           <p className="font-bold text-lg sm:text-xl">Find us on</p>
-          <div className="grid grid-cols-2 gap-4">
-            <a href="https://twitter.com/savethelife_SL" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
+          <div className="grid grid-cols-2 gap-4 justify-center items-center px-10 md:px-0 ">
+            <a href="https://twitter.com/savethelife_SL" target="_blank" className="flex flex-row items-center    gap-2 sm:gap-6">
               <div className="bg-white rounded-full p-2">
                 <FaTwitter style={{ color: "#000000" }} />
               </div>
               <p className="underline">Twitter</p>
             </a>
-            <a href="https://t.me/slfoundation" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
+            <a href="https://t.me/slfoundation" target="_blank" className="flex flex-row items-center    gap-2 sm:gap-6">
               <div className="bg-white rounded-full p-2">
                 <FaTelegramPlane style={{ color: "#000000" }} />
               </div>
               <p className="underline">Telegram</p>
             </a>
-            <a href="https://www.linkedin.com/company/slfoundation" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
+            <a href="https://www.linkedin.com/company/slfoundation" target="_blank" className="flex flex-row  items-center   gap-2 sm:gap-6">
               <div className="bg-white rounded-full p-2">
                 <FaLinkedinIn style={{ color: "#000000" }} />
               </div>
               <p className="underline">Linkedin</p>
             </a>
-            <a href="https://github.com/save-the-life" target="_blank" className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-6">
+            <a href="https://github.com/save-the-life" target="_blank" className="flex flex-row items-center   gap-2 sm:gap-6">
               <div className="bg-white rounded-full p-2">
                 <FaGithub style={{ color: "#000000" }} />
               </div>
