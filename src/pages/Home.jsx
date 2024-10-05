@@ -1,5 +1,5 @@
 // Home.js
-import React, { useState,useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Section1 from "./Section1";
@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const [email, setEmail] = useState("");
+
   // 섹션 1 Refs
   const videoRef = useRef(null);
   const overlayRef = useRef(null);
@@ -43,8 +44,8 @@ const Home = () => {
   const xray2023Ref = useRef(null);
   const managementMockupRef = useRef(null);
   const transactionTextRef = useRef(null);
-  const usdTextRef = useRef(null);
-  const chartRef = useRef(null); // 차트 Ref
+  const usdTextRef = useRef(null); // "30 ~100 USD" 텍스트 ref
+  const chartRef = useRef(null); // 차트 ref
   const accumulationTextRef = useRef(null); // 추가된 ref
 
   // 섹션 4 Refs
@@ -55,8 +56,6 @@ const Home = () => {
   const logoRef = useRef(null);
   const availableTextRef = useRef(null);
   const productionTextRef = useRef(null); // 추가된 ref
-
-  
 
   useEffect(() => {
     const hash = window.location.hash.substring(1);
@@ -82,9 +81,9 @@ const Home = () => {
             trigger: overlayRef.current,
             start: "top top",
             end: headingEnd,
-            scrub: true,
+            scrub: 2,
             pin: true,
-            markers: false, // 디버깅 시 true로 설정
+            markers: false,
           },
         })
         .to(overlayRef.current, {
@@ -101,10 +100,10 @@ const Home = () => {
         scrollTrigger: {
           trigger: section2Ref.current,
           start: "top top",
-          end: "+=200%",
-          scrub: 10,
+          end: "+=500%", // 애니메이션 구간을 늘림
+          scrub: 1, // 애니메이션이 천천히 진행되도록 함
           pin: true,
-          markers: false, // 디버깅 시 true로 설정
+          markers: false,
         },
       });
 
@@ -113,84 +112,85 @@ const Home = () => {
         .fromTo(
           section2TextRef.current,
           { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 }
+          { y: 0, opacity: 1, duration: 1 },
+          0
         )
         // FireCR 이미지 등장
         .fromTo(
           fireCRRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // CR Scanner 텍스트 등장
         .fromTo(
           crScannerTextRef.current,
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // FireCRSoftware 이미지 등장
         .fromTo(
           softwareRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // QRCode 이미지 등장
         .fromTo(
           qrCodeRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
-        // "Scan the QR Code! Snap!" 텍스트 반짝임 (한 번)
+        // "Scan the QR Code! Snap!" 텍스트 반짝임
         .fromTo(
           scanSnapTextRef.current,
           { opacity: 0 },
           {
             opacity: 1,
             duration: 0.5,
-            repeat: 1, // Blink once (initial state + 1 repeat)
+            repeat: 1,
             yoyo: true,
             ease: "power1.inOut",
             onComplete: () => gsap.to(scanSnapTextRef.current, { opacity: 1 }),
           },
-          "+=0.3"
+          "+=2"
         )
         // AI Mockup 이미지 등장
         .fromTo(
           aiMockupRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // AI Mockup 회전
         .to(
           aiMockupRef.current,
           { rotationY: 360, duration: 3, ease: "power2.inOut" },
-          "+=0.3"
+          "+=2"
         )
         // "Get a AI Diagnosis!" 텍스트 등장
         .fromTo(
           aiDiagnosisRef.current,
           { opacity: 0, y: 50 },
           { opacity: 1, y: 0, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
-        // "Get a AI Diagnosis!" 텍스트 반짝이기 (세 번)
+        // "Get a AI Diagnosis!" 텍스트 반짝이기
         .fromTo(
           aiDiagnosisRef.current,
           { opacity: 1 },
           {
             opacity: 0,
             duration: 0.5,
-            repeat: 2, // Blink three times (initial state + 2 repeats)
+            repeat: 3,
             yoyo: true,
             ease: "power1.inOut",
             onComplete: () => gsap.to(aiDiagnosisRef.current, { opacity: 1 }),
           },
-          "+=0.3"
-        )  
+          "+=2"
+        )
         .to({}, { duration: 3 });
     }
 
@@ -200,10 +200,10 @@ const Home = () => {
         scrollTrigger: {
           trigger: section3Ref.current,
           start: "top top",
-          end: "+=200%",
-          scrub: 10,
+          end: "+=500%", // 애니메이션 구간을 늘림
+          scrub: 1, // 애니메이션이 천천히 진행되도록 함
           pin: true,
-          markers: false, // 디버깅 시 true로 설정
+          markers: false,
         },
       });
 
@@ -212,62 +212,63 @@ const Home = () => {
         .fromTo(
           section3TextRef.current,
           { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 }
+          { y: 0, opacity: 1, duration: 1 },
+          0
         )
         // X-ray 이미지 1 등장
         .fromTo(
           xray2021Ref.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // X-ray 이미지 2 등장
         .fromTo(
           xray2022Ref.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // X-ray 이미지 3 등장
         .fromTo(
           xray2023Ref.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // Accumulation Text 등장
         .fromTo(
           accumulationTextRef.current,
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // 차트 등장
         .fromTo(
           chartRef.current,
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
-          "+=0.3"
+          "+=2"
         )
         // 모바일 목업 이미지 등장
         .fromTo(
           managementMockupRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // 모바일 목업 회전
         .to(
           managementMockupRef.current,
           { rotationY: 360, duration: 3, ease: "power2.inOut" },
-          "+=0.3"
+          "+=2"
         )
         // "Processed X-ray data price Transactions" 텍스트 등장
         .fromTo(
           transactionTextRef.current,
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // "30 ~100 USD" 텍스트 반짝이기
         .fromTo(
@@ -276,12 +277,12 @@ const Home = () => {
           {
             opacity: 1,
             duration: 0.5,
-            repeat: 5,
+            repeat: 3,
             yoyo: true,
             ease: "power1.inOut",
             onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
           },
-          "+=0.3"
+          "+=2"
         )
         .to({}, { duration: 3 });
     }
@@ -292,10 +293,10 @@ const Home = () => {
         scrollTrigger: {
           trigger: section4Ref.current,
           start: "top top",
-          end: "+=200%",
-          scrub: 10,
+          end: "+=500%", // 애니메이션 구간을 늘림
+          scrub: 1, // 애니메이션이 천천히 진행되도록 함
           pin: true,
-          markers: false, // 디버깅 시 true로 설정
+          markers: false,
         },
       });
 
@@ -304,35 +305,36 @@ const Home = () => {
         .fromTo(
           section4TextRef.current,
           { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 }
+          { y: 0, opacity: 1, duration: 1 },
+          0
         )
         // Medical 이미지 등장
         .fromTo(
           medicalRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // Dental 이미지 등장
         .fromTo(
           dentalRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // Production Text 등장
         .fromTo(
           productionTextRef.current,
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // Logo 등장
         .fromTo(
           logoRef.current,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "+=0.3"
+          "+=2"
         )
         // "Only 'Digiray' is available" 텍스트 반짝이기
         .fromTo(
@@ -341,16 +343,17 @@ const Home = () => {
           {
             opacity: 1,
             duration: 0.5,
-            repeat: 5,
+            repeat: 3,
             yoyo: true,
             ease: "power1.inOut",
             onComplete: () => gsap.to(availableTextRef.current, { opacity: 1 }),
           },
-          "+=0.3"
+          "+=2"
         )
         .to({}, { duration: 3 });
     }
 
+    // 컴포넌트 언마운트 시 ScrollTrigger 제거
     return () => {
       ScrollTrigger.getAll().forEach((instance) => instance.kill());
     };
@@ -375,8 +378,8 @@ const Home = () => {
         qrCodeRef={qrCodeRef}
         aiMockupRef={aiMockupRef}
         aiDiagnosisRef={aiDiagnosisRef}
-        crScannerTextRef={crScannerTextRef} // 추가된 ref 전달
-        scanSnapTextRef={scanSnapTextRef} // 추가된 ref 전달
+        crScannerTextRef={crScannerTextRef}
+        scanSnapTextRef={scanSnapTextRef}
       />
       <Section3
         section3Ref={section3Ref}
@@ -386,9 +389,9 @@ const Home = () => {
         xray2023Ref={xray2023Ref}
         managementMockupRef={managementMockupRef}
         transactionTextRef={transactionTextRef}
-        usdTextRef={usdTextRef} // "30 ~100 USD" 텍스트 ref
-        chartRef={chartRef} // 차트 ref
-        accumulationTextRef={accumulationTextRef} // 추가된 ref 전달
+        usdTextRef={usdTextRef}
+        chartRef={chartRef}
+        accumulationTextRef={accumulationTextRef}
       />
       <Section4
         section4Ref={section4Ref}
@@ -397,9 +400,9 @@ const Home = () => {
         dentalRef={dentalRef}
         logoRef={logoRef}
         availableTextRef={availableTextRef}
-        productionTextRef={productionTextRef} // 추가된 ref 전달
+        productionTextRef={productionTextRef}
       />
-      <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+        <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
         <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24 md: md:text-start text-center font-bold ">
           About [Digiray's 'Save the Life' Project]
         </h1>

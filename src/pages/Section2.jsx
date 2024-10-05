@@ -78,7 +78,7 @@ const Section2 = ({
                   ref={scanSnapTextRef}
                   className="absolute text-center min-w-36 md:-bottom-8 -bottom-4 md:left-64 left-28 text-neutral-800 text-xs md:text-lg opacity-0"
                 >
-                  Scan the QR Code! <br /> Snap!
+                  Scan the QR Code! <br className="hidden lg:block" /> Snap!
                 </p>
               </div>
             </div>
