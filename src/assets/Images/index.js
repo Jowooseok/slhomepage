@@ -44,6 +44,10 @@ import Patent1 from "./patent1.png";
 import Patent2 from "./patent2.png";
 import Certificate1 from "./certificate1.png";
 import Certificate2 from "./certificate2.png";
+import AIAccuracyPC from "./AIAccuracyPC.png";
+import AIMobilePC from "./AIMobilePC.png";
+import AIMobile from "./AIMobile.png";
+import AIAccuracyMobile from "./AIAccuracyMobile.png";
 
 const Images = {
   icpLogo,
@@ -95,6 +99,10 @@ const Images = {
   Patent2,
   Certificate1,
   Certificate2,
+  AIAccuracyPC,
+  AIMobilePC,
+  AIMobile,
+  AIAccuracyMobile,
 
 
 };
