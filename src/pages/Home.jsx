@@ -430,18 +430,9 @@ const Home = () => {
                 alt="sl-pationt-app"
                 className=" mt-5"
               />
-              <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
-                <div
-                  className="flex flex-row items-center lg:h-16 gap-2 lg:w-48 h-14 md:w-40 w-36 justify-center z-20"
-                  style={{ border: "2px solid #0147e5", borderRadius: "16px" }}
-                >
-                  <img src={Images.ICPSymbol} className="w-8" />
-                  <p className=" font-bold lg:text-lg text-xs md:text-sm text-[#0147e5]">
-                    ICP Onchain
-                  </p>
-                </div>
-                <p className="text-xs md:text-sm lg:text-base">
-                  Launch planned for <span className=" font-bold">Q2 2025</span>
+               <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
+                <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16">
+                  Launch planned for <span className=" font-bold"> &nbsp;Q2 2025</span>
                 </p>
               </div>
             </div>
