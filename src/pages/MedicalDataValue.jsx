@@ -45,7 +45,7 @@ const MedicalDataValue = () => {
           variants={variants} // 위에서 정의한 variants 사용
         >
         <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 md:p-8 p-4 pt-0 md:pt-0">
-          <video src={Images.MedicalDataValue1} alt="MedicalDataValue1"  />
+          <img src={Images.MedicalDataValue1} alt="MedicalDataValue1"  />
           <img src={Images.MedicalDataValue2} alt="MedicalDataValue2"  />
           <img src={Images.MedicalDataValue3} alt="MedicalDataValue3"  />
         </div>
