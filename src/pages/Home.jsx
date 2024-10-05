@@ -191,6 +191,8 @@ const Home = () => {
           },
           "+=2"
         )
+        .to({}, { duration: 3 })
+        .to({}, { duration: 3 })
         .to({}, { duration: 3 });
     }
 
@@ -284,6 +286,8 @@ const Home = () => {
           },
           "+=2"
         )
+        .to({}, { duration: 3 })
+        .to({}, { duration: 3 })
         .to({}, { duration: 3 });
     }
 
@@ -350,6 +354,8 @@ const Home = () => {
           },
           "+=2"
         )
+        .to({}, { duration: 3 })
+        .to({}, { duration: 3 })
         .to({}, { duration: 3 });
     }
 
