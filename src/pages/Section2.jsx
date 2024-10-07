@@ -33,9 +33,9 @@ const Section2 = ({
           <div className="col-span-4 flex flex-col justify-between h-full relative">
             <div ref={section2TextRef} className="text-container">
               <h2  id="MedicalAISolution"
-       name="MedicalAISolution" className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
-                View Your Medical <br />
-                Information on Your Phone!
+       name="MedicalAISolution" className="2xl:text-4xl lg:text-3xl md:text-2xl text-sm font-semibold text-[#171717]">
+                Instant Access to Your  <br className=" hidden lg:block xl:block 2xl:hidden" />Health Data <br />
+                Right on Your Phone!
               </h2>
               <a href="/MedicalAISolution" className="flex flex-row items-center gap-2 text-blue-600 mt-4">
                 <p className="text-sm md:text-xl">Learn more</p>

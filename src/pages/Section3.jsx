@@ -31,9 +31,8 @@ const Section3 = ({
             {/* 1. "Managed medical data generates added value. Learn more" 텍스트 */}
             <div ref={section3TextRef} className="text-container">
               <h2       id="MedicalDataValue"
-      name="MedicalDataValue" className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
-                Managed medical data <br />
-                generates added value.
+      name="MedicalDataValue" className="2xl:text-4xl lg:text-3xl md:text-2xl text-sm font-semibold text-[#171717]">
+              Leveraging Indexed Medical Data to Maximize Healthcare Value.
               </h2>
               <a
                 href="/MedicalDataValue"
@@ -113,9 +112,9 @@ const Section3 = ({
               ref={transactionTextRef}
               className="lg:text-2xl md:text-lg text-xs text-center"
             >
-              Processed X-ray data price Transactions{" "}
-              <br className="lg:block md:hidden" />{" "}
-              <span ref={usdTextRef} className="  font-semibold">30 ~100 USD</span>
+             Valuable X-ray data samples are sold for prices ranging from{" "}
+              <br className="lg:hidden" />{" "}
+              <span ref={usdTextRef} className="  font-semibold">30 ~100 USD</span> each
             </p>
           </div>
 

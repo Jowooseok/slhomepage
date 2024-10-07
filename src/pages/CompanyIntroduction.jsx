@@ -42,7 +42,7 @@ const CompanyIntroduction = () => {
       <img src={Images.IntroDigiray} alt="companyIntro" className="lg:pt-16 md:pt-8 hidden md:block" />
 
       <section className="flex flex-col gap-4 md:gap-8 items-center py-8 lg:mx-8 lg:p-48 lg:pt-20">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">X-Ray Device</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">X-Ray Devices</h1>
         <motion.div
           ref={refXRay} // X-Ray 섹션 감지
           initial="hidden"
@@ -88,7 +88,7 @@ const CompanyIntroduction = () => {
       </section>
 
       <section className="flex flex-col gap-4 md:gap-8 items-center py-8 lg:mx-8 lg:p-48 lg:pt-0">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">Patent</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">Patents</h1>
         <motion.div
           ref={refPatent} // Patent 섹션 감지
           initial="hidden"
@@ -103,7 +103,7 @@ const CompanyIntroduction = () => {
       </section>
 
       <section className="flex flex-col gap-4 md:gap-8 items-center py-8 lg:mx-8 lg:p-48 lg:pt-0">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">Certificate</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold w-full md:pt-8">Certificates</h1>
         <motion.div
           ref={refCertificate} // Certificate 섹션 감지
           initial="hidden"
