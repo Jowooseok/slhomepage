@@ -19,8 +19,7 @@ const Section3 = ({
 }) => {
   return (
     <div
-      id="MedicalDataValue"
-      name="MedicalDataValue"
+
       ref={section3Ref}
       className="relative w-full overflow-hidden md:p-8 p-4"
       style={{ height: "calc(100vh - 4rem)" }}
@@ -31,7 +30,8 @@ const Section3 = ({
           <div className="col-span-4 flex flex-col justify-between h-full relative">
             {/* 1. "Managed medical data generates added value. Learn more" 텍스트 */}
             <div ref={section3TextRef} className="text-container">
-              <h2 className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
+              <h2       id="MedicalDataValue"
+      name="MedicalDataValue" className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
                 Managed medical data <br />
                 generates added value.
               </h2>

@@ -16,8 +16,7 @@ const Section2 = ({
 }) => {
   return (
     <div
-      id="MedicalAISolution"
-       name="MedicalAISolution"
+
       ref={section2Ref}
       className="relative w-full overflow-hidden md:p-8 p-4"
       style={{ height: "calc(100vh - 4rem)" }} // Full screen height for section
@@ -33,7 +32,8 @@ const Section2 = ({
           {/* Left Column */}
           <div className="col-span-4 flex flex-col justify-between h-full relative">
             <div ref={section2TextRef} className="text-container">
-              <h2 className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
+              <h2  id="MedicalAISolution"
+       name="MedicalAISolution" className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
                 View Your Medical <br />
                 Information on Your Phone!
               </h2>
@@ -92,7 +92,7 @@ const Section2 = ({
               className="w-60 object-contain opacity-0"
               alt="AI Mockup"
             />
-            <p ref={aiDiagnosisRef} className="md:text-2xl text-xs opacity-0">
+            <p       ref={aiDiagnosisRef} className="md:text-2xl text-xs opacity-0">
               Get a AI Diagnosis!
             </p>
           </div>
