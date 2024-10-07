@@ -25,8 +25,7 @@ const Section4 = ({
             <div ref={section4TextRef} className="text-container">
               <h2      id="CompanyIntroduction"
         name="AboutSavetheLife" className="2xl:text-4xl lg:text-3xl md:text-2xl text-sm font-semibold text-[#171717]">
-                The 50,000 CR scanners sold by Digiray to hospitals can be
-                remotely updated
+                Digiray's 50,000 remotely updated  CR scanners operating world-wide.
               </h2>
               <a href="CompanyIntroduction" className="flex flex-row items-center gap-2 text-blue-600 mt-4">
                 <p className="text-sm md:text-xl">Learn more</p>
@@ -72,9 +71,9 @@ const Section4 = ({
                 {/* Production Text */}
                 <p
                   ref={productionTextRef}
-                  className="absolute md:-bottom-8 -bottom-4 text-xs md:text-base lg:text-lg min-w-80 lg:left-8 text-neutral-800"
+                  className="absolute md:-bottom-8 -bottom-4 text-xs md:text-base lg:text-lg min-w-60 lg:left-8 text-neutral-800"
                 >
-                  Producing and selling diverse X-ray equipment <br className="sm:hidden" />  for medical, dental, and veterinary use.
+                  A wide range of X-ray products for medical, dental, and veterinary use.
                 </p>
               </div>
             </div>

@@ -21,9 +21,9 @@ const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, bu
         <div className="absolute  inset-0 bg-black opacity-50 rounded-3xl"></div>
         <div ref={overlayRef} className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4 md:p-8 space-y-8 text-white h-full w-full">
           <h1 className="absolute lg:top-1/4 top-1/3 lg:pt-8 h-full text-xl md:text-4xl lg:text-6xl 2xl:text-7xl font-medium mb-4 leading-snug ">
-            <span ref={headingRef}>Let's make a medical AI & save lives</span>
+            <span ref={headingRef}>Unlocking Medical Data for Everyone.</span>
             <br />
-            <span ref={subheadingRef}>Your Data Saves Lives</span>
+            <span ref={subheadingRef}>Take Charge of your Health.</span>
           </h1>
 
           <form ref={formRef} className="absolute lg:top-1/2 pt-28 md:pt-0 px-8 md:px-0 w-full  max-w-md " onSubmit={(e) => handleSubmit(e, email, setEmail)}>
