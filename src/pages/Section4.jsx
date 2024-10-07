@@ -92,7 +92,7 @@ const Section4 = ({
               ref={availableTextRef}
               className="lg:text-2xl md:text-lg text-xs text-center "
             >
-              Only 'Digiray' is available
+              Only '<span className="font-bold">Digiray</span>' is available
             </p>
           </div>
 
