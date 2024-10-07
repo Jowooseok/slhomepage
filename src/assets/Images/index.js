@@ -23,6 +23,8 @@ import AIMockup from "./AIMockup.png";
 import Xray2021 from "./xray2021.png";
 import Xray2022 from "./xray2022.png";
 import Xray2023 from "./xray2023.png";
+import Xray2024 from "./xray2024.png";
+import BlockChainBG from "./blockchain-bg.png";
 import ManagementMockup from "./management-mockup.png";
 import DentalEquipment from "./dentalEquipment.png";
 import GlobalmarketShare from "./globalmarketshare.png";
@@ -78,6 +80,7 @@ const Images = {
   Xray2021,
   Xray2022,
   Xray2023,
+  Xray2024,
   ManagementMockup,
   DentalEquipment,
   GlobalmarketShare,
@@ -103,6 +106,8 @@ const Images = {
   AIMobilePC,
   AIMobile,
   AIAccuracyMobile,
+  BlockChainBG,
+ 
 
 
 };

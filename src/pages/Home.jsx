@@ -39,13 +39,16 @@ const Home = () => {
   // 섹션 3 Refs
   const section3Ref = useRef(null);
   const section3TextRef = useRef(null);
+  const accumulationTextRef = useRef(null);
+  const blockChainBGRef = useRef(null);
   const xray2021Ref = useRef(null);
   const xray2022Ref = useRef(null);
   const xray2023Ref = useRef(null);
+  const xray2024Ref = useRef(null); // 추가된 ref
+  const onBlockChainTextRef = useRef(null); // 추가된 ref
   const managementMockupRef = useRef(null);
   const transactionTextRef = useRef(null);
-  const usdTextRef = useRef(null); // "30 ~100 USD" 텍스트 ref
-  const accumulationTextRef = useRef(null); // 추가된 ref
+  const usdTextRef = useRef(null);
 
   // 섹션 4 Refs
   const section4Ref = useRef(null);
@@ -196,93 +199,110 @@ const Home = () => {
     }
 
     // 섹션 3 애니메이션
-    if (section3Ref.current) {
-      const tl3 = gsap.timeline({
-        scrollTrigger: {
-          trigger: section3Ref.current,
-          start: "top top",
-          end: "+=500%", // 애니메이션 구간을 늘림
-          scrub: 1, // 애니메이션이 천천히 진행되도록 함
-          pin: true,
-          markers: false,
-        },
-      });
+// 섹션 3 애니메이션
+if (section3Ref.current) {
+  const tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: section3Ref.current,
+      start: "top top",
+      end: "+=500%", // 애니메이션 구간을 늘림
+      scrub: 1, // 애니메이션이 천천히 진행되도록 함
+      pin: true,
+      markers: false,
+    },
+  });
 
-      tl3
-        // Section3 텍스트 등장
-        .fromTo(
-          section3TextRef.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          0
-        )
-        // X-ray 이미지 1 등장
-        .fromTo(
-          xray2021Ref.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
-        // X-ray 이미지 2 등장
-        .fromTo(
-          xray2022Ref.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
-        // X-ray 이미지 3 등장
-        .fromTo(
-          xray2023Ref.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
-        // Accumulation Text 등장
-        .fromTo(
-          accumulationTextRef.current,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
+  tl3
+    // 1. "Managed medical data generates added value. Learn more" 텍스트
+    .fromTo(
+      section3TextRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      0
+    )
+    // 2. "Accumulation, Storage, and Management..." 텍스트
+    .fromTo(
+      accumulationTextRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 3. BlockChainBG 이미지
+    .fromTo(
+      blockChainBGRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 4. X-ray 이미지 1 등장
+    .fromTo(
+      xray2021Ref.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 5. X-ray 이미지 2 등장
+    .fromTo(
+      xray2022Ref.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 6. X-ray 이미지 3 등장
+    .fromTo(
+      xray2023Ref.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 7. X-ray 이미지 4 등장
+    .fromTo(
+      xray2024Ref.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 8. "On BlockChain" 텍스트 등장
+    .fromTo(
+      onBlockChainTextRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 9. 목업 이미지 등장
+    .fromTo(
+      managementMockupRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // 10. 텍스트 등장
+    .fromTo(
+      transactionTextRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "+=2"
+    )
+    // "30 ~100 USD" 텍스트 반짝이기
+    .fromTo(
+      usdTextRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.5,
+        repeat: 3,
+        yoyo: true,
+        ease: "power1.inOut",
+        onComplete: () =>
+          gsap.to(usdTextRef.current, { opacity: 1 }),
+      },
+      "+=2"
+    )
+    .to({}, { duration: 3 })
+    .to({}, { duration: 3 })
+    .to({}, { duration: 3 });
+}
 
-        // 모바일 목업 이미지 등장
-        .fromTo(
-          managementMockupRef.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
-        // 모바일 목업 회전
-        .to(
-          managementMockupRef.current,
-          { rotationY: 360, duration: 3, ease: "power2.inOut" },
-          "+=2"
-        )
-        // "Processed X-ray data price Transactions" 텍스트 등장
-        .fromTo(
-          transactionTextRef.current,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "+=2"
-        )
-        // "30 ~100 USD" 텍스트 반짝이기
-        .fromTo(
-          usdTextRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.5,
-            repeat: 3,
-            yoyo: true,
-            ease: "power1.inOut",
-            onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
-          },
-          "+=2"
-        )
-        .to({}, { duration: 3 })
-        .to({}, { duration: 3 })
-        .to({}, { duration: 3 });
-    }
 
     // 섹션 4 애니메이션
     if (section4Ref.current) {
@@ -380,17 +400,21 @@ const Home = () => {
         crScannerTextRef={crScannerTextRef}
         scanSnapTextRef={scanSnapTextRef}
       />
-      <Section3
-        section3Ref={section3Ref}
-        section3TextRef={section3TextRef}
-        xray2021Ref={xray2021Ref}
-        xray2022Ref={xray2022Ref}
-        xray2023Ref={xray2023Ref}
-        managementMockupRef={managementMockupRef}
-        transactionTextRef={transactionTextRef}
-        usdTextRef={usdTextRef}
-        accumulationTextRef={accumulationTextRef}
-      />
+<Section3
+  section3Ref={section3Ref}
+  section3TextRef={section3TextRef}
+  accumulationTextRef={accumulationTextRef}
+  blockChainBGRef={blockChainBGRef}
+  xray2021Ref={xray2021Ref}
+  xray2022Ref={xray2022Ref}
+  xray2023Ref={xray2023Ref}
+  xray2024Ref={xray2024Ref}
+  onBlockChainTextRef={onBlockChainTextRef}
+  managementMockupRef={managementMockupRef}
+  transactionTextRef={transactionTextRef}
+  usdTextRef={usdTextRef}
+ />
+
       <Section4
         section4Ref={section4Ref}
         section4TextRef={section4TextRef}
