@@ -426,7 +426,7 @@ if (section3Ref.current) {
       />
         <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
         <h1 className="text-xl lg:text-4xl md:text-3xl lg:pl-24 md:text-start text-center lg:text-center font-bold ">
-          Digiray's ['Save the Life'] Project
+          Digiray's [Save the Life] Project
         </h1>
         <div className="md:mt-8 mt-4 lg:p-24 lg:pt-0 flex justify-center">
           <img
