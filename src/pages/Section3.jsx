@@ -17,7 +17,6 @@ const Section3 = ({
   managementMockupRef,
   transactionTextRef,
   usdTextRef,
-  chartRef,
   accumulationTextRef // 추가된 ref
 }) => {
 
@@ -170,10 +169,7 @@ const Section3 = ({
 
           {/* Right Column */}
           <div className="col-span-4 lg:flex hidden">
-            {/** 꺾은선 차트 섹션 */ }
-            <div ref={chartRef} className="w-full flex items-center lg:h-full opacity-0">
-              <Line data={data} options={options} />
-            </div>
+       
           </div>
         </div>
       </div>

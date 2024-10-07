@@ -66,8 +66,8 @@ const CompanyIntroduction = () => {
           variants={variants}
         >
           <div className="grid md:grid-cols-2 gap-4 lg:gap-8 md:p-8 p-4 pt-0 md:pt-0">
-            <img src={Images.AISoftware1} alt="AISoftware1" />
-            <img src={Images.AISoftware2} alt="AISoftware2" />
+            <img src={Images.AISoftware1} alt="AISoftware1" className="w-full" />
+            <img src={Images.AISoftware2} alt="AISoftware2" className="w-full" />
           </div>
         </motion.div>
       </section>

@@ -18,16 +18,16 @@ const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, bu
           playsInline
           style={{ pointerEvents: "none" }}
         />
-        <div className="absolute inset-0 bg-black opacity-50 rounded-3xl"></div>
+        <div className="absolute  inset-0 bg-black opacity-50 rounded-3xl"></div>
         <div ref={overlayRef} className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4 md:p-8 space-y-8 text-white h-full w-full">
-          <h1 className="text-2xl md:text-4xl lg:text-7xl font-medium mb-4 leading-snug">
+          <h1 className="absolute lg:top-1/4 top-1/3 lg:pt-8 h-full text-xl md:text-4xl lg:text-6xl 2xl:text-7xl font-medium mb-4 leading-snug ">
             <span ref={headingRef}>Let's make a medical AI & save lives</span>
             <br />
             <span ref={subheadingRef}>Your Data Saves Lives</span>
           </h1>
 
-          <form ref={formRef} className="w-full max-w-md" onSubmit={(e) => handleSubmit(e, email, setEmail)}>
-            <p className="text-lg md:text-2xl mb-4">Subscribe for updates</p>
+          <form ref={formRef} className="absolute lg:top-1/2 pt-28 md:pt-0 px-8 md:px-0 w-full  max-w-md " onSubmit={(e) => handleSubmit(e, email, setEmail)}>
+            <p className="text-base md:text-2xl mb-4">Subscribe for updates</p>
             <div className="flex flex-col sm:flex-row items-center">
               <input
                 className="appearance-none bg-transparent border border-white rounded-2xl w-full h-12 text-white px-4 leading-tight focus:outline-none text-sm md:text-base mb-2 sm:mb-0 sm:mr-2"
@@ -44,7 +44,7 @@ const Section1 = ({ videoRef, overlayRef, headingRef, subheadingRef, formRef, bu
             </div>
           </form>
 
-          <div className="pt-8">
+          <div className=" absolute bottom-14">
             <a ref={buttonRef} href="https://drive.google.com/file/d/1FQozCroeIAvCReiDOJkTK6bgh76t4nJ5/view" target="_blank" rel="noopener noreferrer" className="flex items-center text-base md:text-xl focus:outline-none">
               <FaPlayCircle className="mr-2" />
               Play Video

@@ -24,7 +24,7 @@ const Section4 = ({
         <div className="grid grid-cols-12 h-full relative mt-8">
           <div className="col-span-4 flex flex-col justify-between h-full relative">
             <div ref={section4TextRef} className="text-container">
-              <h2 className="lg:text-4xl md:text-2xl text-sm font-semibold text-[#171717]">
+              <h2 className="2xl:text-4xl lg:text-3xl md:text-2xl text-sm font-semibold text-[#171717]">
                 The 50,000 CR scanners sold by Digiray to hospitals can be
                 remotely updated
               </h2>

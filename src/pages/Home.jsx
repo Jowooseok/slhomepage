@@ -45,7 +45,6 @@ const Home = () => {
   const managementMockupRef = useRef(null);
   const transactionTextRef = useRef(null);
   const usdTextRef = useRef(null); // "30 ~100 USD" 텍스트 ref
-  const chartRef = useRef(null); // 차트 ref
   const accumulationTextRef = useRef(null); // 추가된 ref
 
   // 섹션 4 Refs
@@ -245,13 +244,7 @@ const Home = () => {
           { y: 0, opacity: 1, duration: 1 },
           "+=2"
         )
-        // 차트 등장
-        .fromTo(
-          chartRef.current,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
-          "+=2"
-        )
+
         // 모바일 목업 이미지 등장
         .fromTo(
           managementMockupRef.current,
@@ -396,7 +389,6 @@ const Home = () => {
         managementMockupRef={managementMockupRef}
         transactionTextRef={transactionTextRef}
         usdTextRef={usdTextRef}
-        chartRef={chartRef}
         accumulationTextRef={accumulationTextRef}
       />
       <Section4
@@ -409,14 +401,14 @@ const Home = () => {
         productionTextRef={productionTextRef}
       />
         <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
-        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24 md: md:text-start text-center font-bold ">
+        <h1 className="text-xl lg:text-4xl md:text-3xl lg:pl-24 md:text-start text-center lg:text-center font-bold ">
           About [Digiray's 'Save the Life' Project]
         </h1>
-        <div className="md:mt-8 mt-4 lg:p-24 lg:pt-0">
+        <div className="md:mt-8 mt-4 lg:p-24 lg:pt-0 flex justify-center">
           <img
             src={Images.slboxImage}
             alt="SLprotocol"
-            className=" hidden sm:block "
+            className=" hidden sm:block lg:w-[80%] 2xl:w-[70%] self-center "
           />
           <img
             src={Images.mobileAboutSL}
@@ -475,7 +467,7 @@ const Home = () => {
           <img
             src={Images.motionVendorListImage}
             alt="motionVendorListImage"
-            className=" lg:h-28 md:h-20 h-16"
+            className=" lg:h-28 md:h-20 h-16 mr-12 "
           />
         </Marquee>
       </section>
@@ -485,20 +477,20 @@ const Home = () => {
           <img
             src={Images.motionImage}
             alt="motionImage"
-            className=" xl:h-72 h-40 mr-6"
+            className=" lg:h-48  h-40 mr-6"
           />
         </Marquee>
         <Marquee direction={"right"}>
           <img
             src={Images.motionImage2}
             alt="motionImage2"
-            className=" xl:h-72 h-28 mr-6"
+            className=" lg:h-40  h-28 mr-4 "
           />
         </Marquee>
       </section>
       {/**contact us */}
       <section
-        className="hidden lg:flex flex-col xl:mx-20 mx-2 xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8"
+        className="hidden lg:flex flex-col  xl:my-20 my-16 rounded-3xl xl:px-16 px-8 py-8 lg:py-24 gap-8 w-2/3 mx-auto "
         style={{
           background: `no-repeat center url(${Images.contactUsBackgroundImage})`,
           backgroundSize: "cover",
@@ -564,6 +556,7 @@ const Home = () => {
           </button>
         </form>
       </section>
+      <br/><br/><br/><br/><br/><br/><br/>
     </div>
   );
 };
