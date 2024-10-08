@@ -449,7 +449,7 @@ if (section3Ref.current) {
         <div className="grid grid-cols-2 lg:px-24 gap-4 mt-12">
           <div className="col-span-2 lg:col-span-1">
             <div>
-              <p className="text-lg font-bold">For Humans</p>
+              <p className="text-lg font-bold">Human Healthcare DApp</p>
               <p className="text-xs md:text-base">
                 Healthcare Medical Data Collection Solution DApp
               </p>
@@ -467,7 +467,7 @@ if (section3Ref.current) {
           </div>
           <div className="col-span-2 lg:col-span-1 mt-8 lg:mt-0">
             <div>
-              <p className="text-lg font-bold">For Animals</p>
+              <p className="text-lg font-bold">Pet Healthcare DApp</p>
               <p className="text-xs md:text-base">
                 Healthcare Medical Data Collection Solution DApp
               </p>
