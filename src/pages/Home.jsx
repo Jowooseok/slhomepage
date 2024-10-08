@@ -424,7 +424,7 @@ if (section3Ref.current) {
         availableTextRef={availableTextRef}
         productionTextRef={productionTextRef}
       />
-        <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
+        <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 lg:mt-24 font-semibold items-center justify-center" style={{ height: "calc(100vh - 4rem)" }}>
         <h1 className="text-xl lg:text-4xl md:text-3xl lg:pl-24 md:text-start text-center lg:text-center font-bold ">
           Digiray's [Save the Life] Project
         </h1>
@@ -442,8 +442,8 @@ if (section3Ref.current) {
         </div>
       </section>
 
-      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold">
-        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24  md:text-start text-center font-bold ">
+      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold items-center justify-center" style={{ height: "calc(100vh - 4rem)" }}>
+        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24  md:text-start text-center font-bold w-full ">
           DApp Launch Plan
         </h1>
         <div className="grid grid-cols-2 lg:px-24 gap-4 mt-12">
