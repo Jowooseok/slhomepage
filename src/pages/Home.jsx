@@ -467,7 +467,7 @@ if (section3Ref.current) {
           </div>
           <div className="col-span-2 lg:col-span-1 mt-8 lg:mt-0">
             <div>
-              <p className="text-lg font-bold">For Pet</p>
+              <p className="text-lg font-bold">For Pets</p>
               <p className="text-xs md:text-base">
                 Healthcare Medical Data Collection Solution DApp
               </p>
