@@ -424,7 +424,8 @@ const Home = () => {
       />
       <section
         id="AboutSavetheLife"
-        className="flex flex-col md:p-8 p-4 lg:mt-24 font-semibold items-center justify-center md:h-[calc(100vh - 4rem)]"
+        className="flex flex-col md:p-8 p-4 lg:mt-24 font-semibold items-center justify-center"
+        style={{ height: "calc(100vh - 4rem)" }}
       >
         <h1 className="text-xl lg:text-4xl md:text-3xl md:text-start text-center lg:text-center font-bold ">
           Digiray's [Save the Life] Project
