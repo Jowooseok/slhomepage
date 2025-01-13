@@ -547,6 +547,10 @@ const Home = () => {
       <br className="block md:hidden"/>
       <br className="block md:hidden"/>
       <br className="block md:hidden"/>
+      <br className="block md:hidden"/>
+      <br className="block md:hidden"/>
+      <br className="block md:hidden"/>
+      <br className="block md:hidden"/>
 
       <section className="full-width-marquee bg-white mr-4  my-16 ">
         <Marquee>
