@@ -395,33 +395,33 @@ const Home = () => {
         onOpenChange={() => setOpen(false)}
         className="rounded-2xl"
       >
-        <DialogContent className=" min-w-[50%] w-[90%] h-[70%]  overflow-y-auto lg:overflow-y-visible rounded-2xl p-0 ">
+        <DialogContent className=" min-w-[50%] w-[90%] max-h-[90%]  overflow-y-auto lg:overflow-y-auto rounded-2xl p-0 ">
           <div className="flex flex-col w-full">
             <div className="p-6">
             <HiX
               className="lg:h-[30px] lg:w-[30px] w-5 h-5 ml-auto cursor-pointer"
               onClick={() => setOpen(false)}
             />
-            <h1 className="text-center text-xl lg:text-4xl font-bold">
+            <h1 className="text-center text-xl lg:text-2xl  2xl:text-4xl font-bold">
               Interpreted Chest   Medical Images
             </h1>
-            <p className="mt-4 text-center text-sm lg:text-xl">
+            <p className="mt-4 text-center text-sm lg:text-base 2xl:text-xl">
               We have collected a curated set of{" "}
-              <span className="font-bold text-lg lg:text-3xl">over 10,000</span>{" "}
-              interpreted medical images. <br />
+              <span className="font-bold text-lg lg:text-2xl 2xl:text-3xl">over 10,000</span>{" "}
+              interpreted medical images. <br className="block lg:hidden 2xl:block" />
               If you’re interested in purchasing them, please contact us via the
               Telegram QR code below.
             </p>
-            <div className="flex  justify-center mt-6 lg:mt-12">
+            <div className="flex  justify-center mt-6  2xl:mt-12">
               <img
                 src={Images.SampleImageSets}
                 alt="sampleImageSets"
-                className="w-[80%] object-contain "
+                className="w-[80%] lg:w-[60%]  object-contain "
               />
             </div>
             </div>
-            <div className="lg:flex-1 h-full flex flex-col lg:flex-row gap-4 lg:gap-8 items-center justify-center bg-[#0147E5] p-6">
-              <img src={Images.TelegramQR} alt="telegramQR" className="h-1/3 lg:h-2/3 hidden md:block" />
+            <div className="2xl:flex-1  h-full flex flex-col lg:flex-row gap-4 lg:gap-8 items-center justify-center bg-[#0147E5] p-6">
+              <img src={Images.TelegramQR} alt="telegramQR" className="h-1/3 2xl:h-2/3 hidden md:block" />
          <button onClick={()=>{navigate('/MedicalImages')}} className="rounded-2xl text-white border-2 text-sm md:text-lg  border-white w-[164px] h-[64px]">Visit this page</button>
             </div>
           </div>
