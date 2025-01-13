@@ -196,7 +196,7 @@ function Navbar() {
                 }
               }}
             />
-            <div className="hidden xl:flex space-x-4 cursor-pointer">
+            <div className="hidden xl:flex 2xl:space-x-4 md:space-x-2 cursor-pointer md:text-sm 2xl:text-base">
               {Object.keys(menuItems).map((menu) => (
                 <div
                   key={menu}
