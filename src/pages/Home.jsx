@@ -497,7 +497,7 @@ const Home = () => {
         className="flex flex-col md:p-8 p-4 mt-24 font-semibold items-center justify-center"
         style={{ height: "calc(100vh - 4rem)" }}
       >
-        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24  md:text-start text-center font-bold w-full ">
+        <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24 mt-24 md:mt-4  md:text-start text-center font-bold w-full ">
           DApp Launch Plan
         </h1>
         <div className="grid grid-cols-2 lg:px-24 gap-4 mt-12">
@@ -542,6 +542,8 @@ const Home = () => {
         </div>
       </section>
 
+      <br className="block md:hidden"/>
+      <br className="block md:hidden"/>
       <br className="block md:hidden"/>
 
       <section className="full-width-marquee bg-white mr-4  my-16 ">
