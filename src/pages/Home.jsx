@@ -10,12 +10,24 @@ import { handleSubmit } from "../utils/formHandler"; // 이메일 폼 제출 핸
 import Images from "../assets/Images";
 import Marquee from "react-fast-marquee";
 import { animateScroll, scroller } from "react-scroll";
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog";
+import { HiX } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom'
 // GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const [email, setEmail] = useState("");
+  const [open, setOpen] = useState(true);
+
+  const navigate = useNavigate()
 
   // 섹션 1 Refs
   const videoRef = useRef(null);
@@ -199,110 +211,108 @@ const Home = () => {
     }
 
     // 섹션 3 애니메이션
-// 섹션 3 애니메이션
-if (section3Ref.current) {
-  const tl3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: section3Ref.current,
-      start: "top top",
-      end: "+=500%", // 애니메이션 구간을 늘림
-      scrub: 1, // 애니메이션이 천천히 진행되도록 함
-      pin: true,
-      markers: false,
-    },
-  });
+    // 섹션 3 애니메이션
+    if (section3Ref.current) {
+      const tl3 = gsap.timeline({
+        scrollTrigger: {
+          trigger: section3Ref.current,
+          start: "top top",
+          end: "+=500%", // 애니메이션 구간을 늘림
+          scrub: 1, // 애니메이션이 천천히 진행되도록 함
+          pin: true,
+          markers: false,
+        },
+      });
 
-  tl3
-    // 1. "Managed medical data generates added value. Learn more" 텍스트
-    .fromTo(
-      section3TextRef.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      0
-    )
-    // 2. "Accumulation, Storage, and Management..." 텍스트
-    .fromTo(
-      accumulationTextRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 3. BlockChainBG 이미지
-    .fromTo(
-      blockChainBGRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 4. X-ray 이미지 1 등장
-    .fromTo(
-      xray2021Ref.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 5. X-ray 이미지 2 등장
-    .fromTo(
-      xray2022Ref.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 6. X-ray 이미지 3 등장
-    .fromTo(
-      xray2023Ref.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 7. X-ray 이미지 4 등장
-    .fromTo(
-      xray2024Ref.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 8. "On BlockChain" 텍스트 등장
-    .fromTo(
-      onBlockChainTextRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 9. 목업 이미지 등장
-    .fromTo(
-      managementMockupRef.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // 10. 텍스트 등장
-    .fromTo(
-      transactionTextRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      "+=2"
-    )
-    // "30 ~100 USD" 텍스트 반짝이기
-    .fromTo(
-      usdTextRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 0.5,
-        repeat: 3,
-        yoyo: true,
-        ease: "power1.inOut",
-        onComplete: () =>
-          gsap.to(usdTextRef.current, { opacity: 1 }),
-      },
-      "+=2"
-    )
-    .to({}, { duration: 3 })
-    .to({}, { duration: 3 })
-    .to({}, { duration: 3 });
-}
-
+      tl3
+        // 1. "Managed medical data generates added value. Learn more" 텍스트
+        .fromTo(
+          section3TextRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          0
+        )
+        // 2. "Accumulation, Storage, and Management..." 텍스트
+        .fromTo(
+          accumulationTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 3. BlockChainBG 이미지
+        .fromTo(
+          blockChainBGRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 4. X-ray 이미지 1 등장
+        .fromTo(
+          xray2021Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 5. X-ray 이미지 2 등장
+        .fromTo(
+          xray2022Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 6. X-ray 이미지 3 등장
+        .fromTo(
+          xray2023Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 7. X-ray 이미지 4 등장
+        .fromTo(
+          xray2024Ref.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 8. "On BlockChain" 텍스트 등장
+        .fromTo(
+          onBlockChainTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 9. 목업 이미지 등장
+        .fromTo(
+          managementMockupRef.current,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // 10. 텍스트 등장
+        .fromTo(
+          transactionTextRef.current,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "+=2"
+        )
+        // "30 ~100 USD" 텍스트 반짝이기
+        .fromTo(
+          usdTextRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            repeat: 3,
+            yoyo: true,
+            ease: "power1.inOut",
+            onComplete: () => gsap.to(usdTextRef.current, { opacity: 1 }),
+          },
+          "+=2"
+        )
+        .to({}, { duration: 3 })
+        .to({}, { duration: 3 })
+        .to({}, { duration: 3 });
+    }
 
     // 섹션 4 애니메이션
     if (section4Ref.current) {
@@ -380,6 +390,43 @@ if (section3Ref.current) {
 
   return (
     <div className="bg-[#FFF9F7]">
+      <Dialog
+        open={open}
+        onOpenChange={() => setOpen(false)}
+        className="rounded-2xl"
+      >
+        <DialogContent className="min-w-[50%] h-[70%] rounded-2xl p-0 ">
+          <div className="flex flex-col w-full">
+            <div className="p-6">
+            <HiX
+              className="h-[30px] w-[30px] ml-auto cursor-pointer"
+              onClick={() => setOpen(false)}
+            />
+            <h1 className="text-center text-4xl font-bold">
+              Interpreted Chest Medical Images
+            </h1>
+            <p className="mt-4 text-center">
+              We have collected a curated set of{" "}
+              <span className="font-bold text-3xl">over 10,000</span>{" "}
+              interpreted medical images. <br />
+              If you’re interested in purchasing them, please contact us via the
+              Telegram QR code below.
+            </p>
+            <div className="flex  justify-center mt-12">
+              <img
+                src={Images.SampleImageSets}
+                alt="sampleImageSets"
+                className="w-[80%] object-contain "
+              />
+            </div>
+            </div>
+            <div className="flex-1 flex flex-row gap-8 items-center justify-center bg-[#0147E5] p-6">
+              <img src={Images.TelegramQR} alt="telegramQR" className="h-2/3" />
+         <button onClick={()=>{navigate('/MedicalImages')}} className="rounded-2xl text-white border-2 border-white w-[164px] h-[64px]">Visit this page</button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       <Section1
         videoRef={videoRef}
         overlayRef={overlayRef}
@@ -400,20 +447,20 @@ if (section3Ref.current) {
         crScannerTextRef={crScannerTextRef}
         scanSnapTextRef={scanSnapTextRef}
       />
-<Section3
-  section3Ref={section3Ref}
-  section3TextRef={section3TextRef}
-  accumulationTextRef={accumulationTextRef}
-  blockChainBGRef={blockChainBGRef}
-  xray2021Ref={xray2021Ref}
-  xray2022Ref={xray2022Ref}
-  xray2023Ref={xray2023Ref}
-  xray2024Ref={xray2024Ref}
-  onBlockChainTextRef={onBlockChainTextRef}
-  managementMockupRef={managementMockupRef}
-  transactionTextRef={transactionTextRef}
-  usdTextRef={usdTextRef}
- />
+      <Section3
+        section3Ref={section3Ref}
+        section3TextRef={section3TextRef}
+        accumulationTextRef={accumulationTextRef}
+        blockChainBGRef={blockChainBGRef}
+        xray2021Ref={xray2021Ref}
+        xray2022Ref={xray2022Ref}
+        xray2023Ref={xray2023Ref}
+        xray2024Ref={xray2024Ref}
+        onBlockChainTextRef={onBlockChainTextRef}
+        managementMockupRef={managementMockupRef}
+        transactionTextRef={transactionTextRef}
+        usdTextRef={usdTextRef}
+      />
 
       <Section4
         section4Ref={section4Ref}
@@ -424,7 +471,11 @@ if (section3Ref.current) {
         availableTextRef={availableTextRef}
         productionTextRef={productionTextRef}
       />
-        <section id="AboutSavetheLife" className="flex flex-col md:p-8 p-4 lg:mt-24 font-semibold items-center justify-center" style={{ height: "calc(100vh - 4rem)" }}>
+      <section
+        id="AboutSavetheLife"
+        className="flex flex-col md:p-8 p-4 lg:mt-24 font-semibold items-center justify-center"
+        style={{ height: "calc(100vh - 4rem)" }}
+      >
         <h1 className="text-xl lg:text-4xl md:text-3xl md:text-start text-center lg:text-center font-bold ">
           Digiray's [Save the Life] Project
         </h1>
@@ -442,7 +493,10 @@ if (section3Ref.current) {
         </div>
       </section>
 
-      <section className="flex flex-col md:p-8 p-4 mt-24 font-semibold items-center justify-center" style={{ height: "calc(100vh - 4rem)" }}>
+      <section
+        className="flex flex-col md:p-8 p-4 mt-24 font-semibold items-center justify-center"
+        style={{ height: "calc(100vh - 4rem)" }}
+      >
         <h1 className="text-2xl lg:text-4xl md:text-3xl lg:pl-24  md:text-start text-center font-bold w-full ">
           DApp Launch Plan
         </h1>
@@ -458,9 +512,10 @@ if (section3Ref.current) {
                 alt="sl-pationt-app"
                 className=" mt-5"
               />
-               <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
+              <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
                 <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16">
-                  Launch planned for <span className=" font-bold"> &nbsp;Q2 2025</span>
+                  Launch planned for{" "}
+                  <span className=" font-bold"> &nbsp;Q2 2025</span>
                 </p>
               </div>
             </div>
@@ -478,7 +533,8 @@ if (section3Ref.current) {
               />
               <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
                 <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16">
-                  Launch planned for <span className=" font-bold"> &nbsp;Q4 2024</span>
+                  Launch planned for{" "}
+                  <span className=" font-bold"> &nbsp;Q1 2025</span>
                 </p>
               </div>
             </div>
@@ -580,7 +636,13 @@ if (section3Ref.current) {
           </button>
         </form>
       </section>
-      <br/><br/><br/><br/><br/><br/><br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

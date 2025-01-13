@@ -7,6 +7,7 @@ import { Reset } from "styled-reset";
 import MedicalDataValue from "./pages/MedicalDataValue";
 import CompanyIntroduction from "./pages/CompanyIntroduction";
 import MedicalAISolution from "./pages/MedicalAISolution";
+import MedicalImages from "./pages/MedicalImages";
 import "./index.css";
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/AboutSL" element={<Home />} />
             <Route path="/SLAppUserCase" element={<Home />} />
             <Route path="/DataBuyerCase" element={<Home />} />
+            <Route path="/MedicalImages" element={<MedicalImages />} />
           </Routes>
         </MainLayout>
       </Router>

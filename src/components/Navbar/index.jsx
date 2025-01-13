@@ -2,15 +2,18 @@
 import { useState, useEffect } from "react";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter, FaAngleDown } from "react-icons/fa6";
-import { animateScroll, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import { Drawer } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Images from "../../assets/Images";
+import { useNavigate } from 'react-router-dom'
+
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const navigate = useNavigate()
 
   const variants = {
     open: { opacity: 1, height: "auto" },
@@ -36,6 +39,7 @@ function Navbar() {
     "Company Introduction": [],
     "About Save the Life": [],
     "White Paper": [],
+    "Medical Images": [],
   };
 
   const showMenu = () => {
@@ -121,6 +125,11 @@ function Navbar() {
     if (item === "IR Deck") {
       window.location.href =
         "https://drive.google.com/file/d/1CpGhbPMOkhuDKDZVYjtoIpfukG5qCCCy/view";
+      return;
+    }
+
+    if (item === "Medical Images") {
+      navigate("/MedicalImages")
       return;
     }
 
@@ -321,6 +330,12 @@ function Navbar() {
               className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
             >
               White paper
+            </a>
+            <a
+                href="/MedicalImages"
+              className="h-10 cursor-pointer hover:text-blue-400 flex items-center"
+            >
+              Medical Images
             </a>
             {/* <div className="flex flex-row h-12 items-center gap-2">
               <p>White paper</p> <FaAngleDown />

@@ -50,6 +50,8 @@ import AIAccuracyPC from "./AIAccuracyPC.png";
 import AIMobilePC from "./AIMobilePC.png";
 import AIMobile from "./AIMobile.png";
 import AIAccuracyMobile from "./AIAccuracyMobile.png";
+import SampleImageSets from "./sample-image-sets.png";
+import TelegramQR from "./contact-telegram.png";
 
 const Images = {
   icpLogo,
@@ -107,9 +109,9 @@ const Images = {
   AIMobile,
   AIAccuracyMobile,
   BlockChainBG,
+  SampleImageSets,
+  TelegramQR,
  
-
-
 };
 
 export default Images;
