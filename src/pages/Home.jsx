@@ -532,7 +532,7 @@ const Home = () => {
                 className="mt-5"
               />
               <div className="flex flex-row items-center gap-2 lg:gap-4 w-full justify-center mt-8">
-                <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16">
+                <p className="flex items-center justify-center text-xs md:text-sm lg:text-base h-14 lg:h-16 ">
                   Launch planned for{" "}
                   <span className=" font-bold"> &nbsp;Q1 2025</span>
                 </p>
@@ -541,6 +541,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <br className="block md:hidden"/>
 
       <section className="full-width-marquee bg-white mr-4  my-16 ">
         <Marquee>
