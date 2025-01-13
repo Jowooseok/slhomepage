@@ -52,6 +52,19 @@ import AIMobile from "./AIMobile.png";
 import AIAccuracyMobile from "./AIAccuracyMobile.png";
 import SampleImageSets from "./sample-image-sets.png";
 import TelegramQR from "./contact-telegram.png";
+import Sample1 from "./sample1.png";
+import Sample2 from "./sample2.png";
+import Sample3 from "./sample3.png";
+import Sample4 from "./sample4.png";
+import Sample5 from "./sample5.png";
+import Sample6 from "./sample6.png";
+import Sample7 from "./sample7.png";
+import Sample8 from "./sample8.png";
+import Sample9 from "./sample9.png";
+import Sample10 from "./sample10.png";
+import Sample11 from "./sample11.png";
+import Sample12 from "./sample12.png";
+
 
 const Images = {
   icpLogo,
@@ -111,6 +124,18 @@ const Images = {
   BlockChainBG,
   SampleImageSets,
   TelegramQR,
+  Sample1,
+  Sample2,
+  Sample3,
+  Sample4,
+  Sample5,
+  Sample6,
+  Sample7,
+  Sample8,
+  Sample9,
+  Sample10,
+  Sample11,
+  Sample12,
  
 };
 
