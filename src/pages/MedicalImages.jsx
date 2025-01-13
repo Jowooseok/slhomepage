@@ -128,7 +128,7 @@ const MedicalImages = () => {
           </Carousel>
       </div>
 
-      <div className="mb-60"></div>
+      <div className="mb-32"></div>
     </div>
   );
 };
