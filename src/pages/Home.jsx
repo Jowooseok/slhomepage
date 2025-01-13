@@ -416,12 +416,12 @@ const Home = () => {
               <img
                 src={Images.SampleImageSets}
                 alt="sampleImageSets"
-                className="w-[80%] lg:w-[60%]  object-contain "
+                className="w-[80%] 2xl:w-[60%]  object-contain "
               />
             </div>
             </div>
-            <div className="2xl:flex-1  h-full flex flex-col lg:flex-row gap-4 lg:gap-8 items-center justify-center bg-[#0147E5] p-6">
-              <img src={Images.TelegramQR} alt="telegramQR" className="h-1/3 2xl:h-2/3 hidden md:block" />
+            <div className="2xl:flex-1 h-full flex flex-col lg:flex-row gap-4 lg:gap-8 items-center justify-center bg-[#0147E5] p-12">
+              <img src={Images.TelegramQR} alt="telegramQR" className="h-1/3  md:h-[156px] hidden md:block" />
          <button onClick={()=>{navigate('/MedicalImages')}} className="rounded-2xl text-white border-2 text-sm md:text-lg  border-white w-[164px] h-[64px]">Visit this page</button>
             </div>
           </div>
