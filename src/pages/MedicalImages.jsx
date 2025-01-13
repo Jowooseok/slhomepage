@@ -15,7 +15,7 @@ const MedicalImages = () => {
   return (
     <div className="bg-[#FFF9F7] flex flex-col items-center xl:px-40 justify-center w-full p-4 ">
       <h1 className="text-2xl mt-4 md:text-5xl font-bold 2xl:mt-32 md:mt-16">Sampling images for sale</h1>
-      <div className="flex xl:flex-row flex-col items-center mt-4 md:mt-16 justify-center gap-20 xl:gap-40 lg:mt-24 w-full">
+      <div className="flex xl:flex-row flex-col items-center mt-12 md:mt-16 justify-center gap-20 xl:gap-40 lg:mt-24 w-full">
         <div className=" flex flex-col  justify-center">
           <p className="font-bold md:text-lg">
             Discover a Curated Selection of Over 10,000 Interpreted Chest
