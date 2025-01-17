@@ -39,7 +39,7 @@ const MedicalImages = () => {
             />
             <button
               onClick={() => {
-                window.open("https://t.me/Karl_hong", "_blank");
+                window.open("https://t.me/donny_bae", "_blank");
               }}
               className="bg-[#0147E5] text-white w-[222px] h-[64px] rounded-2xl"
             >
