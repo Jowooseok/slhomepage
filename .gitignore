@@ -26,3 +26,10 @@ dist-ssr
 
 # Environment variables
 .env
+.vercel
+
+# Internal documents - do not publish (public repo)
+docs/
+SL_Protocol_Whitepaper_v2.1.pdf
+whitepaper.html
+img/img.zip

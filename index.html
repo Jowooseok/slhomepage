@@ -1,19 +1,769 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:site_name" content="savethelife" />
-    <meta name="image" property="og:image" content="/metaImage2.png" />
-    <meta property="og:title" content="savethelife" />
-    <meta property="og:url" content="savethelife.io" />
-    <meta name="google-site-verification" content="_pXtw_wwSqneogxtdHP0IheGa5nhT_yrHJWxpwcxV6U" />
-    <meta property="og:description" content="The savethelife protocol is an innovative blockchain service that collects medical image data and provides second opinion through blockchain technology." />
-    <meta name="naver-site-verification" content="8231a66aa1dd325caadccd7999220606eeba3418" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SL Labs — Powered by revenue, not promises</title>
+<meta name="description" content="The first medical-grade Health DePIN on BNB Chain. Powered by revenue, not promises." />
+<meta property="og:title" content="SL Labs — Powered by revenue, not promises" />
+<meta property="og:description" content="The first medical-grade Health DePIN on BNB Chain." />
+<meta property="og:image" content="https://savethelife.io/img/og-image.png" />
+<meta property="og:url" content="https://savethelife.io/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="alternate" hreflang="en" href="https://savethelife.io/" />
+<link rel="alternate" hreflang="ko" href="https://savethelife.io/?lang=ko" />
+<link rel="alternate" hreflang="zh-CN" href="https://savethelife.io/?lang=zh" />
+<link rel="alternate" hreflang="ja" href="https://savethelife.io/?lang=ja" />
+<link rel="alternate" hreflang="es" href="https://savethelife.io/?lang=es" />
+<link rel="alternate" hreflang="ru" href="https://savethelife.io/?lang=ru" />
+<link rel="alternate" hreflang="vi" href="https://savethelife.io/?lang=vi" />
+<link rel="alternate" hreflang="x-default" href="https://savethelife.io/" />
+<link rel="icon" type="image/png" href="img/favicon.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"SL Labs","url":"https://savethelife.io/","logo":"https://savethelife.io/img/favicon.png","email":"partners@savethelife.io","sameAs":["https://x.com/savethelife_SL","https://t.me/slfoundation","https://www.linkedin.com/company/slfoundation","https://github.com/save-the-life","https://save-the-life.gitbook.io/save-the-life"]}
+</script>
+
+<script>document.documentElement.classList.add('js')</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-watch.webp">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { navy:'#0B1F3A', ink:'#070C15', teal:'#12B5A5', cyan:'#22D3EE', coral:'#FF6B6B', paper:'#F5F8FA', slate2:'#5B6B7F', line:'#E5EBF0' },
+    fontFamily: { sans:['Inter','system-ui','sans-serif'], display:['Sora','system-ui','sans-serif'] },
+    maxWidth:{ content:'1160px' },
+    boxShadow:{ soft:'0 1px 3px rgba(11,31,58,.06), 0 12px 32px -12px rgba(11,31,58,.14)' },
+  }}
+}
+</script>
+
+<style>
+  html{ scroll-behavior:smooth; }
+  html,body{ overflow-x:clip; max-width:100%; }
+  img{ max-width:100%; }
+  [id]{ scroll-margin-top:84px; }
+  .imgslot{ min-width:0; }
+  body{ font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3,.font-display{ font-family:Sora,system-ui,sans-serif; letter-spacing:-.02em; }
+  :lang(ko) body, :lang(ko) h1, :lang(ko) h2, :lang(ko) h3{ word-break:keep-all; }
+
+  .eyebrow{ letter-spacing:.18em; text-transform:uppercase; font-weight:600; font-size:12px; }
+  .mono-label{ font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; }
+
+  .reveal{ transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+  .js .reveal{ opacity:0; transform:translateY(16px); }
+  .js .reveal.in{ opacity:1; transform:none; }
+
+  .imgslot{ position:relative; overflow:hidden; background:
+      radial-gradient(120% 100% at 0% 0%, rgba(18,181,165,.14), transparent 55%),
+      linear-gradient(135deg,#0B1F3A,#0E2C46 60%,#12384f); }
+  .imgslot > img{ position:relative; z-index:2; width:100%; height:100%; object-fit:cover; display:block; }
+  .imgslot > .ph{ position:absolute; inset:0; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:.5rem; text-align:center; padding:1.25rem; color:rgba(255,255,255,.62); }
+  .imgslot > .ph .pi{ width:34px; height:34px; opacity:.7; }
+  .imgslot > .ph .pf{ font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.02em; color:rgba(255,255,255,.4); }
+
+  .ecg-wrap{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+  .ecg-track{ display:flex; width:200%; animation:ecgscroll 6s linear infinite; animation-play-state:paused; }
+  .ecg-wrap.play .ecg-track{ animation-play-state:running; }
+  @keyframes ecgscroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  .grid-bg{ background-image:linear-gradient(rgba(18,181,165,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(18,181,165,.05) 1px,transparent 1px); background-size:46px 46px; }
+  .grain{ position:relative; }
+  .grain::before{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .kbd{ font-variant-numeric:tabular-nums; }
+  .live-dot{ animation:pulse 2s infinite; }
+  @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(18,181,165,.6)} 70%{box-shadow:0 0 0 12px rgba(18,181,165,0)} 100%{box-shadow:0 0 0 0 rgba(18,181,165,0)} }
+  .navscroll{ box-shadow:0 1px 0 rgba(11,31,58,.08); background:rgba(255,255,255,.9); }
+  .logoslot{ font-family:Sora,sans-serif; font-weight:700; font-size:15px; color:#5B6B7F; white-space:nowrap; }
+
+  /* logo marquee */
+  .marquee{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+  .marquee-track{ display:flex; width:max-content; animation:marquee 32s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* dark-card pointer spotlight */
+  .spot{ position:relative; }
+  .spot::after{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity .3s;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(18,181,165,.10), transparent 70%); }
+  .spot:hover::after{ opacity:1; }
+
+  /* language selector */
+  .lang-sel{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235B6B7F' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .6rem center; padding-right:1.6rem; }
+
+  /* mobile menu */
+  #mobileMenu{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; }
+  #mobileMenu.open{ grid-template-rows:1fr; }
+  #mobileMenu > div{ overflow:hidden; min-height:0; visibility:hidden; transition:visibility 0s .25s; }
+  #mobileMenu.open > div{ visibility:visible; transition:visibility 0s; }
+  @media (min-width:1024px){ #mobileMenu{ display:none; } }
+
+  /* professional motion */
+  @keyframes floatY{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-12px) } }
+  @keyframes floatY2{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } }
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(20px) } to{ opacity:1; transform:none } }
+  .floatA{ animation:floatY 6s ease-in-out 3; }
+  .floatB{ animation:floatY2 7s ease-in-out .6s 3; }
+  .js [data-stagger] > *{ opacity:0 }
+  [data-stagger].s-in > *{ animation:riseIn .65s cubic-bezier(.2,.7,.2,1) both }
+
+  :where(a,button):focus-visible{ outline:2px solid #22D3EE; outline-offset:3px; border-radius:6px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .floatA,.floatB,.ecg-track,.live-dot,.marquee-track{ animation:none !important }
+    [data-stagger] > *, .js [data-stagger] > *{ opacity:1; animation:none !important }
+    .reveal,.js .reveal{ opacity:1; transform:none; transition:none }
+    .spot::after{ display:none }
+    #mobileMenu{ transition:none }
+    .marquee{ -webkit-mask-image:none; mask-image:none }
+    .marquee-track{ width:100% }
+    .marquee-track > div{ flex-wrap:wrap; row-gap:.5rem; padding-right:0 }
+    .marquee-track > [aria-hidden]{ display:none }
+  }
+</style>
+</head>
+
+<body class="bg-white text-navy">
+
+<a href="#top" data-i18n="skip" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] bg-navy text-white rounded-lg px-4 py-2">Skip to content</a>
+
+<header id="nav" class="sticky top-0 z-50 backdrop-blur transition-all border-b border-transparent">
+  <nav class="max-w-content mx-auto px-6 h-[68px] flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2.5 font-display font-extrabold tracking-tight text-navy">
+      <span class="inline-grid place-items-center w-9 h-9 rounded-xl bg-navy text-teal font-extrabold text-[15px]">SL</span>
+      <span class="text-[17px]">SL&nbsp;Labs</span>
+    </a>
+    <div class="hidden lg:flex items-center gap-8 text-[14px] font-medium text-slate2">
+      <a href="#proof" class="hover:text-navy transition">Proof</a>
+      <a href="#networks" class="hover:text-navy transition">Products</a>
+      <a href="#research" class="hover:text-navy transition">Research</a>
+      <a href="#token" class="hover:text-navy transition">$SL</a>
+      <a href="#trust" class="hover:text-navy transition">Foundation</a>
+      <a href="whitepaper.pdf" target="_blank" rel="noopener" class="hover:text-navy transition">Whitepaper</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="whitepaper.pdf" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-navy text-white text-[13px] font-semibold px-3.5 py-2 hover:bg-ink transition">Whitepaper</a>
+      <a href="https://www.digiray.co.kr/" target="_blank" rel="noopener" class="hidden sm:inline-flex text-[13px] font-semibold text-slate2 hover:text-navy transition">Corporate <span aria-hidden="true">↗</span></a>
+      <select class="lang-sel hidden sm:block rounded-lg border border-line bg-white text-[12px] font-semibold text-navy pl-2.5 py-1.5 cursor-pointer" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="zh">简体中文</option>
+        <option value="ja">日本語</option>
+        <option value="es">Español</option>
+        <option value="ru">Русский</option>
+        <option value="vi">Tiếng Việt</option>
+      </select>
+      <button id="menuBtn" class="lg:hidden inline-grid place-items-center w-9 h-9 rounded-lg border border-line text-navy" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="lg:hidden">
+    <div class="border-t border-line bg-white">
+      <div class="px-6 py-4 flex flex-col gap-3 text-[15px] font-medium text-navy">
+        <a href="#proof" class="js-mclose">Proof</a>
+        <a href="#networks" class="js-mclose">Products</a>
+        <a href="#research" class="js-mclose">Research</a>
+        <a href="#token" class="js-mclose">$SL Token</a>
+        <a href="#trust" class="js-mclose">Foundation</a>
+        <a href="whitepaper.pdf" target="_blank" rel="noopener">Whitepaper <span aria-hidden="true">↗</span></a>
+        <a href="https://www.digiray.co.kr/" target="_blank" rel="noopener" class="text-slate2">Corporate <span aria-hidden="true">↗</span></a>
+        <div class="flex items-center gap-3 pt-2 border-t border-line">
+          <span class="mono-label text-slate2">Language</span>
+          <select class="lang-sel rounded-lg border border-line bg-white text-[12px] font-semibold text-navy pl-2.5 py-1.5 cursor-pointer" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ko">한국어</option>
+            <option value="zh">简体中文</option>
+            <option value="ja">日本語</option>
+            <option value="es">Español</option>
+            <option value="ru">Русский</option>
+            <option value="vi">Tiếng Việt</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section id="hero" class="relative overflow-hidden bg-paper">
+  <div class="relative max-w-content mx-auto px-6 pt-16 lg:pt-24 pb-10 grid lg:grid-cols-[1.05fr_.95fr] gap-14 items-center">
+    <div data-stagger="110" class="min-w-0">
+      <div class="inline-flex items-center gap-2 rounded-full bg-white border border-line shadow-sm text-teal font-semibold text-[13px] px-3.5 py-1.5 mb-7">
+        <span class="w-1.5 h-1.5 rounded-full bg-teal"></span>
+        <span data-i18n="hero-badge">The first medical-grade Health DePIN on BNB Chain</span>
+      </div>
+      <h1 class="text-[44px] sm:text-[58px] leading-[1.02] font-extrabold text-navy" style="text-wrap:balance" data-i18n="hero-h1">
+        Powered by <span class="text-teal">revenue,</span><br class="hidden sm:inline">not promises.
+      </h1>
+      <p class="mt-7 text-[17px] leading-relaxed text-slate2 max-w-xl" data-i18n="hero-lede">
+        <b class="text-navy">50,000</b> diagnostic devices and <b class="text-navy">5,000</b> veterinary clinics already generate verified health data. <b class="text-navy">SL adds the economy on top.</b>
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-3">
+        <a href="#proof" class="group inline-flex items-center gap-2 rounded-xl bg-navy text-white font-semibold px-6 py-3.5 hover:bg-ink transition shadow-soft" data-i18n="hero-cta-proof">
+          See the Proof <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+        </a>
+        <a href="whitepaper.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-white border border-line text-navy font-semibold px-6 py-3.5 hover:border-navy transition" data-i18n="hero-cta-wp">
+          Read the Whitepaper
+        </a>
+        <a href="#partner" class="ml-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-slate2 hover:text-navy transition" data-i18n="hero-cta-partner">Partner with the networks <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="mt-8 pt-3 border-t border-line text-[12px] text-slate2 max-w-xl" data-i18n="hero-disclaimer">
+        SL Watch is a wellness product, not a medical device, and cannot determine the presence of disease.
+      </p>
+    </div>
+
+    <div class="relative min-w-0">
+      <div class="imgslot rounded-3xl shadow-2xl shadow-navy/25 aspect-square">
+        <img src="img/hero-watch.webp" alt="SL Watch with ECG on wrist" width="920" height="920" fetchpriority="high">
+        <div class="ph" aria-hidden="true">
+          <svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6V4h6v2M9 18v2h6v-2"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg>
+          <div class="font-medium">SL Watch — hero product render</div>
+          <div class="pf">img/hero-watch.webp · 1:1</div>
+        </div>
+      </div>
+      <div class="absolute -bottom-6 -left-6 w-[62%] z-20 floatA rounded-2xl bg-navy text-white p-4 shadow-soft ring-1 ring-white/10">
+        <div class="flex items-center justify-between text-[11px] text-white/60 mb-2">
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-teal live-dot"></span> ECG</span>
+          <span class="mono-label kbd">125 Hz</span>
+        </div>
+        <div class="ecg-wrap h-14 rounded-lg bg-ink/60">
+          <div class="ecg-track h-full">
+            <svg class="h-full w-1/2 shrink-0" viewBox="0 0 600 160" preserveAspectRatio="none"><path d="M0 80 H60 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H180 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H360 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H540 H600" fill="none" stroke="#12B5A5" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>
+            <svg class="h-full w-1/2 shrink-0" viewBox="0 0 600 160" preserveAspectRatio="none"><path d="M0 80 H60 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H180 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H360 l10 0 l6 -6 l8 12 l6 -50 l8 66 l8 -22 l10 0 H540 H600" fill="none" stroke="#12B5A5" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -top-4 -right-3 z-20 floatB rounded-xl bg-white shadow-soft ring-1 ring-line px-4 py-2.5">
+        <div class="font-display font-bold text-navy text-[13px]">$SL</div>
+        <div class="mono-label text-slate2" data-i18n="chip-credit">1 read = 1 credit</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative border-t border-line/80 bg-white/50">
+    <div class="max-w-content mx-auto px-6 py-6 flex items-center gap-x-10">
+      <span class="mono-label text-slate2/80 shrink-0">Built on</span>
+      <div class="marquee min-w-0 flex-1">
+        <div class="marquee-track items-center">
+          <div class="flex items-center gap-x-14 pr-14">
+            <div class="logoslot">DIGIRAY</div>
+            <div class="logoslot">Gachon University</div>
+            <div class="logoslot">Seoul Nat'l Univ. Hospital</div>
+            <div class="logoslot">opBNB · BNB&nbsp;Chain</div>
+            <div class="logoslot">CertiK / Hacken</div>
+          </div>
+          <div class="flex items-center gap-x-14 pr-14" aria-hidden="true">
+            <div class="logoslot">DIGIRAY</div>
+            <div class="logoslot">Gachon University</div>
+            <div class="logoslot">Seoul Nat'l Univ. Hospital</div>
+            <div class="logoslot">opBNB · BNB&nbsp;Chain</div>
+            <div class="logoslot">CertiK / Hacken</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FOUR MINUTES -->
+<section class="relative overflow-hidden bg-ink text-white grain">
+  <div class="relative max-w-content mx-auto px-6 py-28">
+    <div class="reveal">
+      <p class="eyebrow text-coral mb-5"><span class="mono-label text-white/40 mr-3">[01]</span>The Four Minutes</p>
+      <h2 class="text-[34px] sm:text-[48px] font-extrabold leading-[1.08] max-w-3xl" data-i18n="fm-h2">Four minutes. After cardiac arrest, brain damage begins in about four minutes.</h2>
+      <p class="mt-6 text-white/65 text-[18px] leading-relaxed max-w-2xl" data-i18n="fm-lede">And when it happens with no one watching — an elderly parent at dawn, an empty living room in the afternoon — those four minutes are usually empty.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-3 gap-5" data-stagger="60">
+      <figure class="imgslot rounded-2xl aspect-[4/3] ring-1 ring-white/10">
+        <img src="img/four-min-mother.webp" alt="A mother who lives alone, at dawn" width="800" height="600" loading="lazy" decoding="async">
+        <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg><div class="pf">img/four-min-mother.webp</div></div>
+        <figcaption class="absolute inset-x-0 bottom-0 z-[3] p-4 text-[14px] font-medium text-white/90" style="background:linear-gradient(to top, rgba(7,12,21,.85), transparent)" data-i18n="fm-cap1">A mother who lives alone. 3 a.m.</figcaption>
+      </figure>
+      <figure class="imgslot rounded-2xl aspect-[4/3] ring-1 ring-white/10">
+        <img src="img/four-min-dog.webp" alt="A twelve-year-old dog who hides the pain" width="800" height="600" loading="lazy" decoding="async">
+        <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 12c0-3 2.7-5 6-5s6 2 6 5c0 3.5-2.7 7-6 7s-6-3.5-6-7z"/></svg><div class="pf">img/four-min-dog.webp</div></div>
+        <figcaption class="absolute inset-x-0 bottom-0 z-[3] p-4 text-[14px] font-medium text-white/90" style="background:linear-gradient(to top, rgba(7,12,21,.85), transparent)" data-i18n="fm-cap2">A twelve-year-old dog who hides the pain.</figcaption>
+      </figure>
+      <figure class="imgslot rounded-2xl aspect-[4/3] ring-1 ring-white/10">
+        <img src="img/four-min-drawer.webp" alt="Last year's check-up, asleep in a drawer" width="800" height="600" loading="lazy" decoding="async">
+        <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg><div class="pf">img/four-min-drawer.webp</div></div>
+        <figcaption class="absolute inset-x-0 bottom-0 z-[3] p-4 text-[14px] font-medium text-white/90" style="background:linear-gradient(to top, rgba(7,12,21,.85), transparent)" data-i18n="fm-cap3">Last year's check-up, asleep in a drawer.</figcaption>
+      </figure>
+    </div>
+
+    <p class="reveal mt-14 text-[24px] font-display font-bold max-w-2xl leading-snug" data-i18n="fm-close">Golden time is decided <span class="text-coral">before</span> the ambulance arrives. So we build the network outside the hospital.</p>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<section id="proof" class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <p class="reveal eyebrow text-teal mb-10"><span class="mono-label text-slate2/70 mr-3">[02]</span>Proof</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-x-8 lg:gap-x-0 lg:gap-y-0 lg:divide-x divide-line" data-stagger="60">
+      <div class="lg:px-8 lg:first:pl-0">
+        <div class="text-[42px] leading-tight font-display font-extrabold text-navy kbd">50,000+</div>
+        <div class="mt-2 text-slate2" data-i18n="proof-l1">CR scanners deployed</div>
+        <div class="mt-4 mono-label text-slate2/80">DIGIRAY</div>
+      </div>
+      <div class="lg:px-8">
+        <div class="text-[42px] leading-tight font-display font-extrabold text-navy kbd">5,000</div>
+        <div class="mt-2 text-slate2" data-i18n="proof-l2">veterinary clinics</div>
+        <div class="mt-4 mono-label text-slate2/80">DIGIRAY</div>
+      </div>
+      <div class="lg:px-8">
+        <div class="text-[42px] leading-tight font-display font-extrabold text-navy kbd">204,000+</div>
+        <div class="mt-2 text-slate2" data-i18n="proof-l3">ECG segments · AUROC 0.88</div>
+        <div class="mt-4 mono-label text-slate2/80" data-i18n="proof-m3">Gachon–SNUH research</div>
+      </div>
+      <div class="lg:px-8">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-teal shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div class="text-[42px] leading-tight font-display font-extrabold text-navy" data-i18n="proof-v4">Gov R&amp;D</div>
+        </div>
+        <div class="mt-2 text-slate2" data-i18n="proof-l4">validated</div>
+        <div class="mt-4 mono-label text-slate2/80" data-i18n="proof-m4">operated by DIGIRAY</div>
+      </div>
+    </div>
+    <p class="reveal mt-12 text-[13px] text-slate2 pl-3 border-l-2 border-teal/40 max-w-2xl" data-i18n="proof-note">We only put numbers on the wall that can be verified. Parent-company traction is labeled as parent-company traction.</p>
+  </div>
+</section>
+
+<!-- BUSINESS BEHIND THE TOKEN -->
+<section class="bg-paper">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <div class="grid lg:grid-cols-[1fr_.85fr] gap-14 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[03]</span>Business</p>
+        <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy leading-tight" data-i18n="biz-h2">We put the token on top of a business that already runs without it.</h2>
+        <div class="mt-9 space-y-3">
+          <div class="flex items-center gap-4 rounded-xl bg-white border border-line p-5"><div class="w-11 h-11 rounded-lg bg-teal/10 grid place-items-center text-teal"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5h10v2"/></svg></div><div><div class="mono-label text-teal" data-i18n="biz-r1k">Hardware</div><div class="font-semibold text-navy" data-i18n="biz-r1v">funded by the manufacturer</div></div></div>
+          <div class="flex items-center gap-4 rounded-xl bg-white border border-line p-5"><div class="w-11 h-11 rounded-lg bg-teal/10 grid place-items-center text-teal"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 17l8 4 8-4"/></svg></div><div><div class="mono-label text-teal" data-i18n="biz-r2k">Research</div><div class="font-semibold text-navy" data-i18n="biz-r2v">funded by government R&amp;D</div></div></div>
+          <div class="flex items-center gap-4 rounded-xl bg-white border border-line p-5"><div class="w-11 h-11 rounded-lg bg-teal/10 grid place-items-center text-teal"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div><div class="mono-label text-teal" data-i18n="biz-r3k">Operations</div><div class="font-semibold text-navy" data-i18n="biz-r3v">funded by B2B revenue</div></div></div>
+        </div>
+        <p class="mt-6 text-navy font-semibold text-[17px]" data-i18n="biz-pull">Token capital funds none of the above. $SL works only as a service credit.</p>
+      </div>
+      <div class="reveal imgslot rounded-2xl aspect-[4/5] shadow-soft">
+        <img src="img/scene-devices.webp" alt="Medical imaging devices" width="800" height="1000" loading="lazy" decoding="async">
+        <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9h4M7 13h7"/></svg><div class="font-medium">CR scanners / medical devices</div><div class="pf">img/scene-devices.webp</div></div>
+      </div>
+    </div>
+
+    <div class="reveal mt-16">
+      <h3 class="text-[22px] font-display font-bold text-navy mb-6" data-i18n="tbl-h3">“Consumer wearables guess. Medical devices know.”</h3>
+      <div class="overflow-x-auto rounded-2xl border border-line bg-white shadow-soft">
+        <table class="w-full min-w-[520px] text-left text-[15px]">
+          <thead class="bg-paper text-slate2"><tr><th class="p-5 font-medium"></th><th class="p-5 font-medium" data-i18n="tbl-th2">Wellness DePIN</th><th class="p-5 font-display font-bold text-navy bg-teal/5 border-t-2 border-teal">SL</th></tr></thead>
+          <tbody class="divide-y divide-line">
+            <tr><td class="p-5 text-slate2" data-i18n="tbl-r1c1">Sensor grade</td><td class="p-5 text-slate2" data-i18n="tbl-r1c2">consumer PPG</td><td class="p-5 font-semibold text-teal bg-teal/5" data-i18n="tbl-r1c3">medical-grade ECG</td></tr>
+            <tr><td class="p-5 text-slate2" data-i18n="tbl-r2c1">Hardware funding</td><td class="p-5 text-slate2" data-i18n="tbl-r2c2">token / VC capital</td><td class="p-5 font-semibold text-teal bg-teal/5" data-i18n="tbl-r2c3">manufacturer revenue</td></tr>
+            <tr><td class="p-5 text-slate2" data-i18n="tbl-r3c1">Data buyer</td><td class="p-5 text-slate2" data-i18n="tbl-r3c2">"someday"</td><td class="p-5 font-semibold text-teal bg-teal/5" data-i18n="tbl-r3c3">government, today</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROTOCOL -->
+<section class="relative overflow-hidden bg-navy text-white grid-bg">
+  <div class="relative max-w-content mx-auto px-6 py-28">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-teal mb-5"><span class="mono-label text-white/40 mr-3">[04]</span>The Protocol</p>
+        <h2 class="text-[30px] sm:text-[40px] font-extrabold leading-tight" data-i18n="proto-h2">One protocol.<br>Three functions. Four networks.</h2>
+        <p class="mt-6 text-[20px] font-display font-bold text-teal leading-snug" data-i18n="proto-pull">We don't extract hospital data. Our devices generate it.</p>
+        <div class="mt-9 space-y-4">
+          <div class="flex gap-5"><span class="font-display font-bold text-teal w-24 shrink-0" data-i18n="proto-f1t">Verify</span><span class="text-white/65" data-i18n="proto-f1d">medical-grade signals</span></div>
+          <div class="flex gap-5"><span class="font-display font-bold text-teal w-24 shrink-0" data-i18n="proto-f2t">Settle</span><span class="text-white/65" data-i18n="proto-f2d">every AI fee in one credit</span></div>
+          <div class="flex gap-5"><span class="font-display font-bold text-teal w-24 shrink-0" data-i18n="proto-f3t">Recycle</span><span class="text-white/65" data-i18n="proto-f3d">10% of fees through the protocol</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="rounded-2xl bg-[#1A2C46] ring-1 ring-white/10 p-5 text-center"><div class="mono-label text-white/40 mb-1">Top</div><div class="font-semibold" data-i18n="proto-top">AI services · Institutional demand</div></div>
+        <div class="relative h-9 flex items-center justify-center" aria-hidden="true"><div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-white/15"></div><svg class="relative w-4 h-4 text-teal/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 14l6-6 6 6"/></svg></div>
+        <div class="rounded-2xl bg-[#0C364A] ring-1 ring-teal/40 p-5 text-center">
+          <div class="mono-label text-teal mb-2">SL Protocol</div>
+          <div class="flex items-center justify-center gap-2 font-display font-bold flex-wrap"><span class="rounded-lg bg-teal/20 px-3 py-1">Verify</span><span class="text-teal" aria-hidden="true">→</span><span class="rounded-lg bg-teal/20 px-3 py-1">Settle</span><span class="text-teal" aria-hidden="true">→</span><span class="rounded-lg bg-teal/20 px-3 py-1">Recycle</span></div>
+        </div>
+        <div class="relative h-9 flex items-center justify-center" aria-hidden="true"><div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-white/15"></div><svg class="relative w-4 h-4 text-teal/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 14l6-6 6 6"/></svg></div>
+        <div class="rounded-2xl bg-[#1A2C46] ring-1 ring-white/10 p-5 text-center"><div class="mono-label text-white/40 mb-1">Devices</div><div class="font-semibold" data-i18n="proto-dev">SL Watch · CR scanners</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR PROOF NETWORKS -->
+<section id="networks" class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <div class="reveal">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[05]</span>Products</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy max-w-3xl leading-tight" data-i18n="net-h2">Not a portfolio. Four networks on one protocol.</h2>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5" data-stagger="60">
+      <div class="group flex flex-col rounded-2xl border border-line overflow-hidden hover:shadow-soft hover:border-teal/40 hover:-translate-y-1 transition duration-300">
+        <div class="imgslot aspect-[4/3]"><img src="img/net-vetdental.webp" alt="VetDental AI" width="800" height="600" loading="lazy" decoding="async" class="transition-transform duration-500 group-hover:scale-[1.03]"><div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4c-2 0-3 1.6-3 4 0 3 1 5 1.5 8 .4 2.4 2 2.4 2.2 0 .2-2.2.6-3 1.3-3s1.1.8 1.3 3c.2 2.4 1.8 2.4 2.2 0 .5-3 1.5-5 1.5-8 0-2.4-1-4-3-4-1.2 0-1.8.6-3 .6S9.2 4 8 4z"/></svg><div class="pf">img/net-vetdental.webp</div></div></div>
+        <div class="p-6 flex flex-col grow">
+          <div class="mono-label text-slate2" data-i18n="net1-tag">#1 · Revenue Engine · Credit Sink</div>
+          <div class="mt-1.5 text-[18px] font-display font-bold text-navy">VetDental AI</div>
+          <p class="mt-2 text-[15px] text-slate2" data-i18n="net1-desc">AI reads for 5,000 clinics — $0.1 per read</p>
+          <a href="products/vetdental-ai.html" class="mt-auto pt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-teal" data-i18n="net-view">View <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span></a>
+        </div>
+      </div>
+      <div class="group flex flex-col rounded-2xl border border-line overflow-hidden hover:shadow-soft hover:border-teal/40 hover:-translate-y-1 transition duration-300">
+        <div class="imgslot aspect-[4/3]"><img src="img/net-medireport.webp" alt="MediReport" width="800" height="600" loading="lazy" decoding="async" class="transition-transform duration-500 group-hover:scale-[1.03]"><div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><div class="pf">img/net-medireport.webp</div></div></div>
+        <div class="p-6 flex flex-col grow">
+          <div class="mono-label text-slate2" data-i18n="net2-tag">#2 · Revenue Engine · Data Source</div>
+          <div class="mt-1.5 text-[18px] font-display font-bold text-navy">MediReport</div>
+          <p class="mt-2 text-[15px] text-slate2" data-i18n="net2-desc">LLM reports for health screening centers</p>
+          <a href="products/medireport.html" class="mt-auto pt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-teal" data-i18n="net-view">View <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span></a>
+        </div>
+      </div>
+      <div class="group flex flex-col rounded-2xl border border-line overflow-hidden hover:shadow-soft hover:border-teal/40 hover:-translate-y-1 transition duration-300">
+        <div class="imgslot aspect-[4/3]"><img src="img/net-slwatch.webp" alt="SL Watch" width="800" height="600" loading="lazy" decoding="async" class="transition-transform duration-500 group-hover:scale-[1.03]"><div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6V4h6v2M9 18v2h6v-2M8 12h2l1-2 2 4 1-2h2"/></svg><div class="pf">img/net-slwatch.webp</div></div></div>
+        <div class="p-6 flex flex-col grow">
+          <div class="mono-label text-slate2" data-i18n="net3-tag">#3 · Data Source · Credit Sink</div>
+          <div class="mt-1.5 text-[18px] font-display font-bold text-navy">SL Watch</div>
+          <p class="mt-2 text-[15px] text-slate2" data-i18n="net3-desc">Medical-grade ECG — AUROC 0.88 in clinical research</p>
+          <a href="products/sl-watch.html" class="mt-auto pt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-teal" data-i18n="net-view">View <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span></a>
+        </div>
+      </div>
+      <div class="group flex flex-col rounded-2xl border border-line overflow-hidden hover:shadow-soft hover:border-teal/40 hover:-translate-y-1 transition duration-300">
+        <div class="imgslot aspect-[4/3]"><img src="img/net-institutional.webp" alt="Institutional Data" width="800" height="600" loading="lazy" decoding="async" class="transition-transform duration-500 group-hover:scale-[1.03]"><div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><div class="pf">img/net-institutional.webp</div></div></div>
+        <div class="p-6 flex flex-col grow">
+          <div class="mono-label text-slate2" data-i18n="net4-tag">#4 · External Validation</div>
+          <div class="mt-1.5 text-[18px] font-display font-bold text-navy">Institutional Data</div>
+          <p class="mt-2 text-[15px] text-slate2" data-i18n="net4-desc">Where the first data buyer is already real (gov-funded, DIGIRAY)</p>
+          <span class="mt-auto pt-4 mono-label text-slate2/80" data-i18n="net4-soon">Overview soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE CREDIT ECONOMY -->
+<section class="bg-paper">
+  <div class="max-w-content mx-auto px-6 py-24 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[06]</span>One Credit Economy</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy leading-tight" data-i18n="econ-h2">Daily reads =<br>daily demand.</h2>
+      <p class="mt-6 text-slate2 text-[17px] leading-relaxed max-w-lg" data-i18n="econ-lede">Every AI service across four networks settles in one credit. A day's reads are that day's credit demand — and we publish it on-chain.</p>
+    </div>
+    <div class="reveal rounded-2xl bg-white border border-line shadow-soft p-8">
+      <div class="flex flex-col text-[15px] font-medium">
+        <div class="rounded-xl bg-paper p-4 flex items-center justify-between"><span data-i18n="econ-s1">① Service used</span><span class="text-slate2">AI</span></div>
+        <div class="relative h-7 flex items-center justify-center" aria-hidden="true"><div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-line"></div><svg class="relative w-4 h-4 text-slate2/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10l6 6 6-6"/></svg></div>
+        <div class="rounded-xl bg-paper p-4 flex items-center justify-between"><span data-i18n="econ-s2">② Credit consumed</span><span class="text-teal font-bold">$SL</span></div>
+        <div class="relative h-7 flex items-center justify-center" aria-hidden="true"><div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-line"></div><svg class="relative w-4 h-4 text-slate2/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10l6 6 6-6"/></svg></div>
+        <div class="rounded-xl bg-[#E7F8F6] p-4 flex items-center justify-between"><span data-i18n="econ-s3">③ 10% fee → protocol</span><span class="text-teal font-bold">10%</span></div>
+        <div class="relative h-7 flex items-center justify-center" aria-hidden="true"><div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-line"></div><svg class="relative w-4 h-4 text-slate2/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 10l6 6 6-6"/></svg></div>
+        <div class="rounded-xl bg-paper p-4 flex items-center justify-between"><span data-i18n="econ-s4">④ WCS accrues → reuse</span><span class="text-slate2">WCS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF OF INFERENCE (meter preview) -->
+<section class="relative overflow-hidden bg-ink text-white grid-bg grain">
+  <div class="relative max-w-content mx-auto px-6 py-24 text-center">
+    <div class="reveal">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-white/40 mr-3">[07]</span>Proof of Inference</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold" data-i18n="meter-h2">Don't trust our roadmap. Watch our meter.</h2>
+      <p class="mt-4 text-white/55" data-i18n="meter-sub">On-chain · third-party verifiable</p>
+    </div>
+
+    <div class="reveal mt-12 rounded-2xl bg-white/[.04] ring-1 ring-white/10 p-6 max-w-4xl mx-auto">
+      <div class="flex justify-center mb-5">
+        <span class="rounded-full bg-white/10 ring-1 ring-white/15 text-white/80 mono-label px-3 py-1.5" data-i18n="meter-badge">Simulated preview — live at mainnet</span>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div class="spot rounded-xl bg-white/[.04] ring-1 ring-white/10 p-6">
+          <div class="text-3xl font-display font-extrabold text-teal kbd">12,480</div>
+          <div class="mt-2 text-white/55 text-[14px]" data-i18n="meter-l1">Reads today</div>
+        </div>
+        <div class="spot rounded-xl bg-white/[.04] ring-1 ring-white/10 p-6">
+          <div class="text-3xl font-display font-extrabold text-teal kbd">124,800</div>
+          <div class="mt-2 text-white/55 text-[14px]" data-i18n="meter-l2">Credits consumed</div>
+        </div>
+        <div class="spot rounded-xl bg-white/[.04] ring-1 ring-white/10 p-6">
+          <div class="text-3xl font-display font-extrabold text-teal kbd">12,480</div>
+          <div class="mt-2 text-white/55 text-[14px]" data-i18n="meter-l3">Protocol-processed</div>
+        </div>
+      </div>
+      <p class="mt-5 text-[13px] text-white/60" data-i18n="meter-note">Illustrative preview — verifiable on-chain figures begin at mainnet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- $SL TOKEN -->
+<section id="token" class="relative overflow-hidden bg-ink text-white border-t border-white/10 grain">
+  <div class="relative max-w-content mx-auto px-6 py-28">
+    <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-14 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-teal mb-5"><span class="mono-label text-white/40 mr-3">[08]</span>Token</p>
+        <div class="inline-flex items-center gap-2 rounded-full bg-teal/10 text-teal text-[13px] font-semibold px-3.5 py-1.5 mb-6">$SL · opBNB (BNB Chain L2)</div>
+        <h2 class="text-[30px] sm:text-[40px] font-extrabold leading-tight" data-i18n="tok-h2">The settlement credit for verified health AI.</h2>
+        <p class="mt-5 text-[22px] font-display font-bold text-teal" data-i18n="tok-pull">No re-issuance. No swap. Fixed 2,000,000,000.</p>
+        <p class="mt-3 text-white/55 text-[15px]" data-i18n="tok-para">Issued on <b class="text-white/80">opBNB</b> — BNB Chain's Layer-2, chosen for low gas fees on high-frequency inference settlement.</p>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-4">
+          <div class="spot rounded-xl bg-white/[.05] ring-1 ring-white/10 p-6"><div class="text-teal text-3xl font-display font-extrabold kbd">9.6%</div><div class="mt-2 text-white/55 text-[14px]" data-i18n="tok-s1l">TGE circulating</div></div>
+          <div class="spot rounded-xl bg-white/[.05] ring-1 ring-white/10 p-6"><div class="text-teal text-3xl font-display font-extrabold kbd">~1.6%</div><div class="mt-2 text-white/55 text-[14px]" data-i18n="tok-s2l">Real sellable at TGE</div></div>
+          <div class="spot rounded-xl bg-white/[.05] ring-1 ring-white/10 p-6"><div class="text-teal text-2xl font-display font-extrabold" data-i18n="tok-s3v">12+36<span class="text-base font-normal"> mo</span></div><div class="mt-2 text-white/55 text-[14px]" data-i18n="tok-s3l">Team cliff + linear</div></div>
+          <div class="spot rounded-xl bg-white/[.05] ring-1 ring-white/10 p-6"><div class="text-teal text-2xl font-display font-extrabold" data-i18n="tok-s4v">18<span class="text-base font-normal"> mo</span></div><div class="mt-2 text-white/55 text-[14px]" data-i18n="tok-s4l">VC cliff</div></div>
+        </div>
+        <ul class="mt-8 space-y-2.5 text-white/65 text-[15px]">
+          <li class="flex gap-2.5"><svg class="w-4 h-4 mt-1 shrink-0 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg> <span data-i18n="tok-b1">Quarterly circulation disclosure · third-party verified (e.g. Xangle)</span></li>
+          <li class="flex gap-2.5"><svg class="w-4 h-4 mt-1 shrink-0 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4 10-10"/></svg> <span data-i18n="tok-b2">Live cliff &amp; vesting dashboard</span></li>
+        </ul>
+      </div>
+      <div class="reveal imgslot rounded-2xl aspect-square ring-1 ring-white/10">
+        <img src="img/token-abstract.webp" alt="Abstract credit network visualization" width="800" height="800" loading="lazy" decoding="async">
+        <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="1.6"/><circle cx="20" cy="6" r="1.6"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="18" r="1.6"/><path d="M6 7l4 3M18 7l-4 3M6 17l4-3M18 17l-4-3"/></svg><div class="font-medium">Abstract credit / network render</div><div class="pf">img/token-abstract.webp</div></div>
+      </div>
+    </div>
+
+    <p class="mt-12 text-[13px] text-white/60 max-w-4xl leading-relaxed border-t border-white/10 pt-6" data-i18n="tok-disc">This page is not investment advice. $SL is a functional credit for accessing ecosystem AI services. Digital assets can lose value due to price volatility. Korean residents cannot participate in WCS→SL conversion or token sales.</p>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-24 grid lg:grid-cols-[.9fr_1.1fr] gap-14 items-center">
+    <div class="reveal imgslot rounded-2xl aspect-[4/3] shadow-soft order-2 lg:order-1">
+      <img src="img/research-ecg.webp" alt="ECG research visualization" width="800" height="600" loading="lazy" decoding="async">
+      <div class="ph" aria-hidden="true"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-7 4 14 2-9 2 5h6"/></svg><div class="font-medium">ECG / model-card research visual</div><div class="pf">img/research-ecg.webp</div></div>
+    </div>
+    <div class="reveal order-1 lg:order-2">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[09]</span>Research &amp; Validation</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy leading-tight" data-i18n="res-h2">We publish our model cards.</h2>
+      <p class="mt-6 text-slate2 text-[17px] leading-relaxed" data-i18n="res-para">A 4-year joint study with Gachon University and Seoul National University Hospital. 204,000+ ECG segments. AUROC 0.88 <i>(clinical research)</i>. KFDA SaMD certification in progress.</p>
+      <p class="mt-6 text-[20px] font-display font-bold text-navy" data-i18n="res-pull">Until certification, we say only "screening support" — never "diagnosis." That discipline is our brand.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="rounded-lg border border-line px-4 py-2 text-[14px] font-semibold text-navy" data-i18n="res-chip1">Model Cards</span>
+        <span class="rounded-lg border border-line px-4 py-2 text-[14px] font-semibold text-navy" data-i18n="res-chip2">Publications</span>
+        <span class="rounded-lg border border-line px-4 py-2 text-[14px] font-semibold text-navy" data-i18n="res-chip3">KFDA SaMD Roadmap</span>
+      </div>
+      <p class="mt-8 text-[13px] text-slate2 leading-relaxed" data-i18n="res-disc">SL Watch's wellness features are not a medical device and cannot determine the presence of disease. If an abnormal signal is detected, consult a licensed medical professional. Medical-device functions will be offered after KFDA clearance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST & COMPLIANCE -->
+<section id="trust" class="bg-paper">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <div class="reveal">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[10]</span>Foundation</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy" data-i18n="trust-h2">We ship discipline before product.</h2>
+    </div>
+    <div class="reveal mt-10 divide-y divide-line border-y border-line">
+      <div class="grid md:grid-cols-[240px_1fr] gap-2 md:gap-4 py-6"><div class="font-display font-bold text-navy text-[17px]" data-i18n="trust-t1">Entity separation</div><p class="text-slate2 text-[15px]" data-i18n="trust-d1">DIGIRAY (manufacturing · gov R&amp;D) ↔ SL Labs (Singapore · token issuance) — funds and data do not cross.</p></div>
+      <div class="grid md:grid-cols-[240px_1fr] gap-2 md:gap-4 py-6"><div class="font-display font-bold text-navy text-[17px]" data-i18n="trust-t2">WCS–token separation</div><p class="text-slate2 text-[15px]" data-i18n="trust-d2">WCS is a non-transferable, non-redeemable contribution score. Conversion is disabled for Korea/US by IP + KYC.</p></div>
+      <div class="grid md:grid-cols-[240px_1fr] gap-2 md:gap-4 py-6"><div class="font-display font-bold text-navy text-[17px]" data-i18n="trust-t3">Verification nodes</div><p class="text-slate2 text-[15px]" data-i18n="trust-d3">Foundation-operated at launch, opened progressively — stated honestly, not hidden.</p></div>
+      <div class="grid md:grid-cols-[240px_1fr] gap-2 md:gap-4 py-6"><div class="font-display font-bold text-navy text-[17px]" data-i18n="trust-t4">Fixed supply · disclosure</div><p class="text-slate2 text-[15px]" data-i18n="trust-d4">Fixed 2B · quarterly disclosure · third-party verification · DAXA criteria met pre-listing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <div class="reveal">
+      <p class="eyebrow text-teal mb-5"><span class="mono-label text-slate2/70 mr-3">[11]</span>Roadmap</p>
+      <h2 class="text-[30px] sm:text-[40px] font-extrabold text-navy mb-3">Roadmap — Proof by Proof</h2>
+      <p class="text-slate2 mb-12" data-i18n="rm-sub">Each stage stands on the last stage's on-chain evidence.</p>
+    </div>
+    <div class="reveal relative">
+      <div class="absolute top-[5px] left-0 right-0 h-px bg-line hidden md:block" aria-hidden="true"></div>
+      <div class="absolute left-[5px] top-1 bottom-1 w-px bg-line md:hidden" aria-hidden="true"></div>
+      <div class="grid md:grid-cols-4 gap-x-8 gap-y-10" data-stagger="60">
+        <div class="relative pl-8 md:pl-0">
+          <div class="absolute left-0 top-0.5 md:static w-3 h-3 rounded-full ring-4 ring-white bg-teal md:mb-5"></div>
+          <div class="mono-label text-teal" data-i18n="rm-s0-tag">Stage 0 · Done</div>
+          <p class="mt-3 text-navy font-semibold text-[15px]" data-i18n="rm-s0">Supply exists: 50,000 scanners, 5,000 clinics, 4-yr research.</p>
+        </div>
+        <div class="relative pl-8 md:pl-0">
+          <div class="absolute left-0 top-0.5 md:static w-3 h-3 rounded-full ring-4 ring-white bg-line md:mb-5"></div>
+          <div class="mono-label text-slate2">2026</div>
+          <p class="mt-3 text-navy font-semibold text-[15px]" data-i18n="rm-s1">First on-chain demand: TGE, VetDental AI live, Watch (wellness), KFDA filing.</p>
+        </div>
+        <div class="relative pl-8 md:pl-0">
+          <div class="absolute left-0 top-0.5 md:static w-3 h-3 rounded-full ring-4 ring-white bg-line md:mb-5"></div>
+          <div class="mono-label text-slate2">2027</div>
+          <p class="mt-3 text-navy font-semibold text-[15px]" data-i18n="rm-s2">Human medicine: AI 0.85+, insurers, KFDA clearance unlocks device functions.</p>
+        </div>
+        <div class="relative pl-8 md:pl-0">
+          <div class="absolute left-0 top-0.5 md:static w-3 h-3 rounded-full ring-4 ring-white bg-line md:mb-5"></div>
+          <div class="mono-label text-slate2">2027 H2–2028</div>
+          <p class="mt-3 text-navy font-semibold text-[15px]" data-i18n="rm-s3">Data-buyer pipeline: insurer → pharma/AI. Node network opens.</p>
+        </div>
+      </div>
+    </div>
+    <p class="reveal mt-12 text-[13px] text-slate2 pl-3 border-l-2 border-teal/40 max-w-3xl" data-i18n="rm-note">Domestic listing: not avoidance, but a prepared listing that first meets DAXA's four criteria and quarterly disclosure.</p>
+  </div>
+</section>
+
+<!-- CLOSING: FIRST GUARDIANS + PARTNER -->
+<section id="partner" class="bg-navy text-white">
+  <div class="max-w-content mx-auto px-6 py-24">
+    <div class="reveal flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+      <div>
+        <h2 class="text-[28px] sm:text-[32px] font-extrabold" data-i18n="gd-h2">We're looking for 1,000 First Guardians.</h2>
+        <p class="mt-4 text-white/65 max-w-xl" data-i18n="gd-p">Not airdrop farmers — people who actually wear the device and validate it.</p>
+      </div>
+      <a href="https://t.me/slfoundation" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-teal text-navy font-bold px-7 py-3.5 hover:bg-teal/90 transition shrink-0" data-i18n="gd-cta">Apply to be a Guardian <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="reveal mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="mono-label text-teal">Partner with the Networks</div>
+        <p class="mt-2 text-white/65 text-[15px]" data-i18n="ptr-sub">Hospitals · veterinary clinics · screening centers · insurers</p>
+      </div>
+      <a href="mailto:partners@savethelife.io" class="font-semibold text-white/85 underline underline-offset-4 decoration-white/30 hover:decoration-teal hover:text-white transition">partners@savethelife.io</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white/65 border-t border-white/10 grain">
+  <div class="relative max-w-content mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row justify-between gap-10">
+      <div>
+        <div class="flex items-center gap-2.5 font-display font-extrabold text-white">
+          <span class="inline-grid place-items-center w-9 h-9 rounded-xl bg-white/10 text-teal font-extrabold">SL</span> SL Labs
+        </div>
+        <p class="mt-4 text-[14px] max-w-md leading-relaxed" data-i18n="ft-opbnb">$SL is issued on opBNB — BNB Chain's Layer-2 — chosen for low gas fees.</p>
+        <p class="mt-3 text-[13px] text-white/60">SL Labs (Singapore) · Technology Partner: DIGIRAY Co., Ltd.</p>
+        <div class="mt-6 flex items-center gap-4">
+          <a href="https://x.com/savethelife_SL" target="_blank" rel="noopener" aria-label="X (Twitter)" class="text-white/50 hover:text-white transition"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+          <a href="https://t.me/slfoundation" target="_blank" rel="noopener" aria-label="Telegram" class="text-white/50 hover:text-white transition"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a href="https://www.linkedin.com/company/slfoundation" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white/50 hover:text-white transition"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://github.com/save-the-life" target="_blank" rel="noopener" aria-label="GitHub" class="text-white/50 hover:text-white transition"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        </div>
+      </div>
+      <div class="flex gap-14 text-[14px]">
+        <div class="space-y-2.5">
+          <div class="mono-label text-white/50">Protocol</div>
+          <a href="#networks" class="block hover:text-white" data-i18n="ft-products">Products</a>
+          <a href="#token" class="block hover:text-white" data-i18n="ft-token">$SL Token</a>
+          <a href="#trust" class="block hover:text-white" data-i18n="ft-comp">Compliance</a>
+        </div>
+        <div class="space-y-2.5">
+          <div class="mono-label text-white/50">Docs</div>
+          <a href="whitepaper.pdf" target="_blank" rel="noopener" class="block hover:text-white" data-i18n="ft-wp">Whitepaper <span aria-hidden="true">↗</span></a>
+          <a href="https://save-the-life.gitbook.io/save-the-life" target="_blank" rel="noopener" class="block hover:text-white" data-i18n="ft-docs">Documentation <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/save-the-life" target="_blank" rel="noopener" class="block hover:text-white" data-i18n="ft-chg">Changelog <span aria-hidden="true">↗</span></a>
+          <span class="block text-white/40" data-i18n="ft-audit">Audit Report · TBA</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/10 text-[12px] text-white/60 leading-relaxed">
+      <p data-i18n="ft-legal">Nothing on this site constitutes investment advice. Before participating, verify the laws and regulations of your country of residence and seek independent legal, tax, and financial advice.</p>
+      <p class="mt-3">© 2026 SL Labs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+  // nav shadow on scroll
+  var nav=document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('navscroll', scrollY>8); }, {passive:true});
+
+  // mobile menu
+  var mb=document.getElementById('menuBtn'), mm=document.getElementById('mobileMenu'), mi=document.getElementById('menuIcon');
+  function setMenu(open){
+    mm.classList.toggle('open', open);
+    mb.setAttribute('aria-expanded', open);
+    mi.innerHTML = open ? '<path d="M6 6l12 12M18 6l-12 12"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+  }
+  if(mb){
+    mb.addEventListener('click', function(){ setMenu(!mm.classList.contains('open')); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') setMenu(false); });
+    document.addEventListener('click', function(e){ if(mm.classList.contains('open') && !nav.contains(e.target)) setMenu(false); });
+  }
+  document.querySelectorAll('.js-mclose').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -12% 0px', threshold:0});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // staggered children reveal (hero plays immediately — never gate the LCP behind an observer)
+  var sio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('s-in'); sio.unobserve(e.target); } }); }, {threshold:.15});
+  document.querySelectorAll('[data-stagger]').forEach(function(g){
+    var step=+g.dataset.stagger||90;
+    Array.prototype.forEach.call(g.children, function(c,i){ c.style.animationDelay=Math.min(i*step,480)+'ms'; });
+    if(g.closest('#hero')){ g.classList.add('s-in'); } else { sio.observe(g); }
+  });
+
+  // ECG runs only while visible
+  var eio=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('play', e.isIntersecting); }); }, {threshold:0});
+  document.querySelectorAll('.ecg-wrap').forEach(function(el){ eio.observe(el); });
+
+  // hide broken/missing images so the branded placeholder shows through
+  document.querySelectorAll('.imgslot img').forEach(function(img){
+    function hide(){ img.style.display='none'; }
+    if(img.complete && img.naturalWidth===0) hide();
+    img.addEventListener('error', hide);
+  });
+
+  // pointer spotlight on dark tiles (fine pointers only, respects reduced motion)
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.spot').forEach(function(card){
+      card.addEventListener('pointermove', function(e){
+        var r=card.getBoundingClientRect();
+        card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+        card.style.setProperty('--my',(e.clientY-r.top)+'px');
+      });
+    });
+  }
+
+  // ---------- i18n (EN in the DOM is the source of truth; other locales load from i18n.js -> window.SL_I18N) ----------
+  var I18N = window.SL_I18N || {};
+  var EN_META = { title:'SL Labs — Powered by revenue, not promises', desc:'The first medical-grade Health DePIN on BNB Chain. Powered by revenue, not promises.' };
+  var i18nEls = document.querySelectorAll('[data-i18n]');
+  var i18nDefaults = new WeakMap();
+  i18nEls.forEach(function(el){ i18nDefaults.set(el, el.innerHTML); });
+  function applyLang(lang){
+    var pack = I18N[lang];
+    if(!pack) lang = 'en';
+    document.documentElement.lang = pack ? pack.htmlLang : 'en';
+    i18nEls.forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(pack && pack.translations[k] != null){ el.innerHTML = pack.translations[k]; }
+      else { el.innerHTML = i18nDefaults.get(el); }
+    });
+    document.title = pack ? pack.title : EN_META.title;
+    var d = document.querySelector('meta[name="description"]'); if(d) d.setAttribute('content', pack ? pack.metaDesc : EN_META.desc);
+    document.querySelectorAll('.lang-sel').forEach(function(s){ s.value = lang; });
+    try{ localStorage.setItem('sl-lang', lang); }catch(e){}
+  }
+  document.querySelectorAll('.lang-sel').forEach(function(s){
+    s.addEventListener('change', function(){ applyLang(s.value); });
+  });
+  var savedLang = null; try{ savedLang = localStorage.getItem('sl-lang'); }catch(e){}
+  var urlLang = new URLSearchParams(location.search).get('lang');
+  var initLang = urlLang || savedLang || 'en';
+  if(initLang !== 'en') applyLang(initLang);
+</script>
+</body>
 </html>
